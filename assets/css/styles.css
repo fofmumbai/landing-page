@@ -76,6 +76,7 @@ body {
   );
   background-size: 30px 30px;
   cursor: url("../img/cursor.svg") 16 16, auto;
+  scroll-behavior: smooth;
 }
 
 h1,
