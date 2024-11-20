@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google" content="notranslate">
+	<meta name="google" value="notranslate">
+	<meta http-equiv="Content-Language" content="en">
+
+	<!--==========  FAV ICON ==========-->
+	<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+	<title>Friends Of Figma, Mumbai</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="notranslate">
+	<div class="container">
+		<div class="text upper">
+			<h1>INDIA'S</h1>
+		</div>
+
+		<div class="image-container fof-loader">
+			<div class="loader" id="loader"></div>
+			<img src="assets/hero2.svg" alt="Centered Image" class="center-image">
+			<h2 id="text-overlay">Mumbai</h2>
+		</div>
+
+		<div class="text lower">
+			<h1># ONE</h1>
+		</div>
+	</div>
+	<div class="explore">
+		<a href="#"><button id="open-video-button">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white"
+					stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"
+					viewBox="0 0 24 24">
+					<line x1="12" y1="5" x2="12" y2="19"></line>
+					<polyline points="19 12 12 19 5 12"></polyline>
+				</svg>
+			</button></a>
+	</div>
+
+	<div class="video-overlay" id="video-overlay">
+	<div class="video-container">
+		<!-- <button class="close-button" id="close-video-button">&times;</button> -->
+		<video id="promo-video" width="100%" height="100%">
+		<source src="assets/promo.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+		</video>
+	</div>
+		<button class="mute-button" id="mute-button">
+			<svg id="mute-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white"
+				stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2"
+				viewBox="0 0 24 24">
+				<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+				<path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+			</svg>
+		</button>
+		<a href="home.html">
+			<button class="skip-button" id="skip-button">
+				Skip
+			</button>
+		</a>
+	</div>
+
+
+	<script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+.contact__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  width: 90%;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.contact__title{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.contact__title h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #6d6d6d;
+  margin-bottom: 1rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.contact__email h1 {
+  text-align: center;
+}
+
+.contact__email{
+  margin-top: 0;
+}
+
+.contact__highlight{
+  color: #000;
+  font-weight: 600;
+}
+
+.contact__highlight a{
+  color: #000;
+}
+
+.sticky-note {
+  aspect-ratio: 1;
+  padding: 16px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.sticky-note:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sticky-note.yellow {
+  background: #ffd966;
+  scrollbar-width: none;
+}
+.sticky-note.yellow::-webkit-scrollbar {
+  display: none;
+}
+
+.sticky-note.blue {
+  background: #80caff;
+}
+.sticky-note.green {
+  background: #85e0a3;
+}
+.sticky-note.pink {
+  background: #ffbdf2;
+}
+
+.sticky-note.message {
+  grid-column: 1 / -1;
+  aspect-ratio: auto;
+  min-height: 200px;
+  height: auto;
+}
+
+.sticky-input {
+  width: 100%;
+  height: 85%;
+  border: none;
+  background: transparent;
+  resize: none;
+  font-family: inherit;
+  font-size: 1.3rem;
+  line-height: 1.1;
+  color: #333;
+  padding: 0.5rem .5rem 0 0.5rem;
+}
+
+.message .sticky-input {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.sticky-input:focus {
+  outline: none;
+}
+
+.sticky-input::placeholder {
+  color: #000;
+  opacity: 0.4;
+  font-size: 1.3rem;
+}
+
+.name-label {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.2rem;
+  font-size: 1rem;
+  color: #000;
+  opacity: 0.6;
+}
+
+.submit-button {
+  grid-column: 1 / -1;
+  justify-self: center;
+  padding: 1.25rem 2rem;
+  font-size: 1.2rem;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-button:hover {
+  border-radius: 0;
+}
+
+@media (max-width: 1024px) {
+  .contact-form {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .sticky-note {
+    width: 100%;
+  }
+
+  .sticky-input{
+	font-size: 1.5rem;
+  }
+
+  .sticky-input::placeholder {
+	font-size: 1.5rem;
+  }
+
+  .name-label{
+	font-size: 1.2rem;
+  }
+
+  .contact__title h1{
+    text-align: justify;
+  }
+}
+
+.fifthfold{
+  margin-top: 0rem;
+}
+
+.fifthfold__img img{
+  border: none;
+}
+
+.social-logo{
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.156);
+  border-radius: .75rem;
+}
+
+.social-logo img {
+  opacity: 1;
+  width: 40px;
+}
+
+.partner-logo a:hover img {
+  filter: grayscale(70%);
+  transform: translate(0);
+  opacity: .8;
+}
+
+.social-grid{
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+}

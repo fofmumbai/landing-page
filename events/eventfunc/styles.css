@@ -1,0 +1,54 @@
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: auto;
+  padding: 5rem 0 0 0;
+}
+
+.slider {
+  display: flex;
+  gap: 10px; /* Space between images */
+  scroll-behavior: smooth; /* Smooth scrolling */
+  overflow-x: scroll;
+  padding-bottom: 10px; /* Add padding for space below the images */
+}
+
+/* Hide scrollbar on WebKit browsers (Chrome, Safari) */
+.slider {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS and macOS */
+  scrollbar-width: none; /* Firefox */
+}
+
+.slider::-webkit-scrollbar {
+  display: none; /* Hide scrollbar on WebKit browsers */
+}
+
+.slider-content {
+  display: flex;
+  gap: 1rem; /* Space between images */
+}
+
+.slide {
+  flex: 0 0 auto; /* Keep each slide from shrinking */
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.navigation {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.nav-arrow {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 5px;
+}

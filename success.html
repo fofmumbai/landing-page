@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Thank You</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+	<style>
+		body,
+		html {
+			margin: 0;
+		}
+
+		#thankyou {
+			font-size: 30px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body
+	style="display: grid; align-items: center; justify-content: center; background-color: #ffffff; font-family: 'Poppins'; font-weight: 400;">
+	<div id="thankyou" style="color: #000; margin-top: 15rem;">
+		Thank You
+	</div>
+	<div style="color: #8c8c8c; text-align: center; padding: 2rem;">
+		We have received your message and will get back to you within 24-48hrs
+	</div>
+	<div>
+		<a href="home.html"
+			style="color: #2a18ef; text-decoration: none; display: block; text-align: center; margin-top: 5rem; font-size: 1.3rem; font-weight: 500;">Back
+			To Home</a>
+	</div>
+
+	<script>
+		var languages = [ "Thank You", "धन्यवाद", "આભાર", "ಧನ್ಯವಾದಗಳು", "നന്ദി", "ধন্যবাদ", "ଧନ୍ୟବାଦ", "ధన్యవాదాలు", "நன்றி", "ਧੰਨਵਾਦ", "धन्यवादः" ];
+
+		var index = 0;
+		setInterval( function () {
+			index = ( index + 1 ) % languages.length;
+			document.getElementById( "thankyou" ).innerText = languages[ index ];
+		}, 1500 );
+	</script>
+</body>
+
+</html>
