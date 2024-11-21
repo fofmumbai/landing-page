@@ -945,7 +945,7 @@ body.modal-open {
 
 .slide-track {
   display: flex;
-  width: calc(300px * 12);
+  width: calc(340px * 13);
 }
 
 /* Left slider animation */
@@ -989,13 +989,13 @@ body.modal-open {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-300px * 6));
+    transform: translateX(calc(-340px * 6));
   }
 }
 
 @keyframes scroll-right {
   0% {
-    transform: translateX(calc(-300px * 6));
+    transform: translateX(calc(-340px * 6));
   }
   100% {
     transform: translateX(0);

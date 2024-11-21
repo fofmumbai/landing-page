@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Modal functionality
-// Modal functionality
+
 function createModal() {
   // Get modal elements and verify they exist
   const elements = {
