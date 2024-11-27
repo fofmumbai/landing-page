@@ -495,7 +495,7 @@ img {
   }
 
   /* Show only first 6 logos on desktop */
-  .logo-slide:nth-child(n + 12) {
+  .logo-slide:nth-child(n + 13) {
     display: none;
   }
 }
