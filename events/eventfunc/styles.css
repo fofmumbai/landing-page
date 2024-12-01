@@ -52,3 +52,9 @@
   cursor: pointer;
   padding: 5px;
 }
+
+.custom-section a {
+  color: #2a18ef;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
