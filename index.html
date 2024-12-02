@@ -1,51 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>7th December 2024</title>
+	<title>Launch</title>
 	<link rel="stylesheet" href="assets/css/styles.css">
-
-	<!--==========  FAV ICON ==========-->
-	<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
-
-	<script type="text/javascript">
-		( function ( c, l, a, r, i, t, y ) {
-			c[ a ] = c[ a ] || function () {( c[ a ].q = c[ a ].q || [] ).push( arguments )};
-			t = l.createElement( r ); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-			y = l.getElementsByTagName( r )[ 0 ]; y.parentNode.insertBefore( t, y );
-		} )( window, document, "clarity", "script", "p1lz0zgd4v" );
-	</script>
-
 	<style>
 
-		.ticker {
-			margin-top: 10%;
+		body {
+			font-family: var(--body-font);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
 		}
 
-		@media (max-width: 768px) {
-			.ticker {
-				margin-top: 60%;
-			}
+		.countdown-container {
+			display: flex;
+			gap: 2rem;
+			text-align: center;
+			align-items: center;
+			margin-top: -5rem;
+		}
+
+		.countdown-item {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.countdown-value {
+			font-size: 15rem;
+			font-weight: 400;
+			color: var(--title-color);
+		}
+
+		.countdown-label {
+			font-size: 1rem;
+			color: var(--text-color-light);
+			text-transform: uppercase;
+		}
+
+		.countdown-value.seconds {
+			color: var(--first-color);
+		}
+
+		.separator {
+			font-size: 15rem;
+			color: var(--title-color);
+			margin: 0 0.5rem;
 		}
 	</style>
 </head>
+
 <body>
-	<div class="ticker">
-		<script>( function ( d, s, id ) {var js, pjs = d.getElementsByTagName( s )[ 0 ]; if ( d.getElementById( id ) ) return; js = d.createElement( s ); js.id = id; js.src = "//www.tickcounter.com/static/js/loader.js"; pjs.parentNode.insertBefore( js, pjs );}( document, "script", "tickcounter-sdk" ) );</script>
-		<a data-type="countdown" data-id="6157446" class="tickcounter"
-			style="display:block; left:0; width:80%; height:0; position:relative; padding-bottom:25%; margin:0 auto;"
-			title="Launch" href="//www.tickcounter.com/">Launch</a>
+	<div class="countdown-container">
+		<div class="countdown-item">
+			<div class="countdown-value" id="minutes">00</div>
+			<!-- <div class="countdown-label">Minutes</div> -->
+		</div>
+		<div class="separator">:</div>
+		<div class="countdown-item">
+			<div class="countdown-value seconds" id="seconds">20</div>
+			<!-- <div class="countdown-label">Seconds</div> -->
+		</div>
 	</div>
 
-	<!-- <script>
-		let docTitle = document.title;
-		window.addEventListener("blur", () => {
-			document.title = "Have some patience!";
-		})
-		window.addEventListener("focus", () => {
-			document.title = docTitle;
-		})
-	</script> -->
+	<script>
+		function updateCountdown() {
+			const minutesEl = document.getElementById( 'minutes' );
+			const secondsEl = document.getElementById( 'seconds' );
+
+			let totalSeconds = 20;
+
+			function updateDisplay() {
+				const minutes = Math.floor( ( totalSeconds % 3600 ) / 60 );
+				const seconds = totalSeconds % 60;
+
+				minutesEl.textContent = minutes.toString().padStart( 2, '0' );
+				secondsEl.textContent = seconds.toString().padStart( 2, '0' );
+
+				if ( totalSeconds > 0 ) {
+					totalSeconds--;
+					setTimeout( updateDisplay, 1000 );
+				} else {
+					console.log( 'Countdown finished!' );
+				}
+			}
+
+			updateDisplay();
+		}
+
+		window.onload = updateCountdown;
+	</script>
 </body>
+
 </html>
