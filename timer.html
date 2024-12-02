@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Launch</title>
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<style>
+
+		body {
+			font-family: var(--body-font);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+
+		.countdown-container {
+			display: flex;
+			gap: 2rem;
+			text-align: center;
+			align-items: center;
+			margin-top: -5rem;
+		}
+
+		.countdown-item {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.countdown-value {
+			font-size: 15rem;
+			font-weight: 400;
+			color: var(--title-color);
+		}
+
+		.countdown-label {
+			font-size: 1rem;
+			color: var(--text-color-light);
+			text-transform: uppercase;
+		}
+
+		.countdown-value.seconds {
+			color: var(--first-color);
+		}
+
+		.separator {
+			font-size: 15rem;
+			color: var(--title-color);
+			margin: 0 0.5rem;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="countdown-container">
+		<div class="countdown-item">
+			<div class="countdown-value" id="minutes">00</div>
+			<!-- <div class="countdown-label">Minutes</div> -->
+		</div>
+		<div class="separator">:</div>
+		<div class="countdown-item">
+			<div class="countdown-value seconds" id="seconds">20</div>
+			<!-- <div class="countdown-label">Seconds</div> -->
+		</div>
+	</div>
+
+	<script>
+		function updateCountdown() {
+			const minutesEl = document.getElementById( 'minutes' );
+			const secondsEl = document.getElementById( 'seconds' );
+
+			let totalSeconds = 20;
+
+			function updateDisplay() {
+				const minutes = Math.floor( ( totalSeconds % 3600 ) / 60 );
+				const seconds = totalSeconds % 60;
+
+				minutesEl.textContent = minutes.toString().padStart( 2, '0' );
+				secondsEl.textContent = seconds.toString().padStart( 2, '0' );
+
+				if ( totalSeconds > 0 ) {
+					totalSeconds--;
+					setTimeout( updateDisplay, 1000 );
+				} else {
+					console.log( 'Countdown finished!' );
+				}
+			}
+
+			updateDisplay();
+		}
+
+		window.onload = updateCountdown;
+	</script>
+</body>
+
+</html>
