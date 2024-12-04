@@ -1,3 +1,100 @@
+function setupNetworkingSearch() {
+  // Collect all the networking groups data
+  const networkingGroups = Array.from(
+    document.querySelectorAll(".thirdfold__data")
+  ).map((group) => {
+    const modalContent = JSON.parse(group.dataset.modalContent);
+    return {
+      element: group,
+      groupName: modalContent.title,
+      people: modalContent.redirectLinks.map((link) => link.text.toLowerCase()),
+    };
+  });
+
+  // Create search input and results container
+  const searchContainer = document.createElement("div");
+  searchContainer.className = "networking-search-container";
+  searchContainer.innerHTML = `
+        <input type="text" id="networking-search" placeholder="Search by name...">
+        <div id="search-results" class="search-results"></div>
+    `;
+
+  // Insert the search container before the networking grid
+  const networkingGrid = document.querySelector(".networking__grid");
+  networkingGrid.parentNode.insertBefore(searchContainer, networkingGrid);
+
+  const searchInput = document.getElementById("networking-search");
+  const searchResults = document.getElementById("search-results");
+
+  // Reset highlighting function
+  function resetHighlighting() {
+    document.querySelectorAll(".thirdfold__data").forEach((group) => {
+      group.classList.remove("highlighted-group");
+    });
+    searchResults.innerHTML = "";
+  }
+
+  // Search function
+  searchInput.addEventListener("input", () => {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    // Reset previous highlights
+    resetHighlighting();
+
+    if (searchTerm === "") return;
+
+    // Find matching groups
+    const matchedGroups = networkingGroups.filter((group) =>
+      group.people.some((person) => person.includes(searchTerm))
+    );
+
+    // Highlight matched groups
+    matchedGroups.forEach((group) => {
+      group.element.classList.add("highlighted-group");
+
+      // Create result item
+      const resultItem = document.createElement("div");
+      resultItem.className = "search-result-item";
+      resultItem.innerHTML = `
+                Found in ${group.groupName}
+                <button class="view-group-btn" data-group-index="${networkingGroups.indexOf(
+                  group
+                )}">View Group</button>
+            `;
+      searchResults.appendChild(resultItem);
+    });
+
+    // Add click events to view group buttons
+    document.querySelectorAll(".view-group-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const groupIndex = btn.dataset.groupIndex;
+        const targetGroup = networkingGroups[groupIndex].element;
+
+        // Scroll to the group
+        targetGroup.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+
+        // Trigger modal
+        const modalContent = JSON.parse(targetGroup.dataset.modalContent);
+        targetGroup.click(); // This will trigger the existing modal open functionality
+      });
+    });
+  });
+
+  // Clear search when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!searchContainer.contains(e.target)) {
+      resetHighlighting();
+      searchInput.value = "";
+    }
+  });
+}
+
+// Run the search setup when the page loads
+document.addEventListener("DOMContentLoaded", setupNetworkingSearch);
+
 const slider = document.getElementById("slider");
 const slideWidth = document.querySelector(".slide").offsetWidth + 10; // Add gap spacing
 
