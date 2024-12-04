@@ -55,7 +55,12 @@
 .custom-section a {
   color: #2a18ef;
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.modal-redirect-text{
+  color: #000;
 }
 
 .networking-search-container {
@@ -102,9 +107,14 @@
   color: white;
   border: none;
   padding: .8rem 1.5rem;
-  border-radius: 3px;
+  border-radius: .75rem;
   cursor: pointer;
   font-size: 1rem;
+}
+
+.view-group-btn:hover {
+  transition: all 0.2s ease;
+  border-radius: 0;
 }
 
 .highlighted-group {
