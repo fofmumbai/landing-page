@@ -15,8 +15,13 @@ function setupNetworkingSearch() {
   const searchContainer = document.createElement("div");
   searchContainer.className = "networking-search-container";
   searchContainer.innerHTML = `
-        <input type="text" id="networking-search" placeholder="Search by name...">
-        <div id="search-results" class="search-results"></div>
+        <div class="curated-steps">
+          <div class="steps"><h1><span>Step 1:</span> Download the networking prompt sheet</h1></div>
+          <a href ="./eventassets/networkingsheet.pdf" target ="_blank" class="button home__button" download>Download PDF</a>
+          <div class="steps steps-2"><h1><span>Step 2:</span> Find your networking group</h1></div>
+          <input type="text" id="networking-search" placeholder="Search by your name...">
+          <div id="search-results" class="search-results"></div>
+        </div>
     `;
 
   // Insert the search container before the networking grid

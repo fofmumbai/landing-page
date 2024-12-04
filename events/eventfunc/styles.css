@@ -63,9 +63,16 @@
   color: #000;
 }
 
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
 .networking-search-container {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
   position: relative;
 }
 
@@ -132,7 +139,37 @@
 
   .search-results {
     width: 40%;
-    /* margin-left: 60%; */
+    margin-left: 30%;
   }
+}
+
+.curated-steps{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.curated-steps h1{
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #7f7f7f;
+}
+
+.curated-steps span{
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.curated-steps a{
+  margin-top: 0;
+}
+
+.steps-2{
+  margin-top: 2rem;
 }
 
