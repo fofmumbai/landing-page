@@ -1,3 +1,7 @@
+#downloadpdfbtn{
+  width: 100%;
+}
+
 .slider-container {
   position: relative;
   width: 100%;
@@ -175,9 +179,5 @@
 
 .steps-2{
   margin-top: 2rem;
-}
-
-.home__button{
-  width: 100%;
 }
 
