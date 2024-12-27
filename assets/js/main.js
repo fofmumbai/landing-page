@@ -451,7 +451,8 @@ async function initializeMemberCount() {
     countRange = maxCount - initialCount;
     memberCountElement.textContent = `${initialCount} members`; // Reset to initial state
   } else {
-    memberCountElement.textContent = "Member count data unavailable"; // Display a message when data is invalid or not found
+    // memberCountElement.textContent = "Member count data unavailable"; // Display a message when data is invalid or not found
+    console.error("Member count data unavailable");
   }
 }
 
