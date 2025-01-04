@@ -2,6 +2,10 @@
   font-weight: 400;
 }
 
+#journey {
+  margin-top: -3rem;
+}
+
 .member__count {
   /* border: 1px solid #a2a2a2; */
   text-align: center;
@@ -25,8 +29,8 @@
 
 .container {
   width: 80%;
-  padding: 50px 0;
-  margin: 50px auto;
+  padding: 10px 0;
+  margin: 10px auto 100px auto;
   position: relative;
   overflow: hidden;
 }
