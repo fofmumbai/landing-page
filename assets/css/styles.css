@@ -1156,6 +1156,60 @@ body.modal-open {
   margin-top: 4rem;
 }
 
+/* Stamps container */
+.footer__stamps {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  z-index: 100;
+}
+
+.footer__stamp {
+  width: 175px;
+  height: auto;
+  transform: rotate(-15deg);
+  margin: 0 20px;
+}
+
+.footer__stamp img {
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer__stamp:nth-child(2) img {
+  transform: rotate(10deg);
+}
+
+.footer__stamp:nth-child(3) img {
+  transform: rotate(-5deg);
+}
+
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 60px;
+}
+
+/* Media query for responsive stamps */
+@media screen and (max-width: 768px) {
+  .footer__stamp {
+    width: 80px;
+  }
+
+  .footer__stamps {
+    bottom: -30px;
+  }
+}
+
+.stamp {
+    touch-action: none;
+}
+
 /*========== MEDIA QUERIES ==========*/
 
 /* For full-screen images on small screens */
