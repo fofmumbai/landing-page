@@ -869,8 +869,9 @@ body.modal-open {
 }
 
 .upcoming__tag {
-  width: 110px;
+  height: 25px;
   margin-bottom: 0.5rem;
+  margin-right: .5rem;
 }
 
 .fifthfold__button {
