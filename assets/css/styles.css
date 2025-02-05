@@ -1460,10 +1460,33 @@ body.modal-open {
   border: 1.5px solid #000;
 }
 
+.all:hover {
+  border: 1.5px solid #000;
+  background: #000;
+  color: #fff;
+}
+
+
+.all.active {
+  border: 1.5px solid #000;
+  background: #000;
+  color: #fff;
+}
+
 .core {
   background-color: #dde2fa;
   border: 1.5px solid #0425dd;
   color: #0425dd;
+}
+
+.core:hover {
+  background-color: #0425dd;
+  color: #fff;
+}
+
+.core.active {
+  background-color: #0425dd;
+  color: #fff;
 }
 
 .partner-event {
@@ -1472,10 +1495,30 @@ body.modal-open {
   color: #f6a205;
 }
 
+.partner-event:hover {
+  background-color: #f6a205;
+  color: #fff;
+}
+
+.partner-event.active {
+  background-color: #f6a205;
+  color: #fff;
+}
+
 .campus {
   background-color: #fedfdf;
   border: 1.5px solid #f80303;
   color: #f80303;
+}
+
+.campus:hover {
+  background-color: #f80303;
+  color: #fff;
+}
+
+.campus.active {
+  background-color: #f80303;
+  color: #fff;
 }
 
 .meetjam {
@@ -1484,15 +1527,13 @@ body.modal-open {
   color: #9501d4;
 }
 
-.filter-btn:hover {
-  border: 1.5px solid #000;
-  background: #000;
+.meetjam:hover {
+  background-color: #9501d4;
   color: #fff;
 }
 
-.filter-btn.active {
-  border: 1.5px solid #000;
-  background: #000;
+.meetjam.active {
+  background-color: #9501d4;
   color: #fff;
 }
 
