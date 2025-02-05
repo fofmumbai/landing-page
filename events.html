@@ -117,23 +117,52 @@
 		</section>
 
 		<!--========== Fourth Fold ==========-->
-		<section class="fourthfold section bd-container" id="fourthfold">
+		<section class="fourthfold section bd-container" id="fourthfold" style="margin-top: -3rem;">
+
+			<div class="filter-container bd-container">
+				<!-- Desktop buttons -->
+				<div class="filter-buttons desktop-filters">
+					<button class="filter-btn active all" data-filter="all">All Events</button>
+					<button class="filter-btn core" data-filter="core">Core Events</button>
+					<button class="filter-btn meetjam" data-filter="meetjam">Meetjam</button>
+					<button class="filter-btn partner-event" data-filter="partner-event">Partner Events</button>
+					<button class="filter-btn campus" data-filter="campus">Campus Connect</button>
+				</div>
+
+				<!-- Mobile dropdown -->
+				<div class="mobile-filter">
+					<div class="dropdown-select">
+						<span class="selected">All Events</span>
+						<div class="arrow"></div>
+					</div>
+					<div class="dropdown-options">
+						<div class="option" data-filter="all">All Events</div>
+						<div class="option" data-filter="core">Core Events</div>
+						<div class="option" data-filter="meetjam">Meetjam</div>
+						<div class="option" data-filter="partner-event">Partner Events</div>
+						<div class="option" data-filter="campus">Campus Connect</div>
+
+
+					</div>
+				</div>
+			</div>
+
 			<div class="fourthfold__container bd-grid">
-				<a href="events/meetjam3.html" class="fourthfold__content">
+				<a href="events/meetjam3.html" class="fourthfold__content" data-type="meetjam">
 					<img src="events/eventassets/meetjam3poster.png" alt="" class="fourthfold__img">
 					<h3 class="fourthfold__title">MeetJam #3 - Navi Mumbai</h3>
 					<span class="fourthfold__category">In-person</span>
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a>
 
-				<a href="https://allevents.in/mumbai/frelo-portfolio-101/80003188283521" class="fourthfold__content" target="_blank">
+				<a href="https://allevents.in/mumbai/frelo-portfolio-101/80003188283521" class="fourthfold__content" target="_blank" data-type="partner-event">
 					<img src="events/eventassets/portfolio101poster.png" alt="" class="fourthfold__img">
 					<h3 class="fourthfold__title">Frelo Portfolio 101</h3>
 					<span class="fourthfold__category">In-person</span>
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a>
 
-				<a href="events/wireframed24.html" class="fourthfold__content">
+				<a href="events/wireframed24.html" class="fourthfold__content" data-type="core">
 					<img src="events/eventassets/wireframed24poster.png" alt="" class="fourthfold__img">
 					<h3 class="fourthfold__title">Wireframed 2024</h3>
 					<span class="fourthfold__category">In-person</span>
@@ -141,7 +170,7 @@
 				</a>
 
 				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-pan-iit-x-fof-mumbai-1-design-thinking-innovate-ideate-implement/"
-					class="fourthfold__content" target="_blank">
+					class="fourthfold__content" target="_blank" data-type="partner-event">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/designthinking_vj1nkn.png" alt=""
 						class="fourthfold__img">
 					<h3 class="fourthfold__title">PAN IIT x FOF Mumbai - Design Thinking</h3>
@@ -149,7 +178,7 @@
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a>
 
-				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-meetjam-2-andheri/" class="fourthfold__content" target="_blank">
+				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-meetjam-2-andheri/" class="fourthfold__content" target="_blank" data-type="meetjam">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/meetjam2_snjuoo.png" alt=""
 						class="fourthfold__img">
 					<h3 class="fourthfold__title">MeetJam #2 - Andheri</h3>
@@ -158,7 +187,7 @@
 				</a>
 
 				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-lottiefiles-x-fof-mumbai-get-certified-as-a-figma-to-lottie-expert/"
-					class="fourthfold__content" target="_blank">
+					class="fourthfold__content" target="_blank" data-type="partner-event">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092951/lottieworkshop_o9cxsb.png" alt=""
 						class="fourthfold__img">
 					<h3 class="fourthfold__title">LottieFiles x FOF Mumbai - Workshop</h3>
@@ -167,7 +196,7 @@
 				</a>
 
 				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-creto-design-vichaar/"
-					class="fourthfold__content" target="_blank">
+					class="fourthfold__content" target="_blank" data-type="partner-event">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092953/vichar_kxmzdi.png" alt=""
 						class="fourthfold__img">
 					<h3 class="fourthfold__title">Creto Design Vichaar</h3>
@@ -176,7 +205,7 @@
 				</a>
 
 				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-mumbai-watch-party/cohost-mumbai"
-					class="fourthfold__content" target="_blank">
+					class="fourthfold__content" target="_blank" data-type="core">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092951/config24_yix6e7.png" alt=""
 						class="fourthfold__img">
 					<h3 class="fourthfold__title">Mumbai Watch Party</h3>
@@ -185,7 +214,7 @@
 				</a>
 
 				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-meetjam-1-thane/"
-					class="fourthfold__content" target="_blank">
+					class="fourthfold__content" target="_blank" data-type="meetjam">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/meetjam1_czanod.png" alt=""
 						class="fourthfold__img">
 					<h3 class="fourthfold__title">MeetJam #1 - Thane</h3>
@@ -194,7 +223,7 @@
 				</a>
 
 				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-creto-design-vichaar/"
-					class="fourthfold__content" target="_blank">
+					class="fourthfold__content" target="_blank" data-type="core">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/summerdesign_nbm5xx.png" alt=""
 						class="fourthfold__img">
 					<h3 class="fourthfold__title">FOF Mumbai x Pineapple - Design Meetup</h3>
@@ -203,7 +232,7 @@
 				</a>
 
 				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-wireframed-2023/"
-					class="fourthfold__content" target="_blank">
+					class="fourthfold__content" target="_blank" data-type="core">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/wireframed23_za99pd.png" alt=""
 						class="fourthfold__img">
 					<h3 class="fourthfold__title">Wireframed 2023</h3>
@@ -211,7 +240,7 @@
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a>
 
-				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-design-x-dev-meetup-fof-mumbai-x-gdg-mad/" class="fourthfold__content" target="_blank">
+				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-design-x-dev-meetup-fof-mumbai-x-gdg-mad/" class="fourthfold__content" target="_blank" data-type="core">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092951/designdev_j1g6op.png" alt=""
 						class="fourthfold__img">
 					<h3 class="fourthfold__title">Design x Dev Meetup | FOF Mumbai x GDG MAD</h3>
@@ -219,14 +248,14 @@
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a>
 
-				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-intro-to-variables/" class="fourthfold__content" target="_blank">
+				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-intro-to-variables/" class="fourthfold__content" target="_blank" data-type="core">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/variables_lrwb8c.png" alt="" class="fourthfold__img">
 					<h3 class="fourthfold__title">Intro to Variables</h3>
 					<span class="fourthfold__category">Virtual</span>
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a>
 
-				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-figma-config-2023-watch-party-fof-mumbai/cohost-mumbai" class="fourthfold__content" target="_blank">
+				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-figma-config-2023-watch-party-fof-mumbai/cohost-mumbai" class="fourthfold__content" target="_blank" data-type="core">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092951/config23_alsvug.png" alt="" class="fourthfold__img">
 					<h3 class="fourthfold__title">Figma Config 2023 Watch Party</h3>
 					<span class="fourthfold__category">In-person</span>
@@ -299,6 +328,79 @@
 
 	<!--========== MAIN JS ==========-->
 	<script src="assets/js/main.js"></script>
+	<script>
+		document.addEventListener( 'DOMContentLoaded', function () {
+				const filterButtons = document.querySelectorAll( '.filter-btn' );
+				const eventItems = document.querySelectorAll( '.fourthfold__content' );
+
+				filterButtons.forEach( button => {
+					button.addEventListener( 'click', () => {
+						// Remove active class from all buttons
+						filterButtons.forEach( btn => btn.classList.remove( 'active' ) );
+
+						// Add active class to clicked button
+						button.classList.add( 'active' );
+
+						const filterValue = button.getAttribute( 'data-filter' );
+
+						eventItems.forEach( item => {
+							const itemTypes = item.getAttribute( 'data-type' ).split( ' ' );
+
+							if ( filterValue === 'all' || itemTypes.includes( filterValue ) ) {
+								item.classList.remove( 'hidden' );
+							} else {
+								item.classList.add( 'hidden' );
+							}
+						} );
+					} );
+				} );
+			} );
+
+		document.addEventListener('DOMContentLoaded', function() {
+			const mobileFilter = document.querySelector('.mobile-filter');
+			const dropdownSelect = document.querySelector('.dropdown-select');
+			const dropdownOptions = document.querySelector('.dropdown-options');
+			const selectedText = document.querySelector('.selected');
+			const options = document.querySelectorAll('.option');
+			const eventItems = document.querySelectorAll('.fourthfold__content');
+
+			// Toggle dropdown
+			dropdownSelect.addEventListener('click', () => {
+				dropdownSelect.classList.toggle('active');
+				dropdownOptions.classList.toggle('show');
+			});
+
+			// Close dropdown when clicking outside
+			document.addEventListener('click', (e) => {
+				if (!mobileFilter.contains(e.target)) {
+					dropdownSelect.classList.remove('active');
+					dropdownOptions.classList.remove('show');
+				}
+			});
+
+			// Handle option selection
+			options.forEach(option => {
+				option.addEventListener('click', () => {
+					const filterValue = option.getAttribute('data-filter');
+					selectedText.textContent = option.textContent;
+
+					// Update UI
+					dropdownSelect.classList.remove('active');
+					dropdownOptions.classList.remove('show');
+
+					// Filter events
+					eventItems.forEach(item => {
+						const itemTypes = item.getAttribute('data-type')?.split(' ') || [];
+						if (filterValue === 'all' || itemTypes.includes(filterValue)) {
+							item.classList.remove('hidden');
+						} else {
+							item.classList.add('hidden');
+						}
+					});
+				});
+			});
+		});
+</script>
 </body>
 
 </html>
