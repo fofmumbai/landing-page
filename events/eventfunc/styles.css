@@ -221,66 +221,66 @@
 }
 
 .core {
-  background-color: #dde2fa;
-  border: 1.5px solid #0425dd;
-  color: #0425dd;
+  background-color: #d9f4ff;
+  border: 1.5px solid #1ABCFE;
+  color: #1ABCFE;
 }
 
 .core:hover {
-  background-color: #0425dd;
+  background-color: #1ABCFE;
   color: #fff;
 }
 
 .core.active {
-  background-color: #0425dd;
+  background-color: #1ABCFE;
   color: #fff;
 }
 
 .partner-event {
-  background-color: #fcf4df;
-  border: 1.5px solid #f6a205;
-  color: #f6a205;
+  background-color: #ffe3e0;
+  border: 1.5px solid #FF7262;
+  color: #FF7262;
 }
 
 .partner-event:hover {
-  background-color: #f6a205;
+  background-color: #FF7262;
   color: #fff;
 }
 
 .partner-event.active {
-  background-color: #f6a205;
+  background-color: #FF7262;
   color: #fff;
 }
 
 .campus {
-  background-color: #fedfdf;
-  border: 1.5px solid #f80303;
-  color: #f80303;
+  background-color: #d3ffee;
+  border: 1.5px solid #0ACF83;
+  color: #0ACF83;
 }
 
 .campus:hover {
-  background-color: #f80303;
+  background-color: #0ACF83;
   color: #fff;
 }
 
 .campus.active {
-  background-color: #f80303;
+  background-color: #0ACF83;
   color: #fff;
 }
 
 .meetjam {
   background-color: #f0d5fa;
-  border: 1.5px solid #9501d4;
-  color: #9501d4;
+  border: 1.5px solid #A259FF;
+  color: #A259FF;
 }
 
 .meetjam:hover {
-  background-color: #9501d4;
+  background-color: #A259FF;
   color: #fff;
 }
 
 .meetjam.active {
-  background-color: #9501d4;
+  background-color: #A259FF;
   color: #fff;
 }
 
@@ -393,48 +393,48 @@
   color: #000;
 }
 .dropdown-select.core-filter {
-  color: #0425dd;
-  background-color: #dde2fa;
-  border: 1px solid #0425dd;
+  color: #1ABCFE;
+  background-color: #d9f4ff;
+  border: 1px solid #1ABCFE;
 }
 .dropdown-select.meetjam-filter {
-  color: #9501d4;
+  color: #A259FF;
   background-color: #f0d5fa;
-  border: 1px solid #9501d4;
+  border: 1px solid #A259FF;
 }
 .dropdown-select.partner-event-filter {
-  color: #f6a205;
-  background-color: #fcf4df;
-  border: 1px solid #f6a205;
+  color: #FF7262;
+  background-color: #ffe3e0;
+  border: 1px solid #FF7262;
 }
 .dropdown-select.campus-filter {
-  color: #f80303;
-  background-color: #fedfdf;
-  border: 1px solid #f80303;
+  color: #0ACF83;
+  background-color: #d3ffee;
+  border: 1px solid #0ACF83;
 }
 
 .option[data-filter="all"] {
   border-left: 0.75rem solid #000;
 }
 .option[data-filter="core"] {
-  border-left: 0.75rem solid #0425dd;
-  background-color: #dde2fa;
-  color: #0425dd;
+  border-left: 0.75rem solid #1ABCFE;
+  background-color: #d9f4ff;
+  color: #1ABCFE;
 }
 .option[data-filter="meetjam"] {
-  border-left: 0.75rem solid #9501d4;
+  border-left: 0.75rem solid #A259FF;
   background-color: #f0d5fa;
-  color: #9501d4;
+  color: #A259FF;
 }
 .option[data-filter="partner-event"] {
-  border-left: 0.75rem solid #f6a205;
-  background-color: #fcf4df;
-  color: #f6a205;
+  border-left: 0.75rem solid #FF7262;
+  background-color: #ffe3e0;
+  color: #FF7262;
 }
 .option[data-filter="campus"] {
-  border-left: 0.75rem solid #f80303;
-  background-color: #fedfdf;
-  color: #f80303;
+  border-left: 0.75rem solid #0ACF83;
+  background-color: #d3ffee;
+  color: #0ACF83;
 }
 
 /* .dropdown-select {
