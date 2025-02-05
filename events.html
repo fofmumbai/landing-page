@@ -14,6 +14,8 @@
 
 	<!--========== CSS ==========-->
 	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="./events/eventfunc/styles.css">
+
 
 	<!--==========  FAV ICON ==========-->
 	<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
@@ -136,11 +138,11 @@
 						<div class="arrow"></div>
 					</div>
 					<div class="dropdown-options">
-						<div class="option" data-filter="all">All Events</div>
-						<div class="option" data-filter="core">Core Events</div>
-						<div class="option" data-filter="meetjam">Meetjam</div>
+						<div class="option" data-filter="all" >All Events</div>
+						<div class="option" data-filter="core" >FOF Core Events</div>
+						<div class="option" data-filter="meetjam" >Meetjams</div>
 						<div class="option" data-filter="partner-event">Partner Events</div>
-						<div class="option" data-filter="campus">Campus Connect</div>
+						<div class="option" data-filter="campus" >Campus Connect</div>
 					</div>
 				</div>
 			</div>
@@ -379,12 +381,14 @@
 			// Handle option selection
 			options.forEach(option => {
 				option.addEventListener('click', () => {
-					const filterValue = option.getAttribute('data-filter');
+					const filterValue = option.getAttribute( 'data-filter' );
+					const filterColor = option.getAttribute( 'data-color' );
 					selectedText.textContent = option.textContent;
 
 					// Update UI
 					dropdownSelect.classList.remove('active');
 					dropdownOptions.classList.remove('show');
+					dropdownSelect.className = 'dropdown-select ' + filterValue + '-filter';
 
 					// Filter events
 					eventItems.forEach(item => {
