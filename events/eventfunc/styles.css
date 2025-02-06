@@ -201,6 +201,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .all {
@@ -221,66 +222,66 @@
 }
 
 .core {
-  background-color: #d9f4ff;
-  border: 1.5px solid #1ABCFE;
-  color: #1ABCFE;
+  background-color: #e1f5fd;
+  border: 1.5px solid #1abcfe;
+  color: #1abcfe;
 }
 
 .core:hover {
-  background-color: #1ABCFE;
+  background-color: #1abcfe;
   color: #fff;
 }
 
 .core.active {
-  background-color: #1ABCFE;
+  background-color: #1abcfe;
   color: #fff;
 }
 
 .partner-event {
-  background-color: #ffe3e0;
-  border: 1.5px solid #FF7262;
-  color: #FF7262;
+  background-color: #fce9e7;
+  border: 1.5px solid #ff7262;
+  color: #ff7262;
 }
 
 .partner-event:hover {
-  background-color: #FF7262;
+  background-color: #ff7262;
   color: #fff;
 }
 
 .partner-event.active {
-  background-color: #FF7262;
+  background-color: #ff7262;
   color: #fff;
 }
 
 .campus {
-  background-color: #d3ffee;
-  border: 1.5px solid #0ACF83;
-  color: #0ACF83;
+  background-color: #ddfcf0;
+  border: 1.5px solid #0acf83;
+  color: #0acf83;
 }
 
 .campus:hover {
-  background-color: #0ACF83;
+  background-color: #0acf83;
   color: #fff;
 }
 
 .campus.active {
-  background-color: #0ACF83;
+  background-color: #0acf83;
   color: #fff;
 }
 
 .meetjam {
-  background-color: #f0d5fa;
-  border: 1.5px solid #A259FF;
-  color: #A259FF;
+  background-color: #f8e4fe;
+  border: 1.5px solid #a259ff;
+  color: #a259ff;
 }
 
 .meetjam:hover {
-  background-color: #A259FF;
+  background-color: #a259ff;
   color: #fff;
 }
 
 .meetjam.active {
-  background-color: #A259FF;
+  background-color: #a259ff;
   color: #fff;
 }
 
@@ -393,51 +394,79 @@
   color: #000;
 }
 .dropdown-select.core-filter {
-  color: #1ABCFE;
+  color: #1abcfe;
   background-color: #d9f4ff;
-  border: 1px solid #1ABCFE;
+  border: 1px solid #1abcfe;
 }
 .dropdown-select.meetjam-filter {
-  color: #A259FF;
+  color: #a259ff;
   background-color: #f0d5fa;
-  border: 1px solid #A259FF;
+  border: 1px solid #a259ff;
 }
 .dropdown-select.partner-event-filter {
-  color: #FF7262;
+  color: #ff7262;
   background-color: #ffe3e0;
-  border: 1px solid #FF7262;
+  border: 1px solid #ff7262;
 }
 .dropdown-select.campus-filter {
-  color: #0ACF83;
+  color: #0acf83;
   background-color: #d3ffee;
-  border: 1px solid #0ACF83;
+  border: 1px solid #0acf83;
 }
 
 .option[data-filter="all"] {
   border-left: 0.75rem solid #000;
 }
 .option[data-filter="core"] {
-  border-left: 0.75rem solid #1ABCFE;
+  border-left: 0.75rem solid #1abcfe;
   background-color: #d9f4ff;
-  color: #1ABCFE;
+  color: #1abcfe;
 }
 .option[data-filter="meetjam"] {
-  border-left: 0.75rem solid #A259FF;
+  border-left: 0.75rem solid #a259ff;
   background-color: #f0d5fa;
-  color: #A259FF;
+  color: #a259ff;
 }
 .option[data-filter="partner-event"] {
-  border-left: 0.75rem solid #FF7262;
+  border-left: 0.75rem solid #ff7262;
   background-color: #ffe3e0;
-  color: #FF7262;
+  color: #ff7262;
 }
 .option[data-filter="campus"] {
-  border-left: 0.75rem solid #0ACF83;
+  border-left: 0.75rem solid #0acf83;
   background-color: #d3ffee;
-  color: #0ACF83;
+  color: #0acf83;
 }
 
 /* .dropdown-select {
   border-left-width: 4px;
   transition: border-color 0.2s ease;
 } */
+
+/* .filter-buttons .button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-buttons .button.active {
+  background: #0066ff;
+  color: white;
+}
+
+.firstfold__img img {
+  transition: opacity 0.3s;
+} */
+
+.hero-button{
+  font-size: .83rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}

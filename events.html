@@ -70,22 +70,19 @@
 		<section class="firstfold" id="firstfold">
 			<div class="firstfold__container bd-container bd-grid">
 				<div class="firstfold__img">
-					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092396/eventshero_ostlom.png" alt="">
+					<img id="categoryImage" src="events/eventassets/wireframed24poster.png" alt="">
 				</div>
 
 				<div class="firstfold__data">
-					<h1 class="firstfold__title" style="font-size: 2.5rem; font-weight: 400; margin-top: 1.5rem;">Event Archive</h1>
-					<p class="firstfold__description">Discover all events, each uniquely crafted to celebrate design, learning, and Mumbai's
-					creative pulse that brings the community together.</p>
-					<div style="display: flex; align-items: center; justify-content: space-between;">
-						<a href="https://friends.figma.com/mumbai/" class="button home__button" style="margin-top: 0;" target="_blank">
-							<svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-								stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<line x1="5" y1="12" x2="19" y2="12"></line>
-								<polyline points="12 5 19 12 12 19"></polyline>
-							</svg>
-							<span>Join FOF Mumbai</span>
-						</a>
+					<h1 class="firstfold__title" style="font-size: 2.5rem; font-weight: 400; margin-top: 1.5rem;">Core Events
+					</h1>
+					<p class="firstfold__description" id="categoryDescription">Discover all events, each uniquely crafted to celebrate
+						design, learning, and Mumbai's creative pulse that brings the community together.</p>
+					<div class="filter-buttons" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+						<button class="button hero-button active  core" data-filter="core">Core Events</button>
+						<button class="button hero-button  meetjam" data-filter="meetjam">MeetJam</button>
+						<button class="button hero-button  partner-event" data-filter="partner-event">Partner Collaborations</button>
+						<button class="button hero-button  campus" data-filter="campus">Campus Connect</button>
 					</div>
 				</div>
 			</div>
@@ -329,6 +326,56 @@
 	<!--========== MAIN JS ==========-->
 	<script src="assets/js/main.js"></script>
 	<script>
+		const categoryContent = {
+				'core': {
+					title: 'Core Events',
+					image: 'events/eventassets/wireframed24poster.png',
+					description: 'Flagship events by FOF Mumbai featuring workshops, design jams, and major community gatherings that define our creative spirit.'
+
+				},
+				'meetjam': {
+					title: 'MeetJam',
+					image: 'events/eventassets/meetjam3poster.png',
+					description: 'Casual meetups across Mumbai where designers connect, share experiences, and build lasting relationships in the design community.'
+				},
+				'partner-event': {
+					title: 'Partner Events',
+					image: 'events/eventassets/portfolio101poster.png',
+					description: 'Collaborative events with design partners bringing specialized workshops, expert sessions, and unique learning opportunities.'
+				},
+				'campus': {
+					title: 'Campus Connect',
+					image: 'https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092396/eventshero_ostlom.png',
+					description: 'Engaging with design students and educators through workshops, mentorship programs, and design challenges.'
+				}
+			};
+
+			document.addEventListener( 'DOMContentLoaded', () => {
+				const buttons = document.querySelectorAll( '.filter-buttons .button' );
+				const categoryImage = document.getElementById( 'categoryImage' );
+				const categoryTitle = document.querySelector( '.firstfold__title' );
+				const categoryDescription = document.getElementById( 'categoryDescription' );
+
+				buttons.forEach( button => {
+					button.addEventListener( 'click', ( e ) => {
+						const category = button.dataset.filter;
+
+						buttons.forEach( btn => btn.classList.remove( 'active' ) );
+						button.classList.add( 'active' );
+
+						categoryImage.style.opacity = '0';
+
+						setTimeout( () => {
+							categoryTitle.textContent = categoryContent[ category ].title;
+							categoryDescription.textContent = categoryContent[ category ].description;
+
+							categoryImage.src = categoryContent[ category ].image;
+							categoryImage.style.opacity = '1';
+						}, 300 );
+					} );
+				} );
+			} );
+
 		document.addEventListener( 'DOMContentLoaded', function () {
 				const filterButtons = document.querySelectorAll( '.filter-btn' );
 				const eventItems = document.querySelectorAll( '.fourthfold__content' );
