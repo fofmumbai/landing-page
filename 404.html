@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>404 - Page Not Found</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--first-color: #2a18ef;
+			--title-color: #161212;
+			--text-color: #5b5757;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: "Poppins", sans-serif;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-image: radial-gradient(circle at 1.5px 1.5px,
+					rgb(221, 221, 221) 1.5px,
+					transparent 0);
+			background-size: 30px 30px;
+			color: var(--text-color);
+		}
+
+		.container {
+			text-align: center;
+			padding: 2rem;
+			max-width: 600px;
+		}
+
+		.error-code {
+			font-size: 8rem;
+			font-weight: 700;
+			color: var(--title-color);
+			margin-bottom: 1rem;
+			position: relative;
+			display: inline-block;
+		}
+
+		.error-code::after {
+			content: "oops!";
+			position: absolute;
+			top: -20px;
+			right: -40px;
+			font-family: "Caveat", cursive;
+			font-size: 2rem;
+			color: var(--first-color);
+			transform: rotate(12deg);
+		}
+
+		.title {
+			font-size: 2rem;
+			color: var(--title-color);
+			margin-bottom: 1rem;
+		}
+
+		.description {
+			font-size: 1rem;
+			margin-bottom: 2rem;
+		}
+
+		.home-button {
+			display: inline-block;
+			background-color: #000;
+			color: #fff;
+			font-size: 1.2rem;
+			padding: 0.9rem 2rem;
+			border-radius: 0.75rem;
+			border: 2px solid #000;
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			text-decoration: none;
+		}
+
+		.home-button:hover {
+			border-radius: 0;
+		}
+
+		.floating {
+			animation: floating 3s ease-in-out infinite;
+		}
+
+		/* @keyframes floating {
+
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-20px);
+			}
+		} */
+
+		@media screen and (max-width: 768px) {
+			.error-code {
+				font-size: 6rem;
+			}
+
+			.title {
+				font-size: 1.5rem;
+			}
+
+			.container {
+				padding: 1rem;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="error-code floating">404</h1>
+		<p class="description">The page you're looking for might
+			have moved or doesn't exist.</p>
+		<a href="/" class="home-button">Return Home</a>
+	</div>
+
+</body>
+
+</html>
