@@ -33,11 +33,6 @@
 </head>
 
 <body>
-	<!--========== SCROLL TOP ==========-->
-	<a href="#" class="scrolltop" id="scroll-top">
-		<i class='bx bx-up-arrow-alt scrolltop__icon'></i>
-	</a>
-
 	<!--========== HEADER ==========-->
 	<div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
 		<header class="l-header" id="header">
@@ -52,9 +47,11 @@
 						<li class="nav__item"><a href="about" class="nav__link">About</a></li>
 						<li class="nav__item"><a href="events" class="nav__link active-link">Events</a></li>
 						<li class="nav__item"><a href="contact" class="nav__link">Contact</a></li>
-						<li class="nav__item"><a href="https://chat.whatsapp.com/GKN3wqNzrAB9PlxDDXxgJM" class="nav__link"
-								style="display: flex; align-items: center; justify-content: center;" target="_blank">
-								<i class='bx bxl-whatsapp' style="font-size: 1.3rem; margin-right: .1rem;"></i>Community</a></li>
+						<li class="nav__item"><a href="https://chat.whatsapp.com/GKN3wqNzrAB9PlxDDXxgJM"
+								class="nav__link" style="display: flex; align-items: center; justify-content: center;"
+								target="_blank">
+								<i class='bx bxl-whatsapp'
+									style="font-size: 1.3rem; margin-right: .1rem;"></i>Community</a></li>
 					</ul>
 				</div>
 
@@ -66,54 +63,21 @@
 	</div>
 
 	<main class="l-main">
-		<!--========== First Fold ==========-->
-		<section class="firstfold" id="firstfold">
-			<div class="firstfold__container bd-container bd-grid">
-				<div class="firstfold__img">
-					<img id="categoryImage" src="events/eventassets/wireframed24poster.png" alt="">
-				</div>
-
-				<div class="firstfold__data">
-					<h1 class="firstfold__title" style="font-size: 2.5rem; font-weight: 400; margin-top: 1.5rem;">Core Events
+		<!--========== Home ==========-->
+		<section class="home section bd-container">
+			<div class="home__container">
+				<div class="home__data">
+					<h1 class="home__title">Events<span class="community-text"> Archive</span><br>
 					</h1>
-					<p class="firstfold__description" id="categoryDescription">Discover all events, each uniquely crafted to celebrate
-						design, learning, and Mumbai's creative pulse that brings the community together.</p>
-					<div class="filter-buttons" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-						<button class="button hero-button active  core" data-filter="core">Core Events</button>
-						<button class="button hero-button  meetjam" data-filter="meetjam">MeetJam</button>
-						<button class="button hero-button  partner-event" data-filter="partner-event">Partner Collaborations</button>
-						<button class="button hero-button  campus" data-filter="campus">Campus Connect</button>
-					</div>
 				</div>
 			</div>
+
+			<!-- <img src="assets/img/aboutimg1.png" alt="" id="about-image" class="sticker1">
+					<img src="assets/img/aboutimg2.png" alt="" id="about-image" class="sticker2">
+					<img src="assets/img/aboutimg3.png" alt="" id="about-image" class="sticker3">
+					<img src="assets/img/aboutimg4.png" alt="" id="about-image" class="sticker4"> -->
 		</section>
 
-		<!--========== Fifth Fold ==========-->
-		<section class="fifthfold">
-			<div class="fifthfold__container bd-container bd-grid">
-				<div class="fifthfold__content">
-					<h2 class="section-title-center fifthfold__title">An Inside Look At Our Shortlisting Process</h2>
-					<p class="fifthfold__description">At Friends of Figma Mumbai, we believe transparency and communication is one of the keys in building a successful
-					community.</p>
-					<div class="two__buttons">
-						<a href="https://medium.com/@fofmumbai/fof-mumbai-an-inside-look-at-our-shortlisting-process-fb278f1457eb" class="button home__button"
-							 style="margin-top: 0;" target="_blank">
-							<svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-								viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-								stroke-linejoin="round">
-								<line x1="5" y1="12" x2="19" y2="12"></line>
-								<polyline points="12 5 19 12 12 19"></polyline>
-							</svg>
-							<span>Read</span>
-						</a>
-					</div>
-				</div>
-
-				<div class="fifthfold__img">
-					<img src="events/eventassets/shortlist-illustration.svg" alt="">
-				</div>
-			</div>
-		</section>
 
 		<!--========== Fourth Fold ==========-->
 		<section class="fourthfold section bd-container" id="fourthfold" style="margin-top: -3rem;">
@@ -135,13 +99,17 @@
 						<div class="arrow"></div>
 					</div>
 					<div class="dropdown-options">
-						<div class="option" data-filter="all" >All Events</div>
-						<div class="option" data-filter="core" >Core Events</div>
-						<div class="option" data-filter="meetjam" >MeetJam</div>
+						<div class="option" data-filter="all">All Events</div>
+						<div class="option" data-filter="core">Core Events</div>
+						<div class="option" data-filter="meetjam">MeetJam</div>
 						<div class="option" data-filter="partner-event">Partner Collaborations</div>
-						<div class="option" data-filter="campus" >Campus Connect</div>
+						<div class="option" data-filter="campus">Campus Connect</div>
 					</div>
 				</div>
+			</div>
+
+			<div class="filter-description bd-container">
+				<p id="filter-description-text" class="description-text"></p>
 			</div>
 
 			<div class="fourthfold__container bd-grid">
@@ -152,7 +120,8 @@
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a>
 
-				<a href="https://allevents.in/mumbai/frelo-portfolio-101/80003188283521" class="fourthfold__content" target="_blank" data-type="partner-event">
+				<a href="https://allevents.in/mumbai/frelo-portfolio-101/80003188283521" class="fourthfold__content"
+					target="_blank" data-type="partner-event">
 					<img src="events/eventassets/portfolio101poster.png" alt="" class="fourthfold__img">
 					<h3 class="fourthfold__title">Frelo Portfolio 101</h3>
 					<span class="fourthfold__category">In-person</span>
@@ -168,14 +137,15 @@
 
 				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-pan-iit-x-fof-mumbai-1-design-thinking-innovate-ideate-implement/"
 					class="fourthfold__content" target="_blank" data-type="partner-event">
-					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/designthinking_vj1nkn.png" alt=""
-						class="fourthfold__img">
+					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/designthinking_vj1nkn.png"
+						alt="" class="fourthfold__img">
 					<h3 class="fourthfold__title">PAN IIT x FOF Mumbai - Design Thinking</h3>
 					<span class="fourthfold__category">Virtual</span>
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a>
 
-				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-meetjam-2-andheri/" class="fourthfold__content" target="_blank" data-type="meetjam">
+				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-meetjam-2-andheri/"
+					class="fourthfold__content" target="_blank" data-type="meetjam">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/meetjam2_snjuoo.png" alt=""
 						class="fourthfold__img">
 					<h3 class="fourthfold__title">MeetJam #2 - Andheri</h3>
@@ -185,8 +155,8 @@
 
 				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-lottiefiles-x-fof-mumbai-get-certified-as-a-figma-to-lottie-expert/"
 					class="fourthfold__content" target="_blank" data-type="partner-event">
-					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092951/lottieworkshop_o9cxsb.png" alt=""
-						class="fourthfold__img">
+					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092951/lottieworkshop_o9cxsb.png"
+						alt="" class="fourthfold__img">
 					<h3 class="fourthfold__title">LottieFiles x FOF Mumbai - Workshop</h3>
 					<span class="fourthfold__category">Virtual</span>
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
@@ -221,8 +191,8 @@
 
 				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-creto-design-vichaar/"
 					class="fourthfold__content" target="_blank" data-type="core">
-					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/summerdesign_nbm5xx.png" alt=""
-						class="fourthfold__img">
+					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/summerdesign_nbm5xx.png"
+						alt="" class="fourthfold__img">
 					<h3 class="fourthfold__title">FOF Mumbai x Pineapple - Design Meetup</h3>
 					<span class="fourthfold__category">In-person</span>
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
@@ -230,14 +200,15 @@
 
 				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-wireframed-2023/"
 					class="fourthfold__content" target="_blank" data-type="core">
-					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/wireframed23_za99pd.png" alt=""
-						class="fourthfold__img">
+					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/wireframed23_za99pd.png"
+						alt="" class="fourthfold__img">
 					<h3 class="fourthfold__title">Wireframed 2023</h3>
 					<span class="fourthfold__category">In-person</span>
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a>
 
-				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-design-x-dev-meetup-fof-mumbai-x-gdg-mad/" class="fourthfold__content" target="_blank" data-type="core">
+				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-design-x-dev-meetup-fof-mumbai-x-gdg-mad/"
+					class="fourthfold__content" target="_blank" data-type="core">
 					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092951/designdev_j1g6op.png" alt=""
 						class="fourthfold__img">
 					<h3 class="fourthfold__title">Design x Dev Meetup | FOF Mumbai x GDG MAD</h3>
@@ -245,15 +216,19 @@
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a>
 
-				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-intro-to-variables/" class="fourthfold__content" target="_blank" data-type="core">
-					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/variables_lrwb8c.png" alt="" class="fourthfold__img">
+				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-intro-to-variables/"
+					class="fourthfold__content" target="_blank" data-type="core">
+					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092952/variables_lrwb8c.png" alt=""
+						class="fourthfold__img">
 					<h3 class="fourthfold__title">Intro to Variables</h3>
 					<span class="fourthfold__category">Virtual</span>
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a>
 
-				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-figma-config-2023-watch-party-fof-mumbai/cohost-mumbai" class="fourthfold__content" target="_blank" data-type="core">
-					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092951/config23_alsvug.png" alt="" class="fourthfold__img">
+				<a href="https://friends.figma.com/events/details/figma-mumbai-presents-figma-config-2023-watch-party-fof-mumbai/cohost-mumbai"
+					class="fourthfold__content" target="_blank" data-type="core">
+					<img src="https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092951/config23_alsvug.png" alt=""
+						class="fourthfold__img">
 					<h3 class="fourthfold__title">Figma Config 2023 Watch Party</h3>
 					<span class="fourthfold__category">In-person</span>
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
@@ -267,116 +242,151 @@
 					<span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
 				</a> -->
 
-				</div>
+			</div>
 			</div>
 		</section>
 
-	<!--========== FOOTER ==========-->
-	<footer class="footer section">
-		<div class="footer__container bd-container bd-grid">
-			<div class="footer__content">
-				<h3 class="footer__title">
-					<a href="#" class="footer__logo">Friends Of Figma, Mumbai</a>
-				</h3>
-				<p class="footer__description">Creativity. Collaboration. Continuous Learning.</p>
+		<!--========== FOOTER ==========-->
+		<footer class="footer section">
+			<div class="footer__container bd-container bd-grid">
+				<div class="footer__content">
+					<h3 class="footer__title">
+						<a href="#" class="footer__logo">Friends Of Figma, Mumbai</a>
+					</h3>
+					<p class="footer__description">Creativity. Collaboration. Continuous Learning.</p>
+				</div>
+
+				<div class="footer__content">
+					<h3 class="footer__title">Our Community</h3>
+					<ul>
+						<li><a href="about" class="footer__link">About Us</a></li>
+						<li><a href="events" class="footer__link">Event Archive</a></li>
+						<li><a href="contact" class="footer__link">Contact Us</a></li>
+					</ul>
+				</div>
+
+				<div class="footer__content">
+					<h3 class="footer__title">Quick Links</h3>
+					<ul>
+						<li><a href="https://friends.figma.com/mumbai/" class="footer__link" target="_blank">Become a
+								Member</a></li>
+						<li><a href="https://www.figma.com/legal/code-of-conduct" class="footer__link"
+								target="_blank">Code of
+								Conduct</a></li>
+						<li><a href="https://www.figma.com/legal/events-tos" class="footer__link" target="_blank">Terms
+								of Service</a>
+						</li>
+						<li><a href="brand" class="footer__link" target="_blank">Brand Guidelines</a></li>
+						<li><a href="https://medium.com/@fofmumbai/fof-mumbai-an-inside-look-at-our-shortlisting-process-fb278f1457eb"
+								class="footer__link">Shortlisting Process</a></li>
+					</ul>
+				</div>
+
+				<div class="footer__content">
+					<h3 class="footer__title">Social</h3>
+					<a href="https://www.instagram.com/fof.mumbai/" class="footer__social"><i
+							class='bx bxl-instagram'></i></a>
+					<a href="https://chat.whatsapp.com/GKN3wqNzrAB9PlxDDXxgJM" class="footer__social"><i
+							class='bx bxl-whatsapp'></i></a>
+					<a href="https://www.linkedin.com/company/fof-mumbai/" class="footer__social"><i
+							class='bx bxl-linkedin'></i></a>
+					<a href="https://x.com/fof_mumbai" class="footer__social"><i class='bx bxl-twitter'></i></a>
+					<a href="https://www.youtube.com/@fof_mumbai" class="footer__social"><i
+							class='bx bxl-youtube'></i></a>
+					<a href="https://medium.com/@fofmumbai" class="footer__social"><i
+							class='bx bxl-medium-square'></i></a>
+				</div>
 			</div>
 
-			<div class="footer__content">
-				<h3 class="footer__title">Our Community</h3>
-				<ul>
-					<li><a href="about" class="footer__link">About Us</a></li>
-					<li><a href="events" class="footer__link">Event Archive</a></li>
-					<li><a href="contact" class="footer__link">Contact Us</a></li>
-				</ul>
-			</div>
+			<p class="footer__copy">&#169; Friends Of Figma, Mumbai</p>
+		</footer>
 
-			<div class="footer__content">
-				<h3 class="footer__title">Quick Links</h3>
-				<ul>
-					<li><a href="https://friends.figma.com/mumbai/" class="footer__link" target="_blank">Become a Member</a></li>
-					<li><a href="https://www.figma.com/legal/code-of-conduct" class="footer__link" target="_blank">Code of
-							Conduct</a></li>
-					<li><a href="https://www.figma.com/legal/events-tos" class="footer__link" target="_blank">Terms of Service</a>
-					</li>
-					<li><a href="brand" class="footer__link" target="_blank">Brand Guidelines</a></li>
-					<li><a href="https://medium.com/@fofmumbai/fof-mumbai-an-inside-look-at-our-shortlisting-process-fb278f1457eb"
-							class="footer__link">Shortlisting Process</a></li>
-				</ul>
-			</div>
+		<!--========== SCROLL REVEAL ==========-->
+		<script src="https://unpkg.com/scrollreveal"></script>
 
-			<div class="footer__content">
-				<h3 class="footer__title">Social</h3>
-				<a href="https://www.instagram.com/fof.mumbai/" class="footer__social"><i class='bx bxl-instagram'></i></a>
-				<a href="https://chat.whatsapp.com/GKN3wqNzrAB9PlxDDXxgJM" class="footer__social"><i
-						class='bx bxl-whatsapp'></i></a>
-				<a href="https://www.linkedin.com/company/fof-mumbai/" class="footer__social"><i
-						class='bx bxl-linkedin'></i></a>
-				<a href="https://x.com/fof_mumbai" class="footer__social"><i class='bx bxl-twitter'></i></a>
-				<a href="https://www.youtube.com/@fof_mumbai" class="footer__social"><i class='bx bxl-youtube'></i></a>
-				<a href="https://medium.com/@fofmumbai" class="footer__social"><i class='bx bxl-medium-square'></i></a>
-			</div>
-		</div>
+		<!--========== MAIN JS ==========-->
+		<script src="assets/js/main.js"></script>
+		<script>
+			document.addEventListener( 'DOMContentLoaded', function () {
+				const fab = document.querySelector( '.fab' );
+				let expansionTimeout;
+				let retractionTimeout;
 
-		<p class="footer__copy">&#169; Friends Of Figma, Mumbai</p>
-	</footer>
-
-	<!--========== SCROLL REVEAL ==========-->
-	<script src="https://unpkg.com/scrollreveal"></script>
-
-	<!--========== MAIN JS ==========-->
-	<script src="assets/js/main.js"></script>
-	<script>
-		const categoryContent = {
-				'core': {
-					title: 'Core Events',
-					image: 'events/eventassets/wireframed24poster.png',
-					description: 'Flagship events by FOF Mumbai featuring workshops, design jams, and major community gatherings that define our creative spirit.'
-
-				},
-				'meetjam': {
-					title: 'MeetJam',
-					image: 'events/eventassets/meetjam3poster.png',
-					description: 'Casual meetups across Mumbai where designers connect, share experiences, and build lasting relationships in the design community.'
-				},
-				'partner-event': {
-					title: 'Partner Events',
-					image: 'events/eventassets/portfolio101poster.png',
-					description: 'Collaborative events with design partners bringing specialized workshops, expert sessions, and unique learning opportunities.'
-				},
-				'campus': {
-					title: 'Campus Connect',
-					image: 'https://res.cloudinary.com/dfw2ve6i6/image/upload/v1731092396/eventshero_ostlom.png',
-					description: 'Engaging with design students and educators through workshops, mentorship programs, and design challenges.'
+				// Function to expand the FAB
+				function expandFab() {
+					fab.classList.add( 'expanded' );
+					// Set timeout to retract after 5 seconds if not clicked
+					retractionTimeout = setTimeout( () => {
+						fab.classList.remove( 'expanded' );
+					}, 5000 );
 				}
-			};
 
-			document.addEventListener( 'DOMContentLoaded', () => {
-				const buttons = document.querySelectorAll( '.filter-buttons .button' );
-				const categoryImage = document.getElementById( 'categoryImage' );
-				const categoryTitle = document.querySelector( '.firstfold__title' );
-				const categoryDescription = document.getElementById( 'categoryDescription' );
+				// Set initial timeout to expand FAB after 5 seconds
+				expansionTimeout = setTimeout( expandFab, 5000 );
 
-				buttons.forEach( button => {
-					button.addEventListener( 'click', ( e ) => {
-						const category = button.dataset.filter;
+				// Reset animation when hovering
+				fab.addEventListener( 'mouseenter', () => {
+					clearTimeout( retractionTimeout );
+					fab.classList.add( 'expanded' );
+				} );
 
-						buttons.forEach( btn => btn.classList.remove( 'active' ) );
-						button.classList.add( 'active' );
+				// Retract when mouse leaves
+				fab.addEventListener( 'mouseleave', () => {
+					clearTimeout( retractionTimeout );
+					retractionTimeout = setTimeout( () => {
+						fab.classList.remove( 'expanded' );
+					}, 100 );
+				} );
 
-						categoryImage.style.opacity = '0';
+				// Clear timeouts and keep expanded state when clicked
+				fab.addEventListener( 'click', () => {
+					clearTimeout( expansionTimeout );
+					clearTimeout( retractionTimeout );
+				} );
+			} );
 
+			document.addEventListener( 'DOMContentLoaded', function () {
+				const descriptions = {
+					'all': 'Explore all our past events, from community meetups to workshops and collaborations.',
+					'core': 'Our signature events organized exclusively by Friends of Figma Mumbai.',
+					'meetjam': 'Casual networking events hosted in different parts of Mumbai to connect with fellow designers.',
+					'partner-event': 'Special events organized in collaboration with our amazing community partners.',
+					'campus': 'Events focused on nurturing design talent in educational institutions.'
+				};
+
+				const descriptionText = document.getElementById( 'filter-description-text' );
+
+				// Set initial description
+				descriptionText.textContent = descriptions[ 'all' ];
+
+				// Update for desktop filters
+				const filterButtons = document.querySelectorAll( '.filter-btn' );
+				filterButtons.forEach( button => {
+					button.addEventListener( 'click', () => {
+						const filterValue = button.getAttribute( 'data-filter' );
+						descriptionText.style.opacity = '0';
 						setTimeout( () => {
-							categoryTitle.textContent = categoryContent[ category ].title;
-							categoryDescription.textContent = categoryContent[ category ].description;
-
-							categoryImage.src = categoryContent[ category ].image;
-							categoryImage.style.opacity = '1';
+							descriptionText.textContent = descriptions[ filterValue ];
+							descriptionText.style.opacity = '1';
 						}, 300 );
+					} );
+				} );
+
+				// Update for mobile dropdown
+				const options = document.querySelectorAll( '.option' );
+				options.forEach( option => {
+					option.addEventListener( 'click', () => {
+						const filterValue = option.getAttribute( 'data-filter' );
+						descriptionText.style.opacity = '0';
+						setTimeout( () => {
+							descriptionText.textContent = descriptions[ filterValue ];
+							descriptionText.style.opacity = '1';
+						}, 100 );
 					} );
 				} );
 			} );
 
-		document.addEventListener( 'DOMContentLoaded', function () {
+			document.addEventListener( 'DOMContentLoaded', function () {
 				const filterButtons = document.querySelectorAll( '.filter-btn' );
 				const eventItems = document.querySelectorAll( '.fourthfold__content' );
 
@@ -403,53 +413,60 @@
 				} );
 			} );
 
-		document.addEventListener('DOMContentLoaded', function() {
-			const mobileFilter = document.querySelector('.mobile-filter');
-			const dropdownSelect = document.querySelector('.dropdown-select');
-			const dropdownOptions = document.querySelector('.dropdown-options');
-			const selectedText = document.querySelector('.selected');
-			const options = document.querySelectorAll('.option');
-			const eventItems = document.querySelectorAll('.fourthfold__content');
+			document.addEventListener( 'DOMContentLoaded', function () {
+				const mobileFilter = document.querySelector( '.mobile-filter' );
+				const dropdownSelect = document.querySelector( '.dropdown-select' );
+				const dropdownOptions = document.querySelector( '.dropdown-options' );
+				const selectedText = document.querySelector( '.selected' );
+				const options = document.querySelectorAll( '.option' );
+				const eventItems = document.querySelectorAll( '.fourthfold__content' );
 
-			// Toggle dropdown
-			dropdownSelect.addEventListener('click', () => {
-				dropdownSelect.classList.toggle('active');
-				dropdownOptions.classList.toggle('show');
-			});
+				// Toggle dropdown
+				dropdownSelect.addEventListener( 'click', () => {
+					dropdownSelect.classList.toggle( 'active' );
+					dropdownOptions.classList.toggle( 'show' );
+				} );
 
-			// Close dropdown when clicking outside
-			document.addEventListener('click', (e) => {
-				if (!mobileFilter.contains(e.target)) {
-					dropdownSelect.classList.remove('active');
-					dropdownOptions.classList.remove('show');
-				}
-			});
+				// Close dropdown when clicking outside
+				document.addEventListener( 'click', ( e ) => {
+					if ( !mobileFilter.contains( e.target ) ) {
+						dropdownSelect.classList.remove( 'active' );
+						dropdownOptions.classList.remove( 'show' );
+					}
+				} );
 
-			// Handle option selection
-			options.forEach(option => {
-				option.addEventListener('click', () => {
-					const filterValue = option.getAttribute( 'data-filter' );
-					const filterColor = option.getAttribute( 'data-color' );
-					selectedText.textContent = option.textContent;
+				// Handle option selection
+				options.forEach( option => {
+					option.addEventListener( 'click', () => {
+						const filterValue = option.getAttribute( 'data-filter' );
+						const filterColor = option.getAttribute( 'data-color' );
+						selectedText.textContent = option.textContent;
 
-					// Update UI
-					dropdownSelect.classList.remove('active');
-					dropdownOptions.classList.remove('show');
-					dropdownSelect.className = 'dropdown-select ' + filterValue + '-filter';
+						// Update UI
+						dropdownSelect.classList.remove( 'active' );
+						dropdownOptions.classList.remove( 'show' );
+						dropdownSelect.className = 'dropdown-select ' + filterValue + '-filter';
 
-					// Filter events
-					eventItems.forEach(item => {
-						const itemTypes = item.getAttribute('data-type')?.split(' ') || [];
-						if (filterValue === 'all' || itemTypes.includes(filterValue)) {
-							item.classList.remove('hidden');
-						} else {
-							item.classList.add('hidden');
-						}
-					});
-				});
-			});
-		});
-</script>
+						// Filter events
+						eventItems.forEach( item => {
+							const itemTypes = item.getAttribute( 'data-type' )?.split( ' ' ) || [];
+							if ( filterValue === 'all' || itemTypes.includes( filterValue ) ) {
+								item.classList.remove( 'hidden' );
+							} else {
+								item.classList.add( 'hidden' );
+							}
+						} );
+					} );
+				} );
+			} );
+		</script>
+		<div class="fab-container">
+			<a href="https://medium.com/@fofmumbai/fof-mumbai-an-inside-look-at-our-shortlisting-process-fb278f1457eb"
+				target="_blank" class="fab">
+				<img src="events/eventassets/shortlistfab.svg" alt="Info" class="fab-image">
+				<span class="fab-text">An inside look<br>at our Shortlisting Process</span>
+			</a>
+		</div>
 </body>
 
 </html>

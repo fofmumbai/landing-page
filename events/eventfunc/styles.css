@@ -516,7 +516,7 @@
 }
 
 .fab:hover {
-  background-color: #180c9b;
+  background-color: #1a0cb0;
 }
 
 .fab-image {
@@ -529,6 +529,7 @@
 .fab-text {
   font-size: 0.9rem;
   margin-left: 0.5rem;
+  margin-right: .75rem;
   white-space: nowrap;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -554,7 +555,7 @@
   }
 
   .fab-image {
-    width:110px;
+    width:130px;
     height: auto;
   }
 
