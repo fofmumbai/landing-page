@@ -478,10 +478,10 @@
 }
 
 .description-text {
-  text-align: justify;
+  text-align: center;
   font-size: 1.3rem;
   line-height: 1.5;
-  color: #6d6d6d;
+  color: #8a8989;
   margin: 0;
   transition: opacity 0.3s ease;
 }
@@ -490,6 +490,10 @@
   .filter-description {
     margin-top: 3rem;
     margin-bottom: 3rem;
+  }
+
+  .description-text {
+    text-align: justify;
   }
 }
 
