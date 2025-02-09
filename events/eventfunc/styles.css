@@ -462,14 +462,6 @@
   transition: opacity 0.3s;
 } */
 
-.hero-button {
-  font-size: 0.83rem;
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-}
 
 .filter-description {
   margin-top: 1rem;
