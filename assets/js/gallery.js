@@ -16,7 +16,6 @@
       obj.offsetWidth;
     }
     document.addEventListener("scroll", function () {
-      // scroll or scrollend
       animStart();
     });
     window.addEventListener("resize", animStart);
