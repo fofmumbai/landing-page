@@ -275,5 +275,32 @@
 
         <!--========== MAIN JS ==========-->
         <script src="assets/js/main.js"></script>
+        <script>
+            function copyHexCode( event ) {
+                const hexCode = event.currentTarget.querySelector( 'p' ).textContent;
+                const textarea = document.createElement( 'textarea' );
+                textarea.value = hexCode;
+                document.body.appendChild( textarea );
+                textarea.select();
+                document.execCommand( 'copy' );
+                document.body.removeChild( textarea );
+
+                const originalText = event.currentTarget.querySelector( 'p' ).textContent;
+                event.currentTarget.querySelector( 'p' ).textContent = 'Copied!';
+
+                setTimeout( () => {
+                    event.currentTarget.querySelector( 'p' ).textContent = originalText;
+                }, 1500 );
+            }
+
+            document.addEventListener( 'DOMContentLoaded', function () {
+                const colorBoxes = document.querySelectorAll( '.color__box' );
+                colorBoxes.forEach( box => {
+                    box.addEventListener( 'click', copyHexCode );
+                    box.style.cursor = 'pointer';
+                } );
+            } );
+        </script>
+
     </body>
 </html>
