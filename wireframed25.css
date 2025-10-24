@@ -495,7 +495,7 @@ body {
     color: #fff;
   }
 
-  .register-image{
+  .register-image {
     max-width: 350px;
   }
 }
@@ -752,6 +752,95 @@ h2.yellow {
   margin: 0 auto;
 }
 
+.venue-section {
+  text-align: center;
+  overflow: hidden;
+  background: #05ccfd;
+  position: relative;
+}
+
+/* Top image */
+.center-image {
+  max-width: 350px;
+  height: auto;
+  display: block;
+  margin: 3rem auto 2rem auto;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Venue info + map */
+.venue-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 1rem 1rem;
+  flex-wrap: wrap;
+  background: #fff;
+  border-radius: 5px;
+  width: 70%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -150px;
+}
+
+.venue-info {
+  flex: 1;
+  min-width: 280px;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.venue-info h2 {
+  color: #05ccfd;
+  margin-bottom: 1rem;
+}
+
+.venue-map {
+  flex: 1;
+  min-width: 280px;
+}
+
+.full-width-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .venue-details {
+    flex-direction: column;
+    width: 90%;
+    padding: 1.5rem;
+    margin-bottom: -40px; /* smaller overlap on mobile */
+  }
+
+  .venue-info {
+    text-align: center;
+  }
+
+  .venue-map {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @keyframes glide {
   0% {
