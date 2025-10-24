@@ -752,42 +752,6 @@ h2.yellow {
   margin: 0 auto;
 }
 
-.clouds {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* clouds won’t block clicks */
-  z-index: 0;
-}
-
-.cloud {
-  position: absolute;
-  opacity: 0.8;
-  width: 150px;
-  animation: float 20s linear infinite;
-}
-
-.cloud-1 {
-  top: 50px;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.cloud-2 {
-  top: 120px;
-  left: 50%;
-  width: 180px;
-  animation-delay: 5s;
-}
-
-.cloud-3 {
-  top: 80px;
-  right: 10%;
-  width: 130px;
-  animation-delay: 10s;
-}
 
 @keyframes glide {
   0% {
