@@ -67,8 +67,8 @@
 
 	<div class="hero-container">
 		<img src="airplane2.png" alt="Plane" class="plane" />
-		<img src="hero2.png" alt="Hero Image" class="hero-image desktop-hero" />
-		<img src="hero.png" alt="Hero Image" class="hero-image mobile-hero" />
+		<img src="homeherodesk.png" alt="Hero Image" class="hero-image desktop-hero" />
+		<img src="homeheromob.png" alt="Hero Image" class="hero-image mobile-hero" />
 	</div>
 
 
@@ -94,19 +94,22 @@
 		<!-- Podium Boxes -->
 		<div class="podium" style="margin-top: 3rem;">
 			<div class="podium-box second" data-prize="₹30,000">
-				<h3>2nd</h3>
+
 				<img src="second.png" alt="Second Place" class="trophy">
+				<h3 style="margin-top: 1rem;">2nd</h3>
 			</div>
 			<div class="podium-box first" data-prize="₹50,000">
-				<h3>1st</h3>
 				<img src="first.png" alt="First Place" class="trophy">
+				<h3 style="margin-top: 1rem;">1st</h3>
+
 			</div>
 			<div class="podium-box third" data-prize="₹20,000">
-				<h3>3rd</h3>
+
 				<img src="third.png" alt="Third Place" class="trophy">
+				<h3 style="margin-top: 1rem;">3rd</h3>
 			</div>
 		</div>
-		<h3 class="winners-subtitle-small">TOP 3 TEAMS <span class="tap-text">(TAP TO REVEAL)</span></h3>
+		<h3 class="winners-subtitle-small">^^^ TAP TO REVEAL ^^^<span class="tap-text"></span></h3>
 		<div class="extra-prizes">
 			<p class="extra-text">Additional prizes and giveaways to be revealed soon...</p>
 			<a href="https://forms.gle/your-google-form-link" target="_blank" class="register-btn">
@@ -319,11 +322,11 @@
 					prizeText.style.transform = 'translate(-50%, -10px)';
 				}, 200 );
 
-				setTimeout( () => {
-					prizeText.style.opacity = '0';
-					prizeText.style.transform = 'translate(-50%, -20px)';
-					setTimeout( () => prizeText.remove(), 400 );
-				}, 2500 );
+				// setTimeout( () => {
+				// 	prizeText.style.opacity = '0';
+				// 	prizeText.style.transform = 'translate(-50%, -20px)';
+				// 	setTimeout( () => prizeText.remove(), 400 );
+				// }, 2500 );
 			} );
 		} );
 	</script>
