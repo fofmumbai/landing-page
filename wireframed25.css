@@ -920,6 +920,7 @@ h2.yellow {
   font-weight: 600;
   font-size: 1.1rem;
   font-family: "Pixelony", sans-serif;
+  line-height: 1.2;
 }
 
 .faq-question:hover {
