@@ -829,6 +829,81 @@ h2.yellow {
   margin: 0 auto;
 }
 
+.mentor-section {
+  position: relative;
+  padding: 100px 5%;
+  background: url("mentor-bg.png") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Cloud setup */
+.cloud {
+  position: absolute;
+  opacity: 1;
+  z-index: 1;
+}
+
+.cloud-1 { top: 10%; left: 5%; width: 150px; animation-delay: 0s; }
+.cloud-2 { top: 20%; right: 10%; width: 190px; animation-delay: 2s; }
+.cloud-3 { bottom: 15%; left: 10%; width: 240px; animation-delay: 4s; }
+.cloud-4 { bottom: 25%; right: 15%; width: 200px; animation-delay: 6s; }
+
+
+/* Grid layout */
+.mentor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  justify-items: center;
+}
+
+
+/* Mentor card image */
+.mentor-card {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.mentor-card:hover {
+  transform: scale(1.05);
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .mentor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mentor-card:nth-child(4),
+  .mentor-card:nth-child(5) {
+    grid-column: auto;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .mentor-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .cloud-1 { top: 2%; left: 5%; width: 100px; animation-delay: 0s; }
+.cloud-2 { top: 7%; right: 10%; width: 90px; animation-delay: 2s; }
+.cloud-3 { bottom: 45%; left: 20%; width: 140px; animation-delay: 4s; }
+.cloud-4 { bottom: 15%; right: 15%; width: 150px; animation-delay: 6s; }
+}
+
+
 .venue-section {
   text-align: center;
   overflow: hidden;
