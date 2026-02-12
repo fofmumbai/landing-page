@@ -285,6 +285,22 @@
   color: #fff;
 }
 
+.ooo {
+  background-color: #fdfecf;
+  border: 1.5px solid #f2c204;
+  color: #f2c204;
+}
+
+.ooo:hover {
+  background-color: #f2c204;
+  color: #fff;
+}
+
+.ooo.active {
+  background-color: #f2c204;
+  color: #fff;
+}
+
 .fourthfold__content.hidden {
   display: none;
 }
@@ -436,6 +452,12 @@
   border-left: 0.75rem solid #0acf83;
   background-color: #d3ffee;
   color: #0acf83;
+}
+
+.option[data-filter="ooo"] {
+  border-left: 0.75rem solid #f2c204;
+  background-color: #fafbd4;
+  color: #f2c204;
 }
 
 /* .dropdown-select {

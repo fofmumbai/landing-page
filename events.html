@@ -87,6 +87,7 @@
 				<div class="filter-buttons desktop-filters">
 					<button class="filter-btn active all" data-filter="all">All Events</button>
 					<button class="filter-btn core" data-filter="core">Core Events</button>
+					<button class="filter-btn ooo" data-filter="ooo">Out of Office</button>
 					<button class="filter-btn meetjam" data-filter="meetjam">MeetJam</button>
 					<button class="filter-btn partner-event" data-filter="partner-event">Partner Collaborations</button>
 					<button class="filter-btn campus" data-filter="campus">Campus Connect</button>
@@ -101,6 +102,7 @@
 					<div class="dropdown-options">
 						<div class="option" data-filter="all">All Events</div>
 						<div class="option" data-filter="core">Core Events</div>
+						<div class="option" data-filter="ooo">Out of Office</div>
 						<div class="option" data-filter="meetjam">MeetJam</div>
 						<div class="option" data-filter="partner-event">Partner Collaborations</div>
 						<div class="option" data-filter="campus">Campus Connect</div>
@@ -119,6 +121,14 @@
 
 
 			<div class="fourthfold__container bd-grid">
+				<a href="https://fofmumbai.com/wireframed25"
+                    class="fourthfold__content" data-type="core">
+                    <img src="events/eventassets/ooo1poster.jpg" alt="" class="fourthfold__img">
+                    <h3 class="fourthfold__title">Out of Office #1 - Touch Grass Edition</h3>
+                    <span class="fourthfold__category">In-person</span>
+                    <span class="button fourthfold__button"><i class='bx bx-right-arrow-alt'></i></span>
+                </a>
+
 				<a href="https://fofmumbai.com/wireframed25"
                     class="fourthfold__content" data-type="core">
                     <img src="events/eventassets/Main Poster 1x1_okic5Kk.webp" alt="" class="fourthfold__img">
@@ -505,7 +515,8 @@
 					'core': 'These are the flagship events of Friends of Figma Mumbai—the ones that truly define us. Everything, from the experience to the swags and food, is curated by our team. And the best part? They’re completely free!',
 					'meetjam': 'No speakers, no agenda—just designers hanging out! MeetJam is all about exploring Mumbai and trying new places. A small crowd keeps things cozy, and the cost of food or activities is split among attendees.',
 					'partner-event': 'When we team up with awesome partners, great things happen! These events are a joint effort by people who are just here to support designers.',
-					'campus': 'Bringing design to students, one campus at a time! Through workshops and talks, we introduce design to educational institutions, inspiring the next generation of creatives. Mostly open to students of the hosting campus.'
+					'campus': 'Bringing design to students, one campus at a time! Through workshops and talks, we introduce design to educational institutions, inspiring the next generation of creatives. Mostly open to students of the hosting campus.',
+					'ooo': 'Our Out of Office events are all about stepping away from the screen and connecting in real life. We pick fun, offbeat venues around Mumbai for a chill hangout with fellow designers.',
 				};
 
 				const descriptionText = document.getElementById( 'filter-description-text' );
