@@ -46,17 +46,17 @@
 
 .community-notes__board {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem 1.25rem;
-  align-items: start;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem 1.5rem;
+  align-items: stretch;
 }
 
 .note {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 11.5rem;
-  padding: 1.15rem 1.15rem 1rem;
+  min-height: 13.5rem;
+  padding: 1.4rem 1.45rem 1.2rem;
   border-radius: 6px;
   box-shadow: 0 6px 18px rgba(22, 18, 18, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
@@ -71,57 +71,16 @@
 
 .note__quote {
   font-family: var(--body-font);
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.4;
   color: #1a1a1a;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.35rem;
 }
 
 .note__meta {
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  gap: 0.45rem;
-}
-
-.note__author {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
-  max-width: 100%;
-  font-family: var(--body-font);
-  font-size: 0.85rem;
-  font-weight: 500;
-  line-height: 1.2;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-.note__author-name {
-  text-decoration: none;
-  text-underline-offset: 0.15em;
-}
-
-.note__author-icon {
-  flex-shrink: 0;
-  width: 0.9em;
-  height: 0.9em;
-  opacity: 0;
-  transform: translate(-2px, 2px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.note__author:hover .note__author-name,
-.note__author:focus-visible .note__author-name {
-  text-decoration: underline;
-}
-
-.note__author:hover .note__author-icon,
-.note__author:focus-visible .note__author-icon {
-  opacity: 1;
-  transform: translate(0, 0);
 }
 
 .note__tag {
@@ -139,96 +98,71 @@
 .note--yellow {
   background: var(--note-yellow);
 }
-.note--yellow .note__author,
 .note--yellow .note__tag {
   color: var(--note-yellow-ink);
-}
-.note--yellow .note__tag {
   background: var(--note-yellow-tag);
 }
 
 .note--green {
   background: var(--note-green);
 }
-.note--green .note__author,
 .note--green .note__tag {
   color: var(--note-green-ink);
-}
-.note--green .note__tag {
   background: var(--note-green-tag);
 }
 
 .note--blue {
   background: var(--note-blue);
 }
-.note--blue .note__author,
 .note--blue .note__tag {
   color: var(--note-blue-ink);
-}
-.note--blue .note__tag {
   background: var(--note-blue-tag);
 }
 
 .note--purple {
   background: var(--note-purple);
 }
-.note--purple .note__author,
 .note--purple .note__tag {
   color: var(--note-purple-ink);
-}
-.note--purple .note__tag {
   background: var(--note-purple-tag);
 }
 
 .note--pink {
   background: var(--note-pink);
 }
-.note--pink .note__author,
 .note--pink .note__tag {
   color: var(--note-pink-ink);
-}
-.note--pink .note__tag {
   background: var(--note-pink-tag);
 }
 
 .note--coral {
   background: var(--note-coral);
 }
-.note--coral .note__author,
 .note--coral .note__tag {
   color: var(--note-coral-ink);
-}
-.note--coral .note__tag {
   background: var(--note-coral-tag);
 }
 
 .note--mint {
   background: var(--note-mint);
 }
-.note--mint .note__author,
 .note--mint .note__tag {
   color: var(--note-mint-ink);
-}
-.note--mint .note__tag {
   background: var(--note-mint-tag);
 }
 
 /* Organic board offsets */
-.note:nth-child(4n + 1) {
+.note:nth-child(3n + 1) {
   margin-top: 0.35rem;
-  transform: rotate(-1.2deg);
+  transform: rotate(-1deg);
 }
-.note:nth-child(4n + 2) {
-  margin-top: 1.1rem;
-  transform: rotate(1deg);
+.note:nth-child(3n + 2) {
+  margin-top: 1rem;
+  transform: rotate(0.9deg);
 }
-.note:nth-child(4n + 3) {
-  margin-top: 0.15rem;
-  transform: rotate(-0.6deg);
-}
-.note:nth-child(4n + 4) {
-  margin-top: 0.85rem;
-  transform: rotate(1.4deg);
+.note:nth-child(3n + 3) {
+  margin-top: 0.2rem;
+  transform: rotate(-0.7deg);
 }
 
 .note.is-entering {
@@ -245,19 +179,19 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 900px) {
   .community-notes__board {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
   }
 
-  .note:nth-child(3n + 1) {
-    margin-top: 0.25rem;
+  .note:nth-child(2n + 1) {
+    margin-top: 0.3rem;
+    transform: rotate(-0.8deg);
   }
-  .note:nth-child(3n + 2) {
-    margin-top: 0.9rem;
-  }
-  .note:nth-child(3n + 3) {
-    margin-top: 0.45rem;
+  .note:nth-child(2n) {
+    margin-top: 0.85rem;
+    transform: rotate(0.8deg);
   }
 }
 
@@ -266,13 +200,13 @@
     font-size: 2.2rem;
   }
 
-  .community-notes__board {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+  .note {
+    min-height: 12rem;
+    padding: 1.25rem 1.3rem 1.1rem;
   }
 
-  .note {
-    min-height: 10.5rem;
+  .note__quote {
+    font-size: 1rem;
   }
 }
 
