@@ -1,71 +1,54 @@
-/*===== Testimonials notes board =====*/
+/*===== Community notes board (homepage) =====*/
 :root {
-  --note-yellow: #ffe566;
-  --note-yellow-ink: #8a6a1a;
-  --note-yellow-tag: rgba(138, 106, 26, 0.14);
+  --note-yellow: #ffe299;
+  --note-yellow-ink: #8a6b1a;
+  --note-yellow-tag: rgba(138, 107, 26, 0.16);
 
-  --note-blue: #9fd4ff;
-  --note-blue-ink: #1a5f8a;
-  --note-blue-tag: rgba(26, 95, 138, 0.14);
+  --note-green: #b3efbd;
+  --note-green-ink: #2a6b3a;
+  --note-green-tag: rgba(42, 107, 58, 0.16);
 
-  --note-green: #9de8b8;
-  --note-green-ink: #1f6b45;
-  --note-green-tag: rgba(31, 107, 69, 0.14);
+  --note-blue: #a8daff;
+  --note-blue-ink: #1a5a8a;
+  --note-blue-tag: rgba(26, 90, 138, 0.16);
 
-  --note-pink: #ffc2ef;
-  --note-pink-ink: #8a2a6e;
-  --note-pink-tag: rgba(138, 42, 110, 0.14);
+  --note-purple: #d3bdff;
+  --note-purple-ink: #5a3a8a;
+  --note-purple-tag: rgba(90, 58, 138, 0.16);
+
+  --note-pink: #ffa8db;
+  --note-pink-ink: #8a2a6a;
+  --note-pink-tag: rgba(138, 42, 106, 0.16);
+
+  --note-coral: #ffafa3;
+  --note-coral-ink: #8a3a2a;
+  --note-coral-tag: rgba(138, 58, 42, 0.16);
+
+  --note-mint: #b3f4ef;
+  --note-mint-ink: #2a6b65;
+  --note-mint-tag: rgba(42, 107, 101, 0.16);
 }
 
-.home__title {
-  white-space: nowrap;
+.community-notes {
+  padding: 3rem 0 2rem;
 }
 
-.testimonials .filter-container {
-  margin: 2rem auto 2.5rem;
-  text-align: center;
-  width: 100%;
-}
-
-.testimonials__filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-}
-
-.testimonials__filter {
-  appearance: none;
-  border: 1px solid #d9d7d2;
-  background: #fff;
-  color: #4a4747;
-  font-family: var(--body-font);
-  font-size: 0.85rem;
+.community-notes .section-title {
+  font-size: 2rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  margin-bottom: 2.5rem;
 }
 
-.testimonials__filter:hover {
-  border-color: #bdbbb6;
+.community-notes .section-title .community-text {
+  font-size: 2.6rem;
+  font-weight: 500;
 }
 
-.testimonials__filter.is-active {
-  background: #000;
-  border-color: #000;
-  color: #fff;
-}
-
-.testimonials__board {
+.community-notes__board {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.5rem 1.25rem;
   align-items: start;
-  padding-bottom: 4rem;
 }
 
 .note {
@@ -133,17 +116,6 @@
   background: var(--note-yellow-tag);
 }
 
-.note--blue {
-  background: var(--note-blue);
-}
-.note--blue .note__author,
-.note--blue .note__tag {
-  color: var(--note-blue-ink);
-}
-.note--blue .note__tag {
-  background: var(--note-blue-tag);
-}
-
 .note--green {
   background: var(--note-green);
 }
@@ -155,6 +127,28 @@
   background: var(--note-green-tag);
 }
 
+.note--blue {
+  background: var(--note-blue);
+}
+.note--blue .note__author,
+.note--blue .note__tag {
+  color: var(--note-blue-ink);
+}
+.note--blue .note__tag {
+  background: var(--note-blue-tag);
+}
+
+.note--purple {
+  background: var(--note-purple);
+}
+.note--purple .note__author,
+.note--purple .note__tag {
+  color: var(--note-purple-ink);
+}
+.note--purple .note__tag {
+  background: var(--note-purple-tag);
+}
+
 .note--pink {
   background: var(--note-pink);
 }
@@ -164,6 +158,28 @@
 }
 .note--pink .note__tag {
   background: var(--note-pink-tag);
+}
+
+.note--coral {
+  background: var(--note-coral);
+}
+.note--coral .note__author,
+.note--coral .note__tag {
+  color: var(--note-coral-ink);
+}
+.note--coral .note__tag {
+  background: var(--note-coral-tag);
+}
+
+.note--mint {
+  background: var(--note-mint);
+}
+.note--mint .note__author,
+.note--mint .note__tag {
+  color: var(--note-mint-ink);
+}
+.note--mint .note__tag {
+  background: var(--note-mint-tag);
 }
 
 /* Organic board offsets */
@@ -199,7 +215,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .testimonials__board {
+  .community-notes__board {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -215,11 +231,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .home__title {
-    white-space: normal;
+  .community-notes .section-title .community-text {
+    font-size: 2.2rem;
   }
 
-  .testimonials__board {
+  .community-notes__board {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
   }
@@ -230,7 +246,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .testimonials__board {
+  .community-notes__board {
     grid-template-columns: 1fr;
   }
 

@@ -1,9 +1,22 @@
 /**
- * Testimonials board
+ * Community notes board (homepage)
  * Swap MOCK_NOTES for a Google Sheet fetch later.
  * Expected columns: quote | author | tag | color
- * color values: yellow | blue | green | pink
+ * color values: yellow | green | blue | purple | pink | coral | mint
+ * Hex map:
+ *   yellow #FFE299 | green #B3EFBD | blue #A8DAFF | purple #D3BDFF
+ *   pink #FFA8DB | coral #FFAFA3 | mint #B3F4EF
  */
+const NOTE_COLORS = [
+  "yellow",
+  "green",
+  "blue",
+  "purple",
+  "pink",
+  "coral",
+  "mint",
+];
+
 const MOCK_NOTES = [
   {
     quote: "The energy in that room was unreal. Best watch party ever.",
@@ -33,19 +46,19 @@ const MOCK_NOTES = [
     quote: "Walked in knowing nobody. Left with a whole design family.",
     author: "Ananya Desai",
     tag: "COMMUNITY",
-    color: "green",
+    color: "purple",
   },
   {
     quote: "Config highlights hit different when you're watching with 200 designers.",
     author: "Dev Patel",
     tag: "CONFIG '23",
-    color: "yellow",
+    color: "coral",
   },
   {
     quote: "My Figma game leveled up in two hours flat. No exaggeration.",
     author: "Meera Joshi",
     tag: "VARIABLES 101",
-    color: "yellow",
+    color: "mint",
   },
   {
     quote: "Honest feedback, zero ego. That's rare and that's FOF.",
@@ -57,13 +70,13 @@ const MOCK_NOTES = [
     quote: "The WhatsApp group alone is worth joining. Pure gold.",
     author: "Nisha Reddy",
     tag: "COMMUNITY",
-    color: "pink",
+    color: "yellow",
   },
   {
     quote: "From intern to hiring manager — this community grew with me.",
     author: "Vikram Rao",
     tag: "COMMUNITY",
-    color: "pink",
+    color: "purple",
   },
   {
     quote: "Prototype tips I still use every single week at work.",
@@ -75,11 +88,9 @@ const MOCK_NOTES = [
     quote: "Best decision I made as a junior designer in Mumbai.",
     author: "Ayaan Kapoor",
     tag: "PORTFOLIO NIGHT",
-    color: "pink",
+    color: "coral",
   },
 ];
-
-const FILTERS = ["ALL", "CONFIG '23", "VARIABLES 101", "COMMUNITY", "PORTFOLIO NIGHT"];
 
 function escapeHtml(value) {
   return String(value)
@@ -90,63 +101,37 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
-function renderFilters(activeFilter) {
-  const filtersEl = document.getElementById("testimonials-filters");
-  if (!filtersEl) return;
-
-  filtersEl.innerHTML = FILTERS.map((filter) => {
-    const isActive = filter === activeFilter;
-    return `<button type="button" class="testimonials__filter${
-      isActive ? " is-active" : ""
-    }" data-filter="${escapeHtml(filter)}" aria-pressed="${isActive}">${escapeHtml(
-      filter
-    )}</button>`;
-  }).join("");
+function resolveColor(color, index) {
+  if (NOTE_COLORS.includes(color)) return color;
+  return NOTE_COLORS[index % NOTE_COLORS.length];
 }
 
-function renderNotes(notes, filter) {
-  const boardEl = document.getElementById("testimonials-board");
+function renderNotes(notes) {
+  const boardEl = document.getElementById("community-notes-board");
   if (!boardEl) return;
 
-  const visibleNotes =
-    filter === "ALL" ? notes : notes.filter((note) => note.tag === filter);
-
-  boardEl.innerHTML = visibleNotes
-    .map(
-      (note, index) => `
-      <article class="note note--${escapeHtml(note.color)} is-entering" style="animation-delay: ${
+  boardEl.innerHTML = notes
+    .map((note, index) => {
+      const color = resolveColor(note.color, index);
+      return `
+      <article class="note note--${escapeHtml(color)} is-entering" style="animation-delay: ${
         index * 30
-      }ms" data-tag="${escapeHtml(note.tag)}">
+      }ms">
         <p class="note__quote">${escapeHtml(note.quote)}</p>
         <div class="note__meta">
           <span class="note__author">${escapeHtml(note.author)}</span>
           <span class="note__tag">${escapeHtml(note.tag)}</span>
         </div>
-      </article>`
-    )
+      </article>`;
+    })
     .join("");
 }
 
-function initTestimonials(notes = MOCK_NOTES) {
-  let activeFilter = "ALL";
-
-  renderFilters(activeFilter);
-  renderNotes(notes, activeFilter);
-
-  const filtersEl = document.getElementById("testimonials-filters");
-  if (!filtersEl) return;
-
-  filtersEl.addEventListener("click", (event) => {
-    const button = event.target.closest(".testimonials__filter");
-    if (!button) return;
-
-    activeFilter = button.dataset.filter;
-    renderFilters(activeFilter);
-    renderNotes(notes, activeFilter);
-  });
+function initCommunityNotes(notes = MOCK_NOTES) {
+  renderNotes(notes);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Later: fetch Google Sheet → map rows → initTestimonials(rows)
-  initTestimonials(MOCK_NOTES);
+  // Later: fetch Google Sheet → map rows → initCommunityNotes(rows)
+  initCommunityNotes(MOCK_NOTES);
 });
