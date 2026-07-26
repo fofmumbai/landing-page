@@ -1,0 +1,230 @@
+/*===== Community notes board (homepage) =====*/
+:root {
+  --note-yellow: #ffe299;
+  --note-yellow-ink: #8a6b1a;
+  --note-yellow-tag: rgba(138, 107, 26, 0.16);
+
+  --note-green: #b3efbd;
+  --note-green-ink: #2a6b3a;
+  --note-green-tag: rgba(42, 107, 58, 0.16);
+
+  --note-blue: #a8daff;
+  --note-blue-ink: #1a5a8a;
+  --note-blue-tag: rgba(26, 90, 138, 0.16);
+
+  --note-purple: #d3bdff;
+  --note-purple-ink: #5a3a8a;
+  --note-purple-tag: rgba(90, 58, 138, 0.16);
+
+  --note-pink: #ffa8db;
+  --note-pink-ink: #8a2a6a;
+  --note-pink-tag: rgba(138, 42, 106, 0.16);
+
+  --note-coral: #ffafa3;
+  --note-coral-ink: #8a3a2a;
+  --note-coral-tag: rgba(138, 58, 42, 0.16);
+
+  --note-mint: #b3f4ef;
+  --note-mint-ink: #2a6b65;
+  --note-mint-tag: rgba(42, 107, 101, 0.16);
+}
+
+.community-notes {
+  padding: 3rem 0 2rem;
+}
+
+.community-notes .section-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+
+.community-notes .section-title .community-text {
+  font-size: 2.6rem;
+  font-weight: 500;
+}
+
+.community-notes__board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem 1.5rem;
+  align-items: stretch;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 13.5rem;
+  padding: 1.4rem 1.45rem 1.2rem;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(22, 18, 18, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+  will-change: transform;
+}
+
+.note:hover {
+  box-shadow: 0 12px 28px rgba(22, 18, 18, 0.12);
+  transform: translateY(-4px) rotate(0deg) !important;
+  z-index: 2;
+}
+
+.note__quote {
+  font-family: var(--body-font);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #1a1a1a;
+  margin: 0 0 1.35rem;
+}
+
+.note__meta {
+  display: flex;
+  align-items: flex-start;
+}
+
+.note__tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--body-font);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+}
+
+.note--yellow {
+  background: var(--note-yellow);
+}
+.note--yellow .note__tag {
+  color: var(--note-yellow-ink);
+  background: var(--note-yellow-tag);
+}
+
+.note--green {
+  background: var(--note-green);
+}
+.note--green .note__tag {
+  color: var(--note-green-ink);
+  background: var(--note-green-tag);
+}
+
+.note--blue {
+  background: var(--note-blue);
+}
+.note--blue .note__tag {
+  color: var(--note-blue-ink);
+  background: var(--note-blue-tag);
+}
+
+.note--purple {
+  background: var(--note-purple);
+}
+.note--purple .note__tag {
+  color: var(--note-purple-ink);
+  background: var(--note-purple-tag);
+}
+
+.note--pink {
+  background: var(--note-pink);
+}
+.note--pink .note__tag {
+  color: var(--note-pink-ink);
+  background: var(--note-pink-tag);
+}
+
+.note--coral {
+  background: var(--note-coral);
+}
+.note--coral .note__tag {
+  color: var(--note-coral-ink);
+  background: var(--note-coral-tag);
+}
+
+.note--mint {
+  background: var(--note-mint);
+}
+.note--mint .note__tag {
+  color: var(--note-mint-ink);
+  background: var(--note-mint-tag);
+}
+
+/* Organic board offsets */
+.note:nth-child(3n + 1) {
+  margin-top: 0.35rem;
+  transform: rotate(-1deg);
+}
+.note:nth-child(3n + 2) {
+  margin-top: 1rem;
+  transform: rotate(0.9deg);
+}
+.note:nth-child(3n + 3) {
+  margin-top: 0.2rem;
+  transform: rotate(-0.7deg);
+}
+
+.note.is-entering {
+  animation: note-in 0.35s ease both;
+}
+
+@keyframes note-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .community-notes__board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .note:nth-child(2n + 1) {
+    margin-top: 0.3rem;
+    transform: rotate(-0.8deg);
+  }
+  .note:nth-child(2n) {
+    margin-top: 0.85rem;
+    transform: rotate(0.8deg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .community-notes .section-title .community-text {
+    font-size: 2.2rem;
+  }
+
+  .note {
+    min-height: 12rem;
+    padding: 1.25rem 1.3rem 1.1rem;
+  }
+
+  .note__quote {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .community-notes__board {
+    grid-template-columns: 1fr;
+  }
+
+  .note {
+    margin-top: 0 !important;
+    transform: rotate(0deg);
+  }
+
+  .note:nth-child(odd) {
+    transform: rotate(-0.6deg);
+  }
+
+  .note:nth-child(even) {
+    transform: rotate(0.7deg);
+  }
+}
