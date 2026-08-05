@@ -3,7 +3,16 @@
     "allow": [
       "Bash(git commit *)",
       "Bash(python3 -c ' *)",
-      "Bash(python3)"
+      "Bash(python3)",
+      "Bash(git -C /Users/macm1/Desktop/landing-page status --short)",
+      "Bash(git -C /Users/macm1/Desktop/landing-page ls-files events/eventassets/wp26virtual.webp)",
+      "Bash(git -C /Users/macm1/Desktop/landing-page add events/eventassets/wp26virtual.webp)",
+      "Bash(git -C /Users/macm1/Desktop/landing-page commit -m \"Add Mumbai Config Watch Party 2026 [Virtual Edition] poster image\")",
+      "Bash(git -C /Users/macm1/Desktop/landing-page push)",
+      "Bash(git -C /Users/macm1/Desktop/landing-page add index.html assets/css/testimonials.css)",
+      "Bash(git -C /Users/macm1/Desktop/landing-page commit -m \"Align community notes headline with other section titles\")",
+      "Bash(git -C /Users/macm1/Desktop/landing-page add ooo2.html)",
+      "Bash(git -C /Users/macm1/Desktop/landing-page commit -m \"Add ooo2 redirect page to Luma registration\")"
     ]
   }
 }
