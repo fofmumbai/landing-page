@@ -1,95 +1,305 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Petrona:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+/*========== Figma Sans ==========*/
+/* the Text cut of Figma Sans — Regular and Bold only, no SemiBold.
+   The Oblique files self-identify as the Italic subfamily, so they are
+   registered under font-style: italic. */
+@font-face {
+  font-family: "Figma Sans";
+  src: url("../Figma-Sans-Text-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figma Sans";
+  src: url("../Figma-Sans-Text-Regular-Oblique.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figma Sans";
+  src: url("../Figma-Sans-Text-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figma Sans";
+  src: url("../Figma-Sans-Text-Bold-Oblique.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* styles.css sets body and most type off --body-font, so overriding the token
+   carries Figma Sans through the whole page */
+:root {
+  --body-font: "Figma Sans", "Work Sans", sans-serif;
+}
+
 body{
-  font-family: sans-serif;
+  font-family: var(--body-font);
   font-size: 1rem;
 }
 
+/*========== Banner ==========*/
+/* main carries a -3rem pull-up, and body drops its 3rem header offset at
+   768px — these two values land the same 4rem gap above the banner either way */
+.brand-banner {
+  margin-top: 4rem;
+}
+
+.brand-banner__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .brand-banner {
+    margin-top: 7rem;
+  }
+}
+
+/*========== Section Folds ==========*/
+/* every fold on this page runs image-left / copy-right, and shares the same
+   top spacing (styles.css defaults to image-right with a 5rem pad at 576px) */
+.firstfold__img {
+  order: -1;
+}
+
+.firstfold__container {
+  padding-top: 2rem;
+}
+
+/*========== Buttons ==========*/
+/* styles.css gives .album__button a white fill with a black border, and flips
+   back to white on hover — both states go solid brand blue here */
+.album__button,
+.album__button:hover {
+  background-color: #4D49FC;
+  border-color: #4D49FC;
+  color: #fff;
+}
+
+/*========== Section Headlines ==========*/
+.firstfold__title,
+.palette__heading,
+.primary-logo__heading,
+.partner__heading,
+.dos-donts__heading {
+  color: #122F76;
+  font-weight: var(--font-bold);
+}
+
+/*========== Primary Logo ==========*/
+/* the parent section is a centred flex column, so these stretch back to full
+   width to sit left-aligned like the copy in the folds above */
+.primary-logo__heading {
+  align-self: stretch;
+  font-size: 2rem;
+  margin-bottom: var(--mb-2);
+}
+
+.primary-logo__description {
+  align-self: stretch;
+  margin-bottom: var(--mb-4);
+}
+
+.primary-logo__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .section-title-center {
-  font-family: "work sans", sans-serif;
+  font-family: var(--body-font);
   font-size: 2rem;
 }
 
 .secondfold__description {
-  font-family: 'work sans', sans-serif;
+  font-family: var(--body-font);
   font-size: 1rem;
 }
 
 #typography-description{
- font-family: "Work Sans", serif;
+  font-family: var(--body-font);
   font-size: 1rem;
 }
 
 #typography-title{
-  font-family: "work sans", sans-serif;
+  font-family: var(--body-font);
   font-size: 2rem;
 }
 
-.color__box {
-  width: 120px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: .8rem;
+/*========== Colour Palette ==========*/
+.palette__heading {
+  font-size: 2rem;
+  margin-bottom: var(--mb-3);
 }
 
-.color__schemes {
+/* no column gap — adjacent blocks butt together into one strip, the way the
+   brand doc lays them out. The row that comes up short just stops. */
+.swatches {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(111px, 1fr));
-  gap: 1rem;
-  align-items: center;
-  justify-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: 1.5rem;
+  margin-bottom: 3.5rem;
 }
 
-.color1{
-	background-color: #2A18EF;
+.swatches:last-child {
+  margin-bottom: 0;
 }
 
-.color2{
-	background-color: #3D5CFF;
+.swatch {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  display: block;
 }
 
-.color3{
-	background-color: #99A9FF;
+.swatch__block {
+  display: block;
+  height: 100px;
+  background-color: var(--swatch);
+  margin-bottom: 0.625rem;
 }
 
-.color4{
-	background-color: #001CB5;
+.swatch__name,
+.swatch__hex,
+.swatch__value {
+  display: block;
+  padding-right: 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-color-light);
 }
 
-.color5{
-	background-color: #000;
+.swatch__name {
+  color: #1E1E1E;
 }
 
-.color6{
-	background-color: #fff;
-	box-shadow: inset 0 0 7px #eaeaea45;
+.swatch:hover .swatch__hex,
+.swatch:focus-visible .swatch__hex {
+  color: #4D49FC;
+}
+
+.swatch:focus-visible {
+  outline: 2px solid #4D49FC;
+  outline-offset: 3px;
+}
+
+@media screen and (min-width: 576px) {
+  .swatches {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .fourthfold__content{
   box-shadow: none;
 }
 
-.dos-donts{
-  border: none;
-  background: none;
+/*========== Partner Logo Strip ==========*/
+.partner__heading {
+  font-size: 2rem;
+  margin-bottom: var(--mb-3);
 }
 
-.dos-donts__title{
-  text-align: left;
+.partner__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
 }
 
-.dos-donts__description{
-  text-align: left;
-  color: #000;
+/* space-between pins both strips to the bottom of their column, so they stay
+   level with each other even if the two notes wrap to different line counts */
+.partner__col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
+.partner__note {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* capped by height, not width, so both strips render at the same scale — the
+   right-hand one is a cap-height demo and reads wrong at a different size */
+.partner__strip {
+  display: block;
+  /* .partner__col is a column flex container, so the default align-self:stretch
+     would force width to the column and squash the ratio against max-height */
+  align-self: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 48px;
+}
+
+/* 992px, not 576px: below this a half-width column is narrower than the wider
+   strip at full height, so the two would scale down unequally by width */
+@media screen and (min-width: 992px) {
+  .partner__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3rem;
+  }
+}
+
+/*========== Dos and Don'ts ==========*/
 .dos-donts__heading{
   font-size: 2rem;
-  font-weight: 400;
   margin-bottom: 2rem;
+}
+
+.dd__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1.5rem;
+  row-gap: 2.5rem;
+}
+
+.dd__item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* the tiles already carry their own off-white plate and rounded corners */
+.dd__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dd__text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1E1E1E;
+}
+
+/* must follow the .dd__grid base rule — same specificity, so source order wins */
+@media screen and (min-width: 576px) {
+  .dd__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 4rem;
+    row-gap: 3.5rem;
+  }
 }
 
 .donts{

@@ -36,19 +36,27 @@
         </a>
 
         <main class="l-main" style="margin-top: -3rem; margin-bottom: 3rem;">
+            <!--========== Banner ==========-->
+            <section class="brand-banner" id="brand-banner">
+                <div class="bd-container">
+                    <img src="assets/img/brand/Banner.png" alt="Brand Kit &amp; Guidelines — Friends of Figma, Mumbai"
+                        class="brand-banner__img">
+                </div>
+            </section>
+
             <!--========== First Fold ==========-->
             <section class="firstfold" id="firstfold">
                 <div class="firstfold__container bd-container bd-grid">
                     <div class="firstfold__img">
-                        <img src="assets/img/typography.svg" alt="">
+                        <img src="assets/img/brand/new-typography.png" alt="Typography">
                     </div>
 
                     <div class="firstfold__data">
-                        <h1 class="firstfold__title" style="font-size: 2.5rem; font-weight: 400; margin-top: 1.5rem;">Typography</h1>
+                        <h1 class="firstfold__title" style="font-size: 2.5rem; margin-top: 1.5rem;">Typography</h1>
                         <p class="firstfold__description">Our chosen typefaces ensure
                         readability across all platforms, while adding a unique, bold character that aligns with our vibrant design community.</p>
                         <div style="display: flex; align-items: center; justify-content: space-between;">
-                            <a href="https://fonts.google.com/specimen/Work+Sans" class="button home__button album__button" style="margin-top: 0;" target="_blank">
+                            <a href="assets/img/brand/Figma%20Sans%20for%20FoF.zip" download="Figma Sans for FoF.zip" class="button home__button album__button" style="margin-top: 0;">
                                 <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -66,43 +74,15 @@
             <section class="secondfold section bd-container" id="secondfold">
                 <div class="secondfold__container bd-grid">
                     <div class="secondfold__data" style="text-align: left;">
-                        <p class="secondfold__description" id="typography-description" style="font-weight: 600;">Work Sans SemiBold</p>
-                        <h2 class="section-title-center" id="typography-title" style="text-align: left; font-weight: 600;">The quick brown fox jumps over a lazy dog.</h2>
+                        <p class="secondfold__description" id="typography-description" style="font-weight: 700;">Figma Sans Bold</p>
+                        <h2 class="section-title-center" id="typography-title" style="text-align: left; font-weight: 700;">The quick brown fox jumps over a lazy dog.</h2>
+                        <p class="section-title-center" style="text-align: left; font-weight: 700; font-style: italic;">The quick brown fox jumps over a lazy dog.</p>
                     </div>
 
                     <div class="secondfold__data" style="text-align: left;">
-                        <p class="secondfold__description" style="font-weight: 400;">Work Sans Regular</p>
+                        <p class="secondfold__description" style="font-weight: 400;">Figma Sans Regular</p>
                         <h2 class="section-title-center" style="text-align: left; font-weight: 400;">The quick brown fox jumps over a lazy dog.</h2>
-                    </div>
-
-                </div>
-            </section>
-
-            <!--========== First Fold ==========-->
-            <section class="firstfold" id="firstfold">
-                <div class="firstfold__container bd-container bd-grid" style="padding-top: 0;">
-                    <div class="firstfold__img">
-                        <img src="assets/img/colorscheme.svg" alt="">
-                    </div>
-
-                    <div class="firstfold__data">
-                        <h1 class="firstfold__title" style="font-size: 2.5rem; font-weight: 400; margin-top: 1.5rem;">Color Scheme</h1>
-                        </h1>
-                        <p class="firstfold__description">Each hue is thoughtfully chosen to create a cohesive, welcoming brand that resonates with our creative community.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- =========COLOR SCHEME========= -->
-            <section class="section bd-container" id="">
-                <div class="bd-grid">
-                    <div class="color__schemes">
-                        <div class="color__box color4"><p>#001CB5</p></div>
-                        <div class="color__box color1"><p>#2A18EF</p></div>
-                        <div class="color__box color2"><p>#3D5CFF</p></div>
-                        <div class="color__box color3"><p>#99A9FF</p></div>
-                        <div class="color__box color5"><p>#000000</p></div>
-                        <div class="color__box color6"><p style="color: #000;">#FFFFFF</p></div>
+                        <p class="section-title-center" style="text-align: left; font-weight: 400; font-style: italic;">The quick brown fox jumps over a lazy dog.</p>
                     </div>
 
                 </div>
@@ -112,111 +92,213 @@
             <section class="firstfold" id="firstfold">
                 <div class="firstfold__container bd-container bd-grid">
                     <div class="firstfold__img">
-                        <img src="assets/img/logoguide.svg" alt="">
+                        <img src="assets/img/brand/new-colours.png" alt="Color Scheme">
                     </div>
 
                     <div class="firstfold__data">
-                        <h1 class="firstfold__title" style="font-size: 2.5rem; font-weight: 400; margin-top: 1.5rem;">Logo Guide
+                        <h1 class="firstfold__title" style="font-size: 2.5rem; margin-top: 1.5rem;">Color Scheme</h1>
+                        </h1>
+                        <p class="firstfold__description">Each hue is thoughtfully chosen to create a cohesive, welcoming brand that resonates with our creative community.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =========COLOR SCHEME========= -->
+            <section class="section bd-container" id="palette">
+                <h2 class="palette__heading">Chapter Colours</h2>
+                <div class="swatches">
+                    <button type="button" class="swatch" data-hex="#4D49FC" style="--swatch: #4D49FC;">
+                        <span class="swatch__block"></span>
+                        <span class="swatch__name">Blue</span>
+                        <span class="swatch__hex">#4D49FC</span>
+                        <span class="swatch__value">RGB 77/73/252</span>
+                        <span class="swatch__value">CMYK 82/69/0/0</span>
+                    </button>
+
+                    <button type="button" class="swatch" data-hex="#122F76" style="--swatch: #122F76;">
+                        <span class="swatch__block"></span>
+                        <span class="swatch__name">Dark Blue</span>
+                        <span class="swatch__hex">#122F76</span>
+                        <span class="swatch__value">RGB 18/47/118</span>
+                        <span class="swatch__value">CMYK 96/78/6/25</span>
+                    </button>
+
+                    <button type="button" class="swatch" data-hex="#FF7676" style="--swatch: #FF7676;">
+                        <span class="swatch__block"></span>
+                        <span class="swatch__name">Coral</span>
+                        <span class="swatch__hex">#FF7676</span>
+                        <span class="swatch__value">RGB 255/118/118</span>
+                        <span class="swatch__value">CMYK 0/68/68/0</span>
+                    </button>
+
+                    <button type="button" class="swatch" data-hex="#24CB71" style="--swatch: #24CB71;">
+                        <span class="swatch__block"></span>
+                        <span class="swatch__name">Kelly Green</span>
+                        <span class="swatch__hex">#24CB71</span>
+                        <span class="swatch__value">RGB 36/203/113</span>
+                        <span class="swatch__value">CMYK 73/0/7/0</span>
+                    </button>
+
+                    <button type="button" class="swatch" data-hex="#E4FF97" style="--swatch: #E4FF97;">
+                        <span class="swatch__block"></span>
+                        <span class="swatch__name">Lime</span>
+                        <span class="swatch__hex">#E4FF97</span>
+                        <span class="swatch__value">RGB 228/255/151</span>
+                        <span class="swatch__value">CMYK 13/0/41/0</span>
+                    </button>
+
+                    <button type="button" class="swatch" data-hex="#FF7237" style="--swatch: #FF7237;">
+                        <span class="swatch__block"></span>
+                        <span class="swatch__name">Orange</span>
+                        <span class="swatch__hex">#FF7237</span>
+                        <span class="swatch__value">RGB 255/114/55</span>
+                        <span class="swatch__value">CMYK 0/68/86/0</span>
+                    </button>
+
+                    <button type="button" class="swatch" data-hex="#721C1C" style="--swatch: #721C1C;">
+                        <span class="swatch__block"></span>
+                        <span class="swatch__name">Maroon</span>
+                        <span class="swatch__hex">#721C1C</span>
+                        <span class="swatch__value">RGB 114/28/28</span>
+                        <span class="swatch__value">CMYK 12/92/97/47</span>
+                    </button>
+                </div>
+
+                <h2 class="palette__heading">Core Colours</h2>
+                <div class="swatches">
+                    <button type="button" class="swatch" data-hex="#1E1E1E" style="--swatch: #1E1E1E;">
+                        <span class="swatch__block"></span>
+                        <span class="swatch__name">Black</span>
+                        <span class="swatch__hex">#1E1E1E</span>
+                        <span class="swatch__value">RGB 30/30/30</span>
+                        <span class="swatch__value">CMYK 0/0/0/100</span>
+                    </button>
+
+                    <button type="button" class="swatch" data-hex="#FFFFFF" style="--swatch: #FFFFFF;">
+                        <span class="swatch__block"></span>
+                        <span class="swatch__name">White</span>
+                        <span class="swatch__hex">#FFFFFF</span>
+                        <span class="swatch__value">RGB 255/255/255</span>
+                        <span class="swatch__value">CMYK 0/0/0/0</span>
+                    </button>
+
+                    <button type="button" class="swatch" data-hex="#F5F5F5" style="--swatch: #F5F5F5;">
+                        <span class="swatch__block"></span>
+                        <span class="swatch__name">Off-White</span>
+                        <span class="swatch__hex">#F5F5F5</span>
+                        <span class="swatch__value">RGB 245/245/245</span>
+                        <span class="swatch__value">CMYK 0/0/0/8</span>
+                    </button>
+                </div>
+            </section>
+
+            <!--========== First Fold ==========-->
+            <section class="firstfold" id="firstfold">
+                <div class="firstfold__container bd-container bd-grid">
+                    <div class="firstfold__img">
+                        <img src="assets/img/brand/new-logo.png" alt="Logo Guide">
+                    </div>
+
+                    <div class="firstfold__data">
+                        <h1 class="firstfold__title" style="font-size: 2.5rem; margin-top: 1.5rem;">Logo Guide
                         </h1>
                         </h1>
                         <p class="firstfold__description">Consistent use of the logo helps build brand recognition and unity, so please follow the guidelines for color, spacing,
                         and scaling to keep our brand strong and impactful.</p>
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <a href="https://drive.google.com/drive/folders/1p2J3k50zT8YhQsASd0iFjIwjyp4MvHLu" class="button home__button album__button" style="margin-top: 0;" target="_blank">
+                                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                                <span>Download Logo Kit</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- ========= LOGOS ========= -->
             <section class="fourthfold section bd-container" id="fourthfold" style="display: flex; flex-direction: column; align-items: center;">
-                <div class="fourthfold__container bd-grid" style="grid-template-columns: repeat(2, auto);">
-                    <a href="assets/img/fofmumbai_primarylogo.png" download="fofmumbai_primarylogo" class="fourthfold__content">
-                        <img src="assets/img/primarylogo.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title">Primary - Dark</h3>
-                        <span class="fourthfold__category" style="font-size: .85rem;">Approval required before use</span>
-                        <span class="button fourthfold__button"><i class='bx bx-download'></i></span>
-                    </a>
+                <h2 class="primary-logo__heading">Primary Logo</h2>
+                <p class="primary-logo__description">The logo combines the logotype with the chapter name, with variations provided
+                for both the stacked and lined arrangements.</p>
+                <img src="assets/img/brand/primary-logo-layout.png" class="primary-logo__img"
+                    alt="Primary logo variations — stacked and lined arrangements, on both light and dark backgrounds">
+            </section>
 
-                    <a href="assets/img/fofmumbai_primarylogo_light.png" download="fofmumbai_primarylogo_light" class="fourthfold__content">
-                        <img src="assets/img/primarylogolight.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title">Primary - Light</h3>
-                        <span class="fourthfold__category" style="font-size: .85rem;">Approval required before use</span>
-                        <span class="button fourthfold__button"><i class='bx bx-download'></i></span>
-                    </a>
+            <!-- ========= PARTNER LOGO STRIP ========= -->
+            <section class="section bd-container" id="partner-strip" style="padding-top: 3rem;">
+                <h2 class="partner__heading">Partner Logo Strip</h2>
+                <div class="partner__grid">
+                    <div class="partner__col">
+                        <p class="partner__note">The partner logo strip should be used when the chapter is one of multiple
+                        sponsors.</p>
+                        <img src="assets/img/brand/Partner%20logo%20strip.png" class="partner__strip"
+                            alt="Partner strip example: two placeholder company logos alongside the chapter logo">
+                    </div>
+
+                    <div class="partner__col">
+                        <p class="partner__note">When including the chapter logo in a partnership strip, aim for the cap
+                        heights to be roughly aligned.</p>
+                        <img src="assets/img/brand/Strip%20example.png" class="partner__strip"
+                            alt="Partner strip example: the chapter logo alongside the LottieFiles logo, cap heights aligned">
+                    </div>
                 </div>
-                    <a href="https://drive.google.com/drive/folders/1p2J3k50zT8YhQsASd0iFjIwjyp4MvHLu" class="button home__button album__button" style="margin-top: 2rem;" target="_blank">
-                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                        <span>Download Logo Kit</span>
-                    </a>
             </section>
 
             <!-- ==== DOS ===== -->
-            <section class="fourthfold section bd-container" id="fourthfold" style="padding-top: 2rem; text-align: center;">
+            <section class="section bd-container" id="dos-donts" style="padding-top: 2rem;">
                 <h2 class="dos-donts__heading">Dos and Don'ts</h2>
-                <div class="fourthfold__container bd-grid">
-                    <a class="fourthfold__content dos-donts">
-                        <img src="assets/img/dos1.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title dos-donts__title"></h3>
-                        <span class="fourthfold__category dos-donts__description">Rotate logo 15° or -15° if needed.</span>
-                    </a>
+                <div class="dd__grid">
+                    <figure class="dd__item">
+                        <img src="assets/img/brand/dnd-1.png" class="dd__img"
+                            alt="Correct usage: the logo with clear space marked out around it">
+                        <figcaption class="dd__text">Give the logo space against visuals.</figcaption>
+                    </figure>
 
-                    <a class="fourthfold__content dos-donts">
-                        <img src="assets/img/dos2.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title dos-donts__title"></h3>
-                        <span class="fourthfold__category dos-donts__description">Give the logo space against visuals.</span>
-                    </a>
+                    <figure class="dd__item">
+                        <img src="assets/img/brand/dnd0.png" class="dd__img"
+                            alt="Correct usage: the light logo variant on a black background">
+                        <figcaption class="dd__text">Use light variant of logo wherever applicable.</figcaption>
+                    </figure>
 
-                    <a class="fourthfold__content dos-donts">
-                        <img src="assets/img/dos3.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title dos-donts__title"></h3>
-                        <span class="fourthfold__category dos-donts__description">Mumbai name should always be easy to read.</span>
-                    </a>
+                    <figure class="dd__item">
+                        <img src="assets/img/brand/dnd6.png" class="dd__img"
+                            alt="Incorrect usage: the whole logo lockup rotated">
+                        <figcaption class="dd__text">Do not rotate the logo.</figcaption>
+                    </figure>
 
-                    <a class="fourthfold__content dos-donts">
-                        <img src="assets/img/dos4.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title dos-donts__title"></h3>
-                        <span class="fourthfold__category dos-donts__description">Use logo in white wherever applicable</span>
-                    </a>
+                    <figure class="dd__item">
+                        <img src="assets/img/brand/dnd5.png" class="dd__img"
+                            alt="Incorrect usage: the logo recoloured orange and green">
+                        <figcaption class="dd__text">Do not change the colours of logo.</figcaption>
+                    </figure>
 
-                    <!-- donts -->
+                    <figure class="dd__item">
+                        <img src="assets/img/brand/dnd4.png" class="dd__img"
+                            alt="Incorrect usage: the chapter name set in a script typeface">
+                        <figcaption class="dd__text">Do not change the font family/weight.</figcaption>
+                    </figure>
 
-                    <a class="fourthfold__content dos-donts">
-                        <img src="assets/img/donts1.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title dos-donts__title"></h3>
-                        <span class="fourthfold__category dos-donts__description">Don't remove outer circle.</span>
-                    </a>
+                    <figure class="dd__item">
+                        <img src="assets/img/brand/dnd3.png" class="dd__img"
+                            alt="Incorrect usage: an RGB-only purple on the chapter name">
+                        <figcaption class="dd__text">Do not use RGB colours for print assets.</figcaption>
+                    </figure>
 
-                    <a class="fourthfold__content dos-donts">
-                        <img src="assets/img/donts2.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title dos-donts__title"></h3>
-                        <span class="fourthfold__category dos-donts__description">Don't use secondary or tertiary logo without prior approval.</span>
-                    </a>
+                    <figure class="dd__item">
+                        <img src="assets/img/brand/dnd2.png" class="dd__img"
+                            alt="Incorrect usage: the chapter name pill resized and knocked out of place">
+                        <figcaption class="dd__text">Do not F with the logo.</figcaption>
+                    </figure>
 
-                    <a class="fourthfold__content dos-donts">
-                        <img src="assets/img/donts3.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title dos-donts__title"></h3>
-                        <span class="fourthfold__category dos-donts__description">Never use the “F” alone.</span>
-                    </a>
-
-                    <a class="fourthfold__content dos-donts">
-                        <img src="assets/img/donts4.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title dos-donts__title"></h3>
-                        <span class="fourthfold__category dos-donts__description">Never use heart alone.</span>
-                    </a>
-
-                    <a class="fourthfold__content dos-donts">
-                        <img src="assets/img/donts5.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title dos-donts__title"></h3>
-                        <span class="fourthfold__category dos-donts__description">Don’t change the font or adjust spacing.</span>
-                    </a>
-
-                    <a class="fourthfold__content dos-donts">
-                        <img src="assets/img/donts6.svg" alt="" class="fourthfold__img">
-                        <h3 class="fourthfold__title dos-donts__title"></h3>
-                        <span class="fourthfold__category dos-donts__description">Don’t change the colors. Don’t color in the “F”.</span>
-                    </a>
+                    <figure class="dd__item">
+                        <img src="assets/img/brand/dnd1.png" class="dd__img"
+                            alt="Incorrect usage: the previous Friends of Figma Mumbai logo">
+                        <figcaption class="dd__text">Do not use our old logo.</figcaption>
+                    </figure>
                 </div>
             </section>
 
@@ -277,7 +359,12 @@
         <script src="assets/js/main.js"></script>
         <script>
             function copyHexCode( event ) {
-                const hexCode = event.currentTarget.querySelector( 'p' ).textContent;
+                const swatch = event.currentTarget;
+                const hexNode = swatch.querySelector( '.swatch__hex' );
+                const hexCode = swatch.dataset.hex;
+
+                if ( !hexNode || !hexCode || hexNode.dataset.copying === 'true' ) return;
+
                 const textarea = document.createElement( 'textarea' );
                 textarea.value = hexCode;
                 document.body.appendChild( textarea );
@@ -285,19 +372,18 @@
                 document.execCommand( 'copy' );
                 document.body.removeChild( textarea );
 
-                const originalText = event.currentTarget.querySelector( 'p' ).textContent;
-                event.currentTarget.querySelector( 'p' ).textContent = 'Copied!';
+                hexNode.dataset.copying = 'true';
+                hexNode.textContent = 'Copied!';
 
                 setTimeout( () => {
-                    event.currentTarget.querySelector( 'p' ).textContent = originalText;
+                    hexNode.textContent = hexCode;
+                    delete hexNode.dataset.copying;
                 }, 1500 );
             }
 
             document.addEventListener( 'DOMContentLoaded', function () {
-                const colorBoxes = document.querySelectorAll( '.color__box' );
-                colorBoxes.forEach( box => {
-                    box.addEventListener( 'click', copyHexCode );
-                    box.style.cursor = 'pointer';
+                document.querySelectorAll( '.swatch' ).forEach( swatch => {
+                    swatch.addEventListener( 'click', copyHexCode );
                 } );
             } );
         </script>
