@@ -100,7 +100,7 @@
 
 		<!--========== Third Fold ==========-->
 		<section class="thirdfold section bd-container" id="thirdfold">
-			<h2 class="section-title" style="font-size: 2rem; font-weight: 500;">Curated Networking</h2>
+			<h2 class="section-title" style="font-size: 2rem; font-weight: 500;">Groups</h2>
 			<div class="thirdfold__container bd-grid networking__grid networking__grid--center">
 				<!-- Group A -->
 				<div class="thirdfold__data" data-modal-content='{
@@ -112,10 +112,10 @@
 				        {"url": "https://www.linkedin.com/in/kartiki-kale-2129a8218", "text": "Kartiki Kale"},
 				        {"url": "https://www.linkedin.com/in/nikunjbafna", "text": "Nikunj Bafna"},
 				        {"url": "https://www.linkedin.com/in/soorajnair19", "text": "Sooraj Nair"},
-				        {"url": "https://www.linkedin.com/in/surbhisonway", "text": "Surbhi Sonway"},
 				        {"url": "https://www.linkedin.com/in/tanisha-ashar-399b57188", "text": "Tanisha Ashar"},
 				        {"url": "https://www.linkedin.com/in/tapan-vaghela", "text": "Tapan Vaghela"},
-				        {"url": "https://www.linkedin.com/in/yuktakarkera", "text": "Yukta Karkera"}
+				        {"url": "https://www.linkedin.com/in/yuktakarkera", "text": "Yukta Karkera"},
+				        {"url": "https://www.linkedin.com/in/surbhisonway", "text": "Surbhi Sonway", "disabled": true}
 				    ]
 				}'>
 					<img src="./eventassets/networkingtable.svg" alt="" class="thirdfold__img" style="margin-bottom: 1rem;">
@@ -127,7 +127,6 @@
 				<div class="thirdfold__data" data-modal-content='{
 				    "title": "Group B",
 				    "redirectLinks": [
-				        {"url": "https://www.linkedin.com/in/adeshbhansali", "text": "Adesh Bhansali"},
 				        {"url": "https://www.linkedin.com/in/aditianand31", "text": "Aditi Anand"},
 				        {"url": "https://www.linkedin.com/in/adityasinghux", "text": "Aditya Singh"},
 				        {"url": "https://www.linkedin.com/in/annaabraham7", "text": "Anna Abraham"},
@@ -135,8 +134,10 @@
 				        {"url": "https://www.linkedin.com/in/kdotia", "text": "Karishma Dotia"},
 				        {"url": "https://www.linkedin.com/in/kaustubh222", "text": "Kaustubh Salunkhe"},
 				        {"url": "https://www.linkedin.com/in/penaazvalecha", "text": "Penaaz Valecha"},
+				        {"url": "https://www.linkedin.com/in/pranchalsharma", "text": "Pranchal Sharma"},
 				        {"url": "https://www.linkedin.com/in/siddharthmehtaa", "text": "Siddharth Mehta"},
-				        {"url": "https://www.linkedin.com/in/vishakha-s-067803119", "text": "Vishakha Sarang"}
+				        {"url": "https://www.linkedin.com/in/vishakha-s-067803119", "text": "Vishakha Sarang"},
+				        {"url": "https://www.linkedin.com/in/adeshbhansali", "text": "Adesh Bhansali", "disabled": true}
 				    ]
 				}'>
 					<img src="./eventassets/networkingtable.svg" alt="" class="thirdfold__img" style="margin-bottom: 1rem;">
@@ -155,7 +156,6 @@
 				        {"url": "https://www.linkedin.com/in/karthik-ss", "text": "Karthik SS"},
 				        {"url": "https://www.linkedin.com/in/naveen-bagchi-241318224", "text": "Naveen Bagchi"},
 				        {"url": "https://www.linkedin.com/in/piyulpatel", "text": "Piyul Patel"},
-				        {"url": "https://www.linkedin.com/in/pranchalsharma", "text": "Pranchal Sharma"},
 				        {"url": "https://www.linkedin.com/in/purbayanroy", "text": "Purbayan Roy"},
 				        {"url": "https://www.linkedin.com/in/shubhanjali-dubey-6993a8420", "text": "Shubhanjali Dubey"}
 				    ]
@@ -234,8 +234,6 @@
 			searchContainer.className = "networking-search-container";
 			searchContainer.innerHTML = `
         <div class="curated-steps">
-          <div class="steps"><h1><span>Step 1:</span> Request a networking sheet from organisers</h1></div>
-          <div class="steps steps-2"><h1><span>Step 2:</span> Find your networking group</h1></div>
           <input type="text" id="networking-search" placeholder="Search by your name...">
           <div id="search-results" class="search-results"></div>
         </div>

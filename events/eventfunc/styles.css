@@ -67,6 +67,16 @@
   color: #000;
 }
 
+.modal-redirect-link--disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: default;
+}
+
+.modal-redirect-link--disabled .modal-redirect-text {
+  color: #9b9b9b;
+}
+
 .modal-title {
   font-size: 1.5rem;
   font-weight: 600;

@@ -143,14 +143,18 @@ function createModal() {
     modalRedirectLinks.innerHTML = "";
     if (cardData.redirectLinks && cardData.redirectLinks.length > 0) {
       cardData.redirectLinks.forEach((link) => {
-        const redirectLink = document.createElement("a");
-        redirectLink.href = link.url;
-        redirectLink.target = "_blank";
-        redirectLink.rel = "noopener noreferrer";
-        redirectLink.className = "modal-redirect-link";
+        const redirectLink = document.createElement(link.disabled ? "div" : "a");
+        redirectLink.className = link.disabled
+          ? "modal-redirect-link modal-redirect-link--disabled"
+          : "modal-redirect-link";
+        if (!link.disabled) {
+          redirectLink.href = link.url;
+          redirectLink.target = "_blank";
+          redirectLink.rel = "noopener noreferrer";
+        }
         redirectLink.innerHTML = `
           <span class="modal-redirect-text">${link.text}</span>
-          <i class="bx bxl-linkedin"></i>
+          ${link.disabled ? "" : '<i class="bx bxl-linkedin"></i>'}
         `;
         modalRedirectLinks.appendChild(redirectLink);
       });
