@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex">
+	<title>Content Volunteer | Friends Of Figma, Mumbai</title>
+
+	<link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+
+	<!--========== CLARITY ==========-->
+	<script type="text/javascript">
+		(function (c, l, a, r, i, t, y) {
+			c[ a ] = c[ a ] || function () {( c[ a ].q = c[ a ].q || [] ).push( arguments )};
+			t = l.createElement( r ); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+			y = l.getElementsByTagName( r )[ 0 ]; y.parentNode.insertBefore( t, y );
+		} )( window, document, "clarity", "script", "y3q9p25f05" );
+	</script>
+
+	<!--========== REDIRECT ==========-->
+	<!-- Held back briefly so the Clarity pageview beacon can fire before we leave. -->
+	<script type="text/javascript">
+		(function () {
+			var target = "https://docs.google.com/forms/d/e/1FAIpQLScf_zxGvM0ea48pYgCOMEJMH3z7p6DHHIN3KhjXQDYI2XvhAg/viewform?usp=publish-editor";
+			var done = false;
+
+			function go() {
+				if ( done ) return;
+				done = true;
+				// replace() keeps this page out of history, so Back from the form
+				// returns the visitor to wherever they came from.
+				window.location.replace( target );
+			}
+
+			// Go as soon as the Clarity tag has loaded and had a moment to report,
+			// but never wait longer than 1.5s.
+			var tag = document.querySelector( 'script[src*="clarity.ms/tag/"]' );
+			if ( tag ) tag.addEventListener( "load", function () { setTimeout( go, 250 ); } );
+			setTimeout( go, 1500 );
+		})();
+	</script>
+
+	<noscript>
+		<meta http-equiv="refresh" content="0; URL='https://docs.google.com/forms/d/e/1FAIpQLScf_zxGvM0ea48pYgCOMEJMH3z7p6DHHIN3KhjXQDYI2XvhAg/viewform?usp=publish-editor'" />
+	</noscript>
+</head>
+
+<body style="display: flex; align-items: center; justify-content: center; padding: 3rem; margin-top: 3rem;">
+	<p style="font-size: 3rem;">Taking you to the form… If you are not redirected, <a
+			href="https://docs.google.com/forms/d/e/1FAIpQLScf_zxGvM0ea48pYgCOMEJMH3z7p6DHHIN3KhjXQDYI2XvhAg/viewform?usp=publish-editor">click
+			here</a>.</p>
+</body>
+
+</html>
