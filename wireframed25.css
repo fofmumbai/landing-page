@@ -280,7 +280,8 @@ body {
   height: 120px;
   opacity: 0;
   animation: flyAcross 13s linear 0s infinite;
-  z-index: 1;
+  /* Above .hero-image (z-index 2) so the plane flies over the hero. */
+  z-index: 3;
 }
 
 .mobile-hero {
@@ -1296,7 +1297,7 @@ a:hover {
 
 @media (max-width: 768px) {
   .plane {
-    top: -27rem;
+    top: 16rem;
     left: -100px;
     width: 150px;
     height: auto;
