@@ -259,7 +259,8 @@ body {
 .hero-container {
   width: 100%;
   overflow: hidden;
-  /* background-color: #05ccfd; */
+  /* hero.png's upper sky is transparent -- this is the sky showing through. */
+  background-color: #05ccfd;
   position: relative;
 }
 
@@ -1297,7 +1298,7 @@ a:hover {
 
 @media (max-width: 768px) {
   .plane {
-    top: 16rem;
+    top: 2rem;
     left: -100px;
     width: 150px;
     height: auto;
