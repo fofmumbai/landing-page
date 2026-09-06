@@ -1,0 +1,4 @@
+# Netlify path matching is case-sensitive, so /TLC.html does not answer /tlc.
+# Rewrite (200) rather than redirect so the visitor keeps the tidy /tlc URL
+# and takes one hop to Luma instead of two.
+/tlc    /TLC.html    200
