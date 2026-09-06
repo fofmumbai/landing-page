@@ -281,8 +281,46 @@ body {
   height: 120px;
   opacity: 0;
   animation: flyAcross 13s linear 0s infinite;
-  /* Above .hero-image (z-index 2) so the plane flies over the hero. */
+  /* Above .hero-image (2), between the two cloud layers (3 and 5). */
+  z-index: 4;
+}
+
+/* Hero clouds. Deliberately NOT .cloud-N -- that set is already taken by the
+   drifting clouds further down the page. Offsets are px rather than vw so they
+   stay aligned with the plane's flight band, which is also px-based. */
+.hero-cloud {
+  position: absolute;
+  display: block;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Distant sky -- the plane passes in front of these. */
+.hero-cloud--back {
   z-index: 3;
+}
+
+/* Near sky -- the plane disappears behind these. */
+.hero-cloud--front {
+  z-index: 5;
+}
+
+.hero-cloud-a {
+  left: 8%;
+  top: 34px;
+  width: 250px;
+}
+
+.hero-cloud-b {
+  left: 45%;
+  top: 62px;
+  width: 210px;
+}
+
+.hero-cloud-c {
+  left: 76%;
+  top: 22px;
+  width: 175px;
 }
 
 .mobile-hero {
@@ -1304,6 +1342,24 @@ a:hover {
     height: auto;
     transform: translateY(0);
   }
+
+  .hero-cloud-a {
+    left: 4%;
+    top: 26px;
+    width: 95px;
+  }
+
+  .hero-cloud-b {
+    left: 46%;
+    top: 40px;
+    width: 85px;
+  }
+
+  .hero-cloud-c {
+    left: 78%;
+    top: 20px;
+    width: 70px;
+  }
   @keyframes flyAcross {
     0% {
       left: -250px;
@@ -1336,6 +1392,24 @@ a:hover {
     width: 230px;
     height: auto;
     transform: translateY(0);
+  }
+
+  .hero-cloud-a {
+    left: 3%;
+    top: 14px;
+    width: 85px;
+  }
+
+  .hero-cloud-b {
+    left: 48%;
+    top: 28px;
+    width: 72px;
+  }
+
+  .hero-cloud-c {
+    left: 79%;
+    top: 10px;
+    width: 58px;
   }
 }
 

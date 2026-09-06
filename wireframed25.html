@@ -70,8 +70,14 @@
 
 
 	<div class="hero-container">
-		<img src="airplane2.png" alt="Plane" class="plane" />
 		<img src="hero.png" alt="Gateway of India" class="hero-image" />
+		<!-- Depth: the plane crosses in front of .hero-cloud--back and ducks behind
+		     .hero-cloud--front. Namespaced away from the .cloud-N set used further
+		     down the page, which owns those class names already. -->
+		<img src="cloud.png" alt="" class="hero-cloud hero-cloud--back hero-cloud-b" />
+		<img src="airplane2.png" alt="Plane" class="plane" />
+		<img src="cloud.png" alt="" class="hero-cloud hero-cloud--front hero-cloud-a" />
+		<img src="cloud.png" alt="" class="hero-cloud hero-cloud--front hero-cloud-c" />
 	</div>
 
 
