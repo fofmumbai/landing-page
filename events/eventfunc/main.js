@@ -1,4 +1,9 @@
 function setupNetworkingSearch() {
+  // A page opts into the search by defining `searchContainer` in an inline
+  // script. Pages with no networking grid at all (e.g. tlc) skip it.
+  const networkingGrid = document.querySelector(".networking__grid");
+  if (!networkingGrid || typeof searchContainer === "undefined") return;
+
   // Collect all the networking groups data
   const networkingGroups = Array.from(
     document.querySelectorAll(".thirdfold__data")
@@ -12,7 +17,6 @@ function setupNetworkingSearch() {
   });
 
   // Insert the search container before the networking grid
-  const networkingGrid = document.querySelector(".networking__grid");
   networkingGrid.parentNode.insertBefore(searchContainer, networkingGrid);
 
   const searchInput = document.getElementById("networking-search");
