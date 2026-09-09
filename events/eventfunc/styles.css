@@ -295,6 +295,22 @@
   color: #fff;
 }
 
+.tlc {
+  background-color: #e6f2ec;
+  border: 1.5px solid #055532;
+  color: #055532;
+}
+
+.tlc:hover {
+  background-color: #055532;
+  color: #fff;
+}
+
+.tlc.active {
+  background-color: #055532;
+  color: #fff;
+}
+
 .ooo {
   background-color: #fdfecf;
   border: 1.5px solid #f2c204;
