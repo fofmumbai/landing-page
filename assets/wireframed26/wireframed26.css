@@ -824,7 +824,9 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  min-height: calc(100svh - var(--bar-h));
+  /* phones: sized to the content plus room for the vehicle to drive
+     (desktop sets a full-screen min-height) */
+  padding: 72px 0;
 }
 
 .fstep__media {
@@ -1080,6 +1082,7 @@ main {
   }
 
   .fstep {
+    padding: 0;
     /* card and step start at the same height; the pair is centred in the row */
     align-items: start;
     align-content: center;
