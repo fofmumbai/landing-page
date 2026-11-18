@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Wireframed 2026: Mumbai Maxxing | FOF Mumbai</title>
+	<meta name="description"
+		content="Wireframed 2026: Mumbai Maxxing, a citywide exploration challenge by Friends of Figma Mumbai. 12 Dec 2026, 10 AM – 7 PM.">
+	<link rel="icon" href="assets/wireframed26/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/wireframed26/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="assets/wireframed26/favicon-192.png">
+	<link rel="apple-touch-icon" href="assets/wireframed26/apple-touch-icon.png">
+	<link rel="preload" as="image" href="assets/wireframed26/hero-illustration.webp"
+		imagesrcset="assets/wireframed26/hero-illustration-900.webp 900w, assets/wireframed26/hero-illustration.webp 1875w"
+		imagesizes="(max-width: 860px) 96vw, 58vw">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400..800;1,400..800&display=swap">
+	<link rel="stylesheet" href="assets/wireframed26/wireframed26.css">
+</head>
+
+<body>
+	<!-- Top bar: logo centred at the top of the page; once scrolled it slides
+	     to the left and the section nav fades in (see .is-scrolled). -->
+	<header class="topbar" id="topbar">
+		<div class="topbar__inner">
+			<a class="fof-logo" href="https://fofmumbai.com/">
+				<img src="assets/img/fof-logos/fof-mumbai-lined-dark.svg" width="2384" height="300"
+					alt="Friends of Figma Mumbai home">
+			</a>
+
+			<button class="topnav__toggle" type="button" aria-expanded="false" aria-controls="topnav">
+				<span class="topnav__toggle-bars" aria-hidden="true"></span>
+				<span class="topnav__toggle-label">Menu</span>
+			</button>
+
+			<nav class="topnav" id="topnav" aria-label="Page sections">
+				<!-- TODO: point these at their sections as they're built -->
+				<ul class="topnav__list">
+					<li><a href="#prizes">Rewards</a></li>
+					<li><a href="#format">Format</a></li>
+					<li><a href="#agenda">Agenda</a></li>
+					<li><a href="#venue">Venue</a></li>
+					<li><a href="#faqs">FAQs</a></li>
+				</ul>
+				<!-- TODO: replace # with the registration link (same as the hero button) -->
+				<a class="topnav__cta" href="#" target="_blank" rel="noopener">Register</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="stamp">
+				<div class="stamp__inner">
+					<div class="hero__content">
+						<h1 class="hero__title" id="hero-title">
+							<img src="assets/wireframed26/title.svg" width="947" height="477"
+								alt="Wireframed 2026: Mumbai Maxxing">
+						</h1>
+
+						<p class="hero__tagline">A Citywide Exploration Challenge</p>
+
+						<p class="hero__details">
+							<img src="assets/wireframed26/date-banner.svg" width="1073" height="228"
+								alt="12 Dec 2026, 10 AM to 7 PM. In partnership with DevX and Indirepair.">
+						</p>
+
+						<!-- TODO: replace # with the registration link -->
+						<a class="btn-register" href="#" target="_blank" rel="noopener">
+							<img src="assets/wireframed26/flower.svg" alt="">
+							Register Your Team
+							<img src="assets/wireframed26/flower.svg" alt="">
+						</a>
+					</div>
+
+					<div class="hero__art">
+						<img src="assets/wireframed26/hero-illustration.webp"
+							srcset="assets/wireframed26/hero-illustration-900.webp 900w, assets/wireframed26/hero-illustration.webp 1875w"
+							sizes="(max-width: 860px) 96vw, 58vw" width="1875" height="1875"
+							alt="Illustrated Mumbai: a painted auto-rickshaw surrounded by CST station, the Metro, a local train, vada pav, cutting chai and the Sea Link">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ 02 · THE REWARDS ============ -->
+		<section class="rewards" id="prizes" aria-labelledby="rewards-title">
+			<header class="section-head">
+				<h2 class="section-head__title" id="rewards-title">
+					<img class="section-head__ornament" src="assets/wireframed26/pink-divider.svg" alt="" width="93" height="22">
+					The Rewards
+					<img class="section-head__ornament section-head__ornament--flip" src="assets/wireframed26/pink-divider.svg" alt="" width="93" height="22">
+				</h2>
+				<p class="section-head__sub">Explore. Complete Missions. Win Big.</p>
+			</header>
+
+			<!-- DOM order is 1st, 2nd, 3rd (reading order); desktop shows 2nd · 1st · 3rd -->
+			<ol class="prizes">
+				<li class="prize prize--1" style="--i: 0">
+					<article class="prize-stamp" aria-label="1st place: ₹25,000">
+						<div class="prize-stamp__frame">
+							<p class="prize-stamp__meta">WF26 · Mumbai</p>
+							<div class="prize-stamp__art">
+								<!-- TODO: swap for the 2x rickshaw export -->
+								<img src="assets/wireframed26/rickshaw.png" alt="" width="244" height="308">
+							</div>
+							<p class="prize-stamp__place">1st Place</p>
+							<p class="prize-stamp__amount">₹25,000</p>
+						</div>
+						<span class="prize-stamp__grain" aria-hidden="true"></span>
+						<span class="prize-stamp__sheen" aria-hidden="true"></span>
+					</article>
+				</li>
+
+				<li class="prize prize--2" style="--i: 1">
+					<article class="prize-stamp" aria-label="2nd place: ₹15,000">
+						<div class="prize-stamp__frame">
+							<p class="prize-stamp__meta">WF26 · Mumbai</p>
+							<div class="prize-stamp__art">
+								<!-- TODO: local train illustration -->
+								<div class="art-placeholder">Local train<br>illustration</div>
+							</div>
+							<p class="prize-stamp__place">2nd Place</p>
+							<p class="prize-stamp__amount">₹15,000</p>
+						</div>
+						<span class="prize-stamp__grain" aria-hidden="true"></span>
+						<span class="prize-stamp__sheen" aria-hidden="true"></span>
+					</article>
+				</li>
+
+				<li class="prize prize--3" style="--i: 2">
+					<article class="prize-stamp" aria-label="3rd place: ₹10,000">
+						<div class="prize-stamp__frame">
+							<p class="prize-stamp__meta">WF26 · Mumbai</p>
+							<div class="prize-stamp__art">
+								<!-- TODO: Metro illustration -->
+								<div class="art-placeholder">Metro<br>illustration</div>
+							</div>
+							<p class="prize-stamp__place">3rd Place</p>
+							<p class="prize-stamp__amount">₹10,000</p>
+						</div>
+						<span class="prize-stamp__grain" aria-hidden="true"></span>
+						<span class="prize-stamp__sheen" aria-hidden="true"></span>
+					</article>
+				</li>
+			</ol>
+
+			<p class="rewards__note">The teams with the highest scores take home the top prizes.</p>
+
+			<img class="corner-flower corner-flower--left" src="assets/wireframed26/corner-flower.png" alt="" width="171" height="171">
+			<img class="corner-flower corner-flower--right" src="assets/wireframed26/corner-flower.png" alt="" width="171" height="171">
+		</section>
+
+		<!-- ============ 03 · FORMAT (how it works) ============
+		     Five coloured panels. A route (drawn by JS into .format__route)
+		     runs down one side of each panel and curves across into the next:
+		     rail → road. A vehicle drives along it with scroll:
+		     train → taxi → BEST bus → auto rickshaw → scooter. -->
+		<section class="format" id="format" aria-labelledby="format-title">
+			<svg class="format__route" aria-hidden="true" focusable="false"></svg>
+
+			<header class="format__head">
+				<h2 class="format__title" id="format-title">Four teammates. One city. A board full of missions.</h2>
+			</header>
+
+			<div class="step step--1" data-side="left" data-vehicle="train">
+				<div class="step__content">
+					<p class="step__num" aria-hidden="true">01</p>
+					<h3 class="step__title"><span class="visually-hidden">Step 1: </span>Build your team</h3>
+					<p class="step__text">Get together with three other people and register as a team of four. 25 teams will be confirmed for the event.</p>
+				</div>
+			</div>
+
+			<div class="step step--2" data-side="right" data-vehicle="taxi">
+				<div class="step__content">
+					<p class="step__num" aria-hidden="true">02</p>
+					<h3 class="step__title"><span class="visually-hidden">Step 2: </span>Get your mission board</h3>
+					<p class="step__text">On event day you'll receive a collection of around 50 challenges, each carrying a different point value.</p>
+				</div>
+			</div>
+
+			<div class="step step--3" data-side="left" data-vehicle="bus">
+				<div class="step__content">
+					<p class="step__num" aria-hidden="true">03</p>
+					<h3 class="step__title"><span class="visually-hidden">Step 3: </span>Explore Mumbai</h3>
+					<p class="step__text">Plan your route, travel across the city and complete as many missions as you can.</p>
+				</div>
+			</div>
+
+			<div class="step step--4" data-side="right" data-vehicle="auto">
+				<div class="step__content">
+					<p class="step__num" aria-hidden="true">04</p>
+					<h3 class="step__title"><span class="visually-hidden">Step 4: </span>Capture the proof</h3>
+					<p class="step__text">Submit the required photos, videos or other evidence for your completed challenges.</p>
+				</div>
+			</div>
+
+			<div class="step step--5" data-side="left" data-vehicle="scooter">
+				<div class="step__content">
+					<p class="step__num" aria-hidden="true">05</p>
+					<h3 class="step__title"><span class="visually-hidden">Step 5: </span>Score and celebrate</h3>
+					<p class="step__text">Every completed mission earns points. The teams with the highest scores win.</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script>
+		// Sticky navbar: past a few px of scroll the bar slims down, the logo
+		// glides from the centre to the left and the nav fades in.
+		(function () {
+			var bar = document.getElementById('topbar');
+			var toggle = bar.querySelector('.topnav__toggle');
+			var ticking = false;
+
+			function setOpen(open) {
+				bar.classList.toggle('is-open', open);
+				toggle.setAttribute('aria-expanded', String(open));
+			}
+
+			function update() {
+				var scrolled = window.scrollY > 24;
+				bar.classList.toggle('is-scrolled', scrolled);
+				if (!scrolled) setOpen(false);
+				ticking = false;
+			}
+
+			window.addEventListener('scroll', function () {
+				if (!ticking) { ticking = true; requestAnimationFrame(update); }
+			}, { passive: true });
+
+			toggle.addEventListener('click', function () {
+				setOpen(!bar.classList.contains('is-open'));
+			});
+
+			// close the mobile menu after picking a section or pressing Escape
+			bar.querySelectorAll('.topnav a').forEach(function (a) {
+				a.addEventListener('click', function () { setOpen(false); });
+			});
+			document.addEventListener('keydown', function (e) {
+				if (e.key === 'Escape') setOpen(false);
+			});
+
+			update();
+		})();
+
+		// Prize stamps: "apply" each sticker as it scrolls into view. Stamps that
+		// come into view together (desktop) are staggered 1st → 2nd → 3rd.
+		(function () {
+			var list = document.querySelector('.prizes');
+			if (!list || !('IntersectionObserver' in window)) return;
+			if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+			list.classList.add('reveal-ready');
+			var io = new IntersectionObserver(function (entries) {
+				var batch = entries
+					.filter(function (e) { return e.isIntersecting; })
+					.map(function (e) { return e.target; })
+					.sort(function (a, b) {
+						return a.style.getPropertyValue('--i') - b.style.getPropertyValue('--i');
+					});
+				batch.forEach(function (el, n) {
+					el.style.setProperty('--reveal-delay', n * 180 + 'ms');
+					el.classList.add('is-applied');
+					io.unobserve(el);
+				});
+			}, { threshold: 0.35 });
+
+			list.querySelectorAll('.prize').forEach(function (el) { io.observe(el); });
+		})();
+
+		// Format route: build the rail/road path from the panel positions, then
+		// drive a vehicle along it so it stays level with the middle of the screen.
+		(function () {
+			var section = document.getElementById('format');
+			if (!section) return;
+			var svg = section.querySelector('.format__route');
+			var steps = Array.prototype.slice.call(section.querySelectorAll('.step'));
+			var NS = 'http://www.w3.org/2000/svg';
+			var mobile = window.matchMedia('(max-width: 860px)');
+
+			// Top-view vehicles, drawn pointing DOWN (+y), centred on 0,0.
+			// PLACEHOLDER art - swap the markup for exported illustrations later.
+			var VEHICLES = {
+				train: {
+					// Mumbai local: three coaches that each follow the track
+					parts: [0, 70, 140],
+					art: function (i) {
+						return '<rect x="-15" y="-33" width="30" height="66" rx="6" fill="#7b1e3c"/>' +
+							'<rect x="-11" y="-29" width="22" height="58" rx="4" fill="#efe6d6"/>' +
+							'<rect x="-6" y="-20" width="12" height="7" rx="2" fill="#b8ae9c"/>' +
+							'<rect x="-6" y="13" width="12" height="7" rx="2" fill="#b8ae9c"/>' +
+							(i === 0
+								? '<rect x="-15" y="27" width="30" height="7" rx="3" fill="#ffc60b"/>' +
+								  '<path d="M-8 -6 L0 4 L8 -6" stroke="#444" stroke-width="2" fill="none"/>'
+								: '');
+					}
+				},
+				taxi: {
+					// kaali-peeli
+					parts: [0],
+					art: function () {
+						return '<rect x="-14" y="-28" width="28" height="56" rx="9" fill="#1c1c1c"/>' +
+							'<rect x="-11" y="10" width="22" height="9" rx="3" fill="#9fd3ff"/>' +
+							'<rect x="-11" y="-19" width="22" height="6" rx="3" fill="#9fd3ff"/>' +
+							'<rect x="-11" y="-12" width="22" height="21" rx="4" fill="#ffc60b"/>' +
+							'<circle cx="-8" cy="25" r="2.4" fill="#fff6c2"/><circle cx="8" cy="25" r="2.4" fill="#fff6c2"/>';
+					}
+				},
+				bus: {
+					// BEST red bus
+					parts: [0],
+					art: function () {
+						return '<rect x="-17" y="-55" width="34" height="110" rx="6" fill="#d62b2b"/>' +
+							'<rect x="-13" y="-48" width="26" height="90" rx="4" fill="#b81f22"/>' +
+							'<rect x="-9" y="-30" width="18" height="16" rx="3" fill="#e9e3d8"/>' +
+							'<rect x="-9" y="2" width="18" height="16" rx="3" fill="#e9e3d8"/>' +
+							'<rect x="-15" y="45" width="30" height="8" rx="3" fill="#222"/>';
+					}
+				},
+				auto: {
+					// auto rickshaw: black body, yellow canopy
+					parts: [0],
+					art: function () {
+						return '<path d="M-15 -24 Q-15 -27 -12 -27 L12 -27 Q15 -27 15 -24 L15 6 Q15 14 8 24 L-8 24 Q-15 14 -15 6 Z" fill="#1c1c1c"/>' +
+							'<rect x="-13" y="-24" width="26" height="30" rx="8" fill="#ffc60b"/>' +
+							'<rect x="-9" y="7" width="18" height="6" rx="2" fill="#9fd3ff"/>' +
+							'<rect x="-3" y="22" width="6" height="7" rx="2" fill="#333"/>';
+					}
+				},
+				scooter: {
+					// scooter + rider
+					parts: [0],
+					art: function () {
+						return '<rect x="-2.5" y="-24" width="5" height="10" rx="2" fill="#222"/>' +
+							'<rect x="-2.5" y="15" width="5" height="10" rx="2" fill="#222"/>' +
+							'<rect x="-7" y="-18" width="14" height="34" rx="7" fill="#1d7fd8"/>' +
+							'<rect x="-12" y="9" width="24" height="3" rx="1.5" fill="#222"/>' +
+							'<ellipse cx="0" cy="-3" rx="10" ry="6" fill="#2f2f2f"/>' +
+							'<circle cx="0" cy="0" r="6.5" fill="#e3342f"/>';
+					}
+				}
+			};
+
+			var segs = [];       // { path, top, bottom, vehicle:{group, parts[]} }
+			var turns = [];      // { B: boundary y, turn: crosses the page? }
+			var CROSS = 360;     // px of scroll it takes to drive across the page
+			var built = false;
+
+			function el(name, attrs, parent) {
+				var n = document.createElementNS(NS, name);
+				for (var k in attrs) n.setAttribute(k, attrs[k]);
+				if (parent) parent.appendChild(n);
+				return n;
+			}
+
+			function build() {
+				var W = section.clientWidth;
+				var H = section.scrollHeight;
+				var isMobile = mobile.matches;
+				var railW = isMobile ? 34 : 46;
+				var roadW = isMobile ? 46 : 72;
+				svg.setAttribute('width', W);
+				svg.setAttribute('height', H);
+				svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+				svg.innerHTML = '';
+				segs = [];
+
+				var defs = el('defs', {}, svg);
+				var routeLayer = el('g', {}, svg);
+				var roadLayer = el('g', {}, svg);     // continuous road, drawn under per-segment extras
+				var roadD = '';
+
+				// interlocking paver blocks for the auto-rickshaw gali
+				var pav = el('pattern', { id: 'pavers', width: 16, height: 10, patternUnits: 'userSpaceOnUse' }, defs);
+				el('rect', { width: 16, height: 10, fill: '#b9a383' }, pav);
+				el('path', { d: 'M0 0.5H16M0 5.5H16M0.5 0V5M8.5 5V10', stroke: '#8c7a5e', 'stroke-width': 1, fill: 'none' }, pav);
+
+				// two thin parallel lines either side of the centre (mask trick:
+				// a wide stroke minus a slightly narrower one), optionally dashed
+				function pairLines(d, outerW, lineW, color, dash, id, stroke) {
+					var m = el('mask', { id: id, maskUnits: 'userSpaceOnUse', x: 0, y: 0, width: W, height: H }, defs);
+					el('path', { d: d, fill: 'none', stroke: '#fff', 'stroke-width': outerW }, m);
+					el('path', { d: d, fill: 'none', stroke: '#000', 'stroke-width': outerW - lineW * 2 }, m);
+					var a = { stroke: color, 'stroke-width': outerW, mask: 'url(#' + id + ')' };
+					if (dash) a['stroke-dasharray'] = dash;
+					stroke(a);
+				}
+
+				// a different road surface for each vehicle
+				function drawRoad(kind, d, stroke, i) {
+					var id = 'road-' + i;
+					if (kind === 'taxi') {
+						// city street: asphalt, white edges, yellow dashed centre
+						stroke({ stroke: '#2d2d30', 'stroke-width': roadW });
+						pairLines(d, roadW - 8, 2.5, '#f2f2f2', null, id + 'e', stroke);
+						stroke({ stroke: '#ffd23f', 'stroke-width': 3, 'stroke-dasharray': '16 14' });
+					} else if (kind === 'bus') {
+						// wide concrete road with a red bus-only lane down the middle
+						var bw = roadW + (isMobile ? 6 : 22);
+						stroke({ stroke: '#8f9196', 'stroke-width': bw });
+						pairLines(d, bw - 8, 2.5, '#f2f2f2', null, id + 'e', stroke);
+						pairLines(d, bw * 0.72, 2.5, '#f2f2f2', '12 12', id + 'l', stroke);
+						stroke({ stroke: '#f2f2f2', 'stroke-width': bw * 0.42 });
+						stroke({ stroke: '#c0392b', 'stroke-width': bw * 0.42 - 5 });
+					} else if (kind === 'auto') {
+						// narrow gali paved with blocks, dark gutters
+						var aw = roadW - (isMobile ? 4 : 14);
+						stroke({ stroke: '#5f5547', 'stroke-width': aw });
+						stroke({ stroke: 'url(#pavers)', 'stroke-width': aw - 8 });
+					} else {
+						// highway: dark asphalt, white edges, double yellow centre
+						stroke({ stroke: '#232326', 'stroke-width': roadW });
+						pairLines(d, roadW - 8, 2.5, '#f2f2f2', null, id + 'e', stroke);
+						pairLines(d, 10, 2.5, '#ffd23f', null, id + 'c', stroke);
+					}
+				}
+				var vehicleLayer = el('g', {}, svg);
+
+				var geo = steps.map(function (s, i) {
+					var side = isMobile ? 'left' : s.dataset.side;
+					return {
+						top: i === 0 ? 0 : s.offsetTop,   // track starts at the headline
+						bottom: s.offsetTop + s.offsetHeight,
+						x: isMobile ? 30 : (side === 'left' ? W * 0.16 : W * 0.84),
+						kind: s.dataset.vehicle
+					};
+				});
+
+				// Transition between panels, shaped like the sketch: straight down,
+				// a rounded corner, a long, gently sloping run across the page, another
+				// rounded corner, then straight down again. The run is split at its
+				// middle (on the panel boundary) so the surface changes there.
+				function curve(a, b) {
+					var B = a.bottom, xa = a.x, xb = b.x;
+					if (Math.abs(xb - xa) < 1) {                 // mobile: same lane, no turn
+						return { y0: B, y3: B, mid: [xa, B], first: ' V' + B, second: ' V' + B };
+					}
+					var dir = xb > xa ? 1 : -1;
+					var R = Math.min(110, Math.abs(xb - xa) / 5);   // corner radius
+					var slope = Math.min(48, (a.bottom - a.top) * 0.06); // run drops this much
+					var y1 = B - slope / 2, y2 = B + slope / 2;
+					var s1 = [xa + dir * R, y1], s2 = [xb - dir * R, y2];  // run start / end
+					var len = Math.hypot(s2[0] - s1[0], s2[1] - s1[1]);
+					var u = [(s2[0] - s1[0]) / len, (s2[1] - s1[1]) / len]; // run direction
+					var k = 0.5523 * R;                          // quarter-circle handle
+					function f(p) { return p[0].toFixed(1) + ' ' + p[1].toFixed(1); }
+					var mid = [(s1[0] + s2[0]) / 2, (s1[1] + s2[1]) / 2];
+					return {
+						y0: y1 - R,
+						y3: y2 + R,
+						mid: mid,
+						// corner 1 (tangent-matched to the sloping run), then half the run
+						first: ' C' + f([xa, y1 - R + k]) + ' ' + f([s1[0] - u[0] * k, s1[1] - u[1] * k]) + ' ' + f(s1) +
+							' L' + f(mid),
+						// rest of the run, then corner 2 back to vertical
+						second: ' L' + f(s2) +
+							' C' + f([s2[0] + u[0] * k, s2[1] + u[1] * k]) + ' ' + f([xb, y2 + R - k]) + ' ' + f([xb, y2 + R])
+					};
+				}
+
+				var curves = [];
+				turns = [];
+				for (var i = 0; i < geo.length - 1; i++) {
+					curves.push(curve(geo[i], geo[i + 1]));
+					turns.push({ B: geo[i].bottom, turn: Math.abs(geo[i + 1].x - geo[i].x) > 1 });
+				}
+
+				geo.forEach(function (g, i) {
+					var d;
+					if (i === 0) d = 'M' + g.x + ' ' + g.top;
+					else {
+						var pc = curves[i - 1];
+						d = 'M' + pc.mid[0].toFixed(1) + ' ' + pc.mid[1].toFixed(1) + pc.second;
+					}
+					if (i < curves.length) {
+						var nc = curves[i];
+						d += ' V' + nc.y0.toFixed(1) + nc.first;
+					} else {
+						d += ' V' + (g.bottom - (isMobile ? 60 : 110));
+					}
+
+					// road pieces are joined into one continuous path (no seams) and
+					// drawn after the loop; the rail is drawn here.
+					roadD += (i === 0 ? d : ' ' + d.replace(/^M\s*[-\d.]+\s+[-\d.]+/, ''));
+					var grp = el('g', { 'class': 'route route--' + (i === 0 ? 'rail' : 'road') }, i === 0 ? routeLayer : roadLayer);
+					var base = { d: d, fill: 'none', 'stroke-linecap': 'butt', 'stroke-linejoin': 'round' };
+					function stroke(extra) {
+						var a = {}; for (var k in base) a[k] = base[k];
+						for (var k2 in extra) a[k2] = extra[k2];
+						return el('path', a, grp);
+					}
+
+					if (i === 0) {
+						// railway: ballast bed, wooden sleepers, two steel rails (masked)
+						stroke({ stroke: '#7a5532', 'stroke-width': railW + 8, 'stroke-dasharray': '7 11' });
+						var mask = el('mask', { id: 'rail-mask', maskUnits: 'userSpaceOnUse', x: 0, y: 0, width: W, height: H }, defs);
+						el('path', { d: d, fill: 'none', stroke: '#fff', 'stroke-width': railW }, mask);
+						el('path', { d: d, fill: 'none', stroke: '#000', 'stroke-width': railW - 7 }, mask);
+						stroke({ stroke: '#dcdcdc', 'stroke-width': railW, mask: 'url(#rail-mask)' });
+					} else {
+						drawRoad(g.kind, d, stroke, i);
+					}
+
+					var path = stroke({ stroke: 'transparent', 'stroke-width': 1 });
+
+					// finish line at the very end of the route
+					if (i === geo.length - 1) {
+						var endY = g.bottom - (isMobile ? 60 : 110);
+						var sq = 8, cols = Math.floor(roadW / sq);
+						for (var r = 0; r < 2; r++) for (var col = 0; col < cols; col++) {
+							el('rect', {
+								x: g.x - (cols * sq) / 2 + col * sq, y: endY - 2 * sq + r * sq, width: sq, height: sq,
+								fill: (r + col) % 2 ? '#141414' : '#ffffff'
+							}, grp);
+						}
+					}
+
+					var spec = VEHICLES[g.kind];
+					var vg = el('g', { 'class': 'route-vehicle', style: 'display:none' }, vehicleLayer);
+					var parts = spec.parts.map(function (offset, n) {
+						var pg = el('g', {}, vg);
+						pg.innerHTML = spec.art(n);
+						return { node: pg, offset: offset };
+					});
+
+					var total = path.getTotalLength();
+					segs.push({
+						path: path, total: total,
+						yStart: path.getPointAtLength(0).y,
+						yEnd: path.getPointAtLength(total).y,
+						group: vg, parts: parts,
+						scale: g.kind === 'train' ? (isMobile ? 0.72 : 1.15) : (isMobile ? 0.95 : 1.6)
+					});
+				});
+				// one continuous soft shadow under every road surface
+				var roadGrp = el('g', { 'class': 'route route--road-shadow' });
+				roadLayer.insertBefore(roadGrp, roadLayer.firstChild);
+				el('path', { d: roadD, fill: 'none', 'stroke-linejoin': 'round',
+					stroke: 'rgba(0,0,0,0.16)', 'stroke-width': roadW + 18 }, roadGrp);
+
+				// interchange stops: where one surface changes to the next, a round
+				// "change here" marker (like a metro-map interchange) covers the join
+				var stopLayer = el('g', { 'class': 'route-stops' });
+				svg.insertBefore(stopLayer, vehicleLayer);
+				var stopR = isMobile ? roadW / 2 + 1 : (roadW + 22) / 2 + 6;   // phone lane is narrow
+				curves.forEach(function (c) {
+					var g2 = el('g', { transform: 'translate(' + c.mid[0].toFixed(1) + ' ' + c.mid[1].toFixed(1) + ')' }, stopLayer);
+					el('circle', { r: stopR + 3, fill: 'rgba(0,0,0,0.18)', cy: 3 }, g2);
+					el('circle', { r: stopR, fill: '#fbf3d8', stroke: '#141414', 'stroke-width': isMobile ? 3 : 5 }, g2);
+					el('circle', { r: stopR * 0.38, fill: '#141414' }, g2);
+				});
+
+				built = true;
+				place();
+			}
+
+			// length along a (downward-monotonic) path whose y matches targetY
+			function lengthAtY(seg, targetY) {
+				var lo = 0, hi = seg.total;
+				for (var n = 0; n < 22; n++) {
+					var mid = (lo + hi) / 2;
+					if (seg.path.getPointAtLength(mid).y < targetY) lo = mid; else hi = mid;
+				}
+				return (lo + hi) / 2;
+			}
+
+			function place() {
+				if (!built) return;
+				var rect = section.getBoundingClientRect();
+				var targetY = window.innerHeight * 0.55 - rect.top;   // section-local y at screen middle
+
+				var active = segs.length - 1;
+				for (var i = 0; i < segs.length; i++) {
+					if (targetY <= segs[i].yEnd) { active = i; break; }
+				}
+				var forcedL = null;
+
+				// Crossing the page: the run across barely drops, so following the
+				// screen middle would fling the vehicle across. Instead, over a window
+				// of CROSS px of scroll around the boundary, advance it at a steady
+				// pace along the path (end of panel i → start of panel i+1).
+				for (var t = 0; t < turns.length; t++) {
+					var tr = turns[t];
+					if (!tr.turn || Math.abs(targetY - tr.B) >= CROSS / 2) continue;
+					var a = segs[t], b = segs[t + 1];
+					var La = lengthAtY(a, tr.B - CROSS / 2);
+					var Lb = lengthAtY(b, tr.B + CROSS / 2);
+					var span = (a.total - La) + Lb;
+					var along = ((targetY - (tr.B - CROSS / 2)) / CROSS) * span;
+					if (along < a.total - La) { active = t; forcedL = La + along; }
+					else { active = t + 1; forcedL = along - (a.total - La); }
+					break;
+				}
+
+				segs.forEach(function (seg, i) {
+					if (i !== active) { seg.group.style.display = 'none'; return; }
+					seg.group.style.display = '';
+					var L = forcedL !== null ? forcedL
+						: targetY <= seg.yStart ? 0 : (targetY >= seg.yEnd ? seg.total : lengthAtY(seg, targetY));
+					seg.parts.forEach(function (part) {
+						var l = Math.max(0, L - part.offset * seg.scale);
+						var p = seg.path.getPointAtLength(l);
+						var q = seg.path.getPointAtLength(Math.min(seg.total, l + 1));
+						var ang = Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI - 90;
+						part.node.setAttribute('transform',
+							'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ') rotate(' + ang.toFixed(1) + ') scale(' + seg.scale + ')');
+					});
+				});
+			}
+
+			var ticking = false;
+			window.addEventListener('scroll', function () {
+				if (!ticking) { ticking = true; requestAnimationFrame(function () { place(); ticking = false; }); }
+			}, { passive: true });
+
+			var rebuild = function () { requestAnimationFrame(build); };
+			if ('ResizeObserver' in window) new ResizeObserver(rebuild).observe(section);
+			else window.addEventListener('resize', rebuild);
+			if (document.fonts && document.fonts.ready) document.fonts.ready.then(rebuild);
+			build();
+		})();
+	</script>
+</body>
+
+</html>
