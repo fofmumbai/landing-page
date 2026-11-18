@@ -752,7 +752,8 @@ main {
 }
 
 /* ==========================================================
-   03 · FORMAT - five coloured step panels with a rail/road route
+   03 - FORMAT: one red section. Desktop: images | route | steps.
+   Phones: route down the left, steps beside it, no images.
    ========================================================== */
 
 .visually-hidden {
@@ -765,11 +766,20 @@ main {
 }
 
 .format {
+  --format-bg: #b5452f;
+  --format-ink: #f6ead0;
+  --lane: 64px;                       /* phones: route lane width */
   position: relative;
   isolation: isolate;
+  padding: 80px 20px 120px;
+  color: var(--format-ink);
+  background-color: var(--format-bg);
+  /* fine printed-dot texture, as in the design */
+  background-image: radial-gradient(rgba(60, 10, 0, 0.16) 1px, transparent 1.6px);
+  background-size: 12px 12px;
 }
 
-/* route + vehicles, drawn by JS over all five panels */
+/* route + vehicle, drawn by JS over the whole section */
 .format__route {
   position: absolute;
   inset: 0;
@@ -778,75 +788,154 @@ main {
   overflow: visible;
 }
 
-.step {
-  --step-bg: #1545bb;
-  --step-fg: #fbf3d8;
-  --step-accent: var(--yellow);
-  position: relative;
-  display: grid;
-  align-items: center;
-  /* mobile: each step is a full screen tall so the vehicle has a long
-     stretch to drive per step (desktop overrides with its own clamp) */
-  min-height: calc(100svh - var(--bar-h));
-  padding: 72px 20px 72px 76px;       /* mobile: route runs down the left */
-  background: var(--step-bg);
-  color: var(--step-fg);
-}
-
-.step--2 { --step-bg: #fc3b77; --step-fg: #141414; --step-accent: #141414; }
-.step--3 { --step-bg: #a3194b; --step-fg: #fbf3d8; --step-accent: var(--yellow); }
-.step--4 { --step-bg: #0b7a43; --step-fg: #fbf3d8; --step-accent: var(--yellow); }
-.step--5 { --step-bg: var(--yellow); --step-fg: #141414; --step-accent: #c4134f; }
-
-.step__content {
+.format__head {
   position: relative;
   z-index: 2;
-  max-width: 34rem;
+  padding-left: var(--lane);
 }
 
-/* headline above the steps, on step 1's blue so it flows into panel 1 */
-.format__head {
-  /* no z-index: the route (z-index 1) must draw over this blue so the
-     track can start at the very top of the section */
-  position: relative;
-  padding: 88px 20px 8px 76px;        /* mobile: clear of the route on the left */
-  background: #1545bb;
-  color: #fbf3d8;
-}
-
+/* chunky cream caps with a dotted fill and a hard shadow */
 .format__title {
-  max-width: 18ch;
+  max-width: 13ch;
   margin: 0;
-  font-size: clamp(30px, 4.2vw, 64px);
+  font-size: clamp(34px, 5.2vw, 76px);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: transparent;
+  background:
+    radial-gradient(rgba(181, 69, 47, 0.28) 1.2px, transparent 1.8px) 0 0 / 9px 9px,
+    var(--format-ink);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(4px 4px 0 rgba(70, 14, 4, 0.75));
+}
+
+.fsteps {
+  position: relative;
+  z-index: 2;
+  margin: 56px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fstep {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  min-height: calc(100svh - var(--bar-h));
+}
+
+.fstep__media {
+  display: none;                      /* images are desktop-only */
+}
+
+.fstep__body {
+  position: relative;
+  padding-left: var(--lane);
+}
+
+/* the yellow number badge sits on the route; it's also where the
+   surface and vehicle change */
+.fstep__num {
+  position: absolute;
+  top: -0.1em;
+  /* body's left edge is the lane's left edge (lane = padding-left) */
+  left: calc(var(--lane) / 2 - 31px);
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border: 3px solid #141414;
+  border-radius: 50%;
+  background: #f2c94c;
+  color: #141414;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
+}
+
+.fstep__title {
+  margin: 0 0 0.45em;
+  font-size: clamp(26px, 3vw, 44px);
+  font-weight: 800;
+  line-height: 1;
   letter-spacing: -0.02em;
-  text-wrap: balance;
+  text-transform: uppercase;
 }
 
-.step__num {
-  margin: 0;
-  font-size: clamp(64px, 7vw, 110px);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  color: var(--step-accent);
-}
-
-.step__title {
-  margin: 0.25em 0 0.35em;
-  font-size: clamp(26px, 2.8vw, 44px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-}
-
-.step__text {
-  margin: 0;
+.fstep__text {
   max-width: 30rem;
-  font-size: clamp(16px, 1.35vw, 21px);
-  font-weight: 500;
-  line-height: 1.5;
+  margin: 0;
+  font-size: clamp(16px, 1.3vw, 20px);
+  line-height: 1.55;
+  opacity: 0.9;
+}
+
+/* ---- image cards (left column) ---- */
+.fcard {
+  position: relative;
+  margin: 0;
+  width: min(100%, 460px);
+  background: #f5ead0;
+  border: 2px solid #141414;
+  box-shadow: 8px 8px 0 #141414;
+  color: #141414;
+}
+
+.fcard--placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+}
+
+.fcard--placeholder span {
+  display: grid;
+  place-items: center;
+  width: calc(100% - 48px);
+  height: calc(100% - 48px);
+  border: 2px dashed rgba(20, 20, 20, 0.3);
+  font-weight: 600;
+  color: rgba(20, 20, 20, 0.5);
+}
+
+/* 25 teams x 4 people */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px 18px;
+  padding: 40px 44px;
+}
+
+.teams-grid span {
+  justify-self: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle, currentColor 11.5px, transparent 12.5px) 0 0 / 27px 27px;
+  color: #141414;
+}
+
+.teams-grid .is-you {
+  color: #c4442c;
+  box-shadow: 0 0 0 4px #f5ead0, 0 0 0 6px #c4442c;
+}
+
+.fcard__caption {
+  padding: 12px 20px;
+  border-top: 2px solid #141414;
+  background: #efe1bd;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.fcard__caption b {
+  color: #c4442c;
 }
 
 /* ---------- Desktop: hero fits in one screen ----------
@@ -963,50 +1052,70 @@ main {
     width: calc(var(--s) * 10);
   }
 
-  /* ----- Format: each step panel is one screen -----
-     Route lane is ~32% wide on data-side; the text sits in the other part. */
-  .step {
-    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
-    grid-template-columns: 32% 1fr;
-    padding: 10vh var(--page-gutter);
+  /* ----- Format: images | route | steps, one screen per step ----- */
+  .format {
+    --route-col: 160px;
+    padding: clamp(72px, 12vh, 140px) var(--page-gutter) 140px;
   }
 
-  .step[data-side="right"] {
-    grid-template-columns: 1fr 32%;
-  }
-
-  .step[data-side="left"] .step__content {
-    grid-column: 2;
-    padding-left: 4%;
-  }
-
-  .step[data-side="right"] .step__content {
-    grid-column: 1;
-    justify-self: end;
-    padding-right: 4%;
+  .format__head,
+  .fsteps {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .format__head {
-    padding: clamp(72px, 12vh, 140px) var(--page-gutter) 0;
-    text-align: center;
+    padding-left: 0;
   }
 
   .format__title {
-    max-width: 22ch;
-    margin: 0 auto;
-    font-size: calc(var(--s) * 4.6);
+    /* three lines, as in the design; the route starts below it */
+    max-width: 17ch;
+    font-size: calc(var(--s) * 5.6);
   }
 
-  .step__num {
-    font-size: calc(var(--s) * 7.5);
+  .fsteps {
+    margin-top: 6vh;
   }
 
-  .step__title {
-    font-size: calc(var(--s) * 3.1);
+  .fstep {
+    /* card and step start at the same height; the pair is centred in the row */
+    align-items: start;
+    align-content: center;
+    grid-template-columns: 1fr var(--route-col) 1fr;
+    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
   }
 
-  .step__text {
-    font-size: max(16px, calc(var(--s) * 1.4));
+  .fstep__media {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .fstep__body {
+    grid-column: 3;
+    padding-left: 0;
+    margin-top: calc(var(--s) * 4.5);   /* title sits a little below the card top */
+  }
+
+  /* badge centred on the route column, level with the step title */
+  .fstep__num {
+    left: calc(var(--route-col) / -2 - 34px);
+    width: 68px;
+    height: 68px;
+    font-size: 24px;
+  }
+
+  .fstep__title {
+    font-size: calc(var(--s) * 3.3);
+  }
+
+  .fstep__text {
+    font-size: max(16px, calc(var(--s) * 1.35));
+  }
+
+  .fcard {
+    width: min(100%, calc(var(--s) * 32));
   }
 }
 

@@ -154,11 +154,13 @@
 			<img class="corner-flower corner-flower--right" src="assets/wireframed26/corner-flower.png" alt="" width="171" height="171">
 		</section>
 
-		<!-- ============ 03 · FORMAT (how it works) ============
-		     Five coloured panels. A route (drawn by JS into .format__route)
-		     runs down one side of each panel and curves across into the next:
-		     rail → road. A vehicle drives along it with scroll:
-		     train → taxi → BEST bus → auto rickshaw → scooter. -->
+		<!-- ============ 03 - FORMAT (how it works) ============
+		     One red section, three columns on desktop:
+		     left = an image per step, centre = a straight route (rail, then
+		     roads) drawn by JS into .format__route, right = the steps.
+		     Each step's number badge sits on the route and marks where the
+		     surface (and vehicle) changes: train > taxi > bus > auto > scooter.
+		     Phones: no images; route down the left, steps beside it. -->
 		<section class="format" id="format" aria-labelledby="format-title">
 			<svg class="format__route" aria-hidden="true" focusable="false"></svg>
 
@@ -166,45 +168,76 @@
 				<h2 class="format__title" id="format-title">Four teammates. One city. A board full of missions.</h2>
 			</header>
 
-			<div class="step step--1" data-side="left" data-vehicle="train">
-				<div class="step__content">
-					<p class="step__num" aria-hidden="true">01</p>
-					<h3 class="step__title"><span class="visually-hidden">Step 1: </span>Build your team</h3>
-					<p class="step__text">Get together with three other people and register as a team of four. 25 teams will be confirmed for the event.</p>
-				</div>
-			</div>
+			<ol class="fsteps">
+				<li class="fstep" data-vehicle="train">
+					<div class="fstep__media">
+						<figure class="fcard fcard--teams">
+							<div class="teams-grid" aria-hidden="true">
+								<!-- 25 teams of 4; one highlighted -->
+								<span></span><span></span><span></span><span></span><span></span>
+								<span></span><span></span><span></span><span></span><span></span>
+								<span></span><span></span><span class="is-you"></span><span></span><span></span>
+								<span></span><span></span><span></span><span></span><span></span>
+								<span></span><span></span><span></span><span></span><span></span>
+							</div>
+							<figcaption class="fcard__caption"><b>25</b> teams <span aria-hidden="true">×</span> <b>4</b> people</figcaption>
+						</figure>
+					</div>
+					<div class="fstep__body">
+						<span class="fstep__num" aria-hidden="true">01</span>
+						<h3 class="fstep__title"><span class="visually-hidden">Step 1: </span>Build your team</h3>
+						<p class="fstep__text">Get together with three other people and register as a team of four. 25 teams will be confirmed for the event.</p>
+					</div>
+				</li>
 
-			<div class="step step--2" data-side="right" data-vehicle="taxi">
-				<div class="step__content">
-					<p class="step__num" aria-hidden="true">02</p>
-					<h3 class="step__title"><span class="visually-hidden">Step 2: </span>Get your mission board</h3>
-					<p class="step__text">On event day you'll receive a collection of around 50 challenges, each carrying a different point value.</p>
-				</div>
-			</div>
+				<li class="fstep" data-vehicle="taxi">
+					<div class="fstep__media">
+						<!-- TODO: image for "Get your mission board" -->
+						<figure class="fcard fcard--placeholder"><span>Mission board image</span></figure>
+					</div>
+					<div class="fstep__body">
+						<span class="fstep__num" aria-hidden="true">02</span>
+						<h3 class="fstep__title"><span class="visually-hidden">Step 2: </span>Get your mission board</h3>
+						<p class="fstep__text">On event day you'll receive a collection of around 50 challenges, each carrying a different point value.</p>
+					</div>
+				</li>
 
-			<div class="step step--3" data-side="left" data-vehicle="bus">
-				<div class="step__content">
-					<p class="step__num" aria-hidden="true">03</p>
-					<h3 class="step__title"><span class="visually-hidden">Step 3: </span>Explore Mumbai</h3>
-					<p class="step__text">Plan your route, travel across the city and complete as many missions as you can.</p>
-				</div>
-			</div>
+				<li class="fstep" data-vehicle="bus">
+					<div class="fstep__media">
+						<!-- TODO: image for "Explore Mumbai" -->
+						<figure class="fcard fcard--placeholder"><span>Explore Mumbai image</span></figure>
+					</div>
+					<div class="fstep__body">
+						<span class="fstep__num" aria-hidden="true">03</span>
+						<h3 class="fstep__title"><span class="visually-hidden">Step 3: </span>Explore Mumbai</h3>
+						<p class="fstep__text">Plan your route, travel across the city and complete as many missions as you can.</p>
+					</div>
+				</li>
 
-			<div class="step step--4" data-side="right" data-vehicle="auto">
-				<div class="step__content">
-					<p class="step__num" aria-hidden="true">04</p>
-					<h3 class="step__title"><span class="visually-hidden">Step 4: </span>Capture the proof</h3>
-					<p class="step__text">Submit the required photos, videos or other evidence for your completed challenges.</p>
-				</div>
-			</div>
+				<li class="fstep" data-vehicle="auto">
+					<div class="fstep__media">
+						<!-- TODO: image for "Capture the proof" -->
+						<figure class="fcard fcard--placeholder"><span>Capture the proof image</span></figure>
+					</div>
+					<div class="fstep__body">
+						<span class="fstep__num" aria-hidden="true">04</span>
+						<h3 class="fstep__title"><span class="visually-hidden">Step 4: </span>Capture the proof</h3>
+						<p class="fstep__text">Submit the required photos, videos or other evidence for your completed challenges.</p>
+					</div>
+				</li>
 
-			<div class="step step--5" data-side="left" data-vehicle="scooter">
-				<div class="step__content">
-					<p class="step__num" aria-hidden="true">05</p>
-					<h3 class="step__title"><span class="visually-hidden">Step 5: </span>Score and celebrate</h3>
-					<p class="step__text">Every completed mission earns points. The teams with the highest scores win.</p>
-				</div>
-			</div>
+				<li class="fstep" data-vehicle="scooter">
+					<div class="fstep__media">
+						<!-- TODO: image for "Score and celebrate" -->
+						<figure class="fcard fcard--placeholder"><span>Score and celebrate image</span></figure>
+					</div>
+					<div class="fstep__body">
+						<span class="fstep__num" aria-hidden="true">05</span>
+						<h3 class="fstep__title"><span class="visually-hidden">Step 5: </span>Score and celebrate</h3>
+						<p class="fstep__text">Every completed mission earns points. The teams with the highest scores win.</p>
+					</div>
+				</li>
+			</ol>
 		</section>
 	</main>
 
@@ -272,13 +305,15 @@
 			list.querySelectorAll('.prize').forEach(function (el) { io.observe(el); });
 		})();
 
-		// Format route: build the rail/road path from the panel positions, then
-		// drive a vehicle along it so it stays level with the middle of the screen.
+		// Format route: a straight vertical route through the step badges
+		// (rail for step 1, then a different road per step), with a vehicle
+		// that drives along it level with the middle of the screen.
 		(function () {
 			var section = document.getElementById('format');
 			if (!section) return;
 			var svg = section.querySelector('.format__route');
-			var steps = Array.prototype.slice.call(section.querySelectorAll('.step'));
+			var rows = Array.prototype.slice.call(section.querySelectorAll('.fstep'));
+			var badges = rows.map(function (r) { return r.querySelector('.fstep__num'); });
 			var NS = 'http://www.w3.org/2000/svg';
 			var mobile = window.matchMedia('(max-width: 860px)');
 
@@ -345,9 +380,7 @@
 				}
 			};
 
-			var segs = [];       // { path, top, bottom, vehicle:{group, parts[]} }
-			var turns = [];      // { B: boundary y, turn: crosses the page? }
-			var CROSS = 360;     // px of scroll it takes to drive across the page
+			var segs = [];
 			var built = false;
 
 			function el(name, attrs, parent) {
@@ -362,7 +395,7 @@
 				var H = section.scrollHeight;
 				var isMobile = mobile.matches;
 				var railW = isMobile ? 34 : 46;
-				var roadW = isMobile ? 46 : 72;
+				var roadW = isMobile ? 46 : 64;
 				svg.setAttribute('width', W);
 				svg.setAttribute('height', H);
 				svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
@@ -370,9 +403,9 @@
 				segs = [];
 
 				var defs = el('defs', {}, svg);
+				var shadowLayer = el('g', {}, svg);
 				var routeLayer = el('g', {}, svg);
-				var roadLayer = el('g', {}, svg);     // continuous road, drawn under per-segment extras
-				var roadD = '';
+				var vehicleLayer = el('g', {}, svg);
 
 				// interlocking paver blocks for the auto-rickshaw gali
 				var pav = el('pattern', { id: 'pavers', width: 16, height: 10, patternUnits: 'userSpaceOnUse' }, defs);
@@ -420,194 +453,90 @@
 				}
 				var vehicleLayer = el('g', {}, svg);
 
-				var geo = steps.map(function (s, i) {
-					var side = isMobile ? 'left' : s.dataset.side;
-					return {
-						top: i === 0 ? 0 : s.offsetTop,   // track starts at the headline
-						bottom: s.offsetTop + s.offsetHeight,
-						x: isMobile ? 30 : (side === 'left' ? W * 0.16 : W * 0.84),
-						kind: s.dataset.vehicle
-					};
+				// route x and the badge centres (section-local)
+				var sr = section.getBoundingClientRect();
+				var centres = badges.map(function (b) {
+					var r = b.getBoundingClientRect();
+					return { x: r.left + r.width / 2 - sr.left, y: r.top + r.height / 2 - sr.top };
 				});
+				var x = centres[0].x;
+				var endY = H - (isMobile ? 56 : 90);
 
-				// Transition between panels, shaped like the sketch: straight down,
-				// a rounded corner, a long, gently sloping run across the page, another
-				// rounded corner, then straight down again. The run is split at its
-				// middle (on the panel boundary) so the surface changes there.
-				function curve(a, b) {
-					var B = a.bottom, xa = a.x, xb = b.x;
-					if (Math.abs(xb - xa) < 1) {                 // mobile: same lane, no turn
-						return { y0: B, y3: B, mid: [xa, B], first: ' V' + B, second: ' V' + B };
-					}
-					var dir = xb > xa ? 1 : -1;
-					var R = Math.min(110, Math.abs(xb - xa) / 5);   // corner radius
-					var slope = Math.min(48, (a.bottom - a.top) * 0.06); // run drops this much
-					var y1 = B - slope / 2, y2 = B + slope / 2;
-					var s1 = [xa + dir * R, y1], s2 = [xb - dir * R, y2];  // run start / end
-					var len = Math.hypot(s2[0] - s1[0], s2[1] - s1[1]);
-					var u = [(s2[0] - s1[0]) / len, (s2[1] - s1[1]) / len]; // run direction
-					var k = 0.5523 * R;                          // quarter-circle handle
-					function f(p) { return p[0].toFixed(1) + ' ' + p[1].toFixed(1); }
-					var mid = [(s1[0] + s2[0]) / 2, (s1[1] + s2[1]) / 2];
-					return {
-						y0: y1 - R,
-						y3: y2 + R,
-						mid: mid,
-						// corner 1 (tangent-matched to the sloping run), then half the run
-						first: ' C' + f([xa, y1 - R + k]) + ' ' + f([s1[0] - u[0] * k, s1[1] - u[1] * k]) + ' ' + f(s1) +
-							' L' + f(mid),
-						// rest of the run, then corner 2 back to vertical
-						second: ' L' + f(s2) +
-							' C' + f([s2[0] + u[0] * k, s2[1] + u[1] * k]) + ' ' + f([xb, y2 + R - k]) + ' ' + f([xb, y2 + R])
-					};
-				}
+				// segment i runs from badge i (section top for the first) to badge i+1
+				// the route starts at step 1 (below the headline), like the design
+				var startY = rows[0].getBoundingClientRect().top - sr.top;
+				var bounds = [startY].concat(centres.slice(1).map(function (c) { return c.y; }), [endY]);
 
-				var curves = [];
-				turns = [];
-				for (var i = 0; i < geo.length - 1; i++) {
-					curves.push(curve(geo[i], geo[i + 1]));
-					turns.push({ B: geo[i].bottom, turn: Math.abs(geo[i + 1].x - geo[i].x) > 1 });
-				}
+				el('path', { d: 'M' + x + ' ' + startY.toFixed(1) + ' V' + endY, fill: 'none',
+					stroke: 'rgba(0,0,0,0.18)', 'stroke-width': roadW + 18 }, shadowLayer);
 
-				geo.forEach(function (g, i) {
-					var d;
-					if (i === 0) d = 'M' + g.x + ' ' + g.top;
-					else {
-						var pc = curves[i - 1];
-						d = 'M' + pc.mid[0].toFixed(1) + ' ' + pc.mid[1].toFixed(1) + pc.second;
-					}
-					if (i < curves.length) {
-						var nc = curves[i];
-						d += ' V' + nc.y0.toFixed(1) + nc.first;
-					} else {
-						d += ' V' + (g.bottom - (isMobile ? 60 : 110));
-					}
-
-					// road pieces are joined into one continuous path (no seams) and
-					// drawn after the loop; the rail is drawn here.
-					roadD += (i === 0 ? d : ' ' + d.replace(/^M\s*[-\d.]+\s+[-\d.]+/, ''));
-					var grp = el('g', { 'class': 'route route--' + (i === 0 ? 'rail' : 'road') }, i === 0 ? routeLayer : roadLayer);
-					var base = { d: d, fill: 'none', 'stroke-linecap': 'butt', 'stroke-linejoin': 'round' };
+				rows.forEach(function (row, i) {
+					var kind = row.dataset.vehicle;
+					var d = 'M' + x + ' ' + bounds[i].toFixed(1) + ' V' + bounds[i + 1].toFixed(1);
+					var grp = el('g', { 'class': 'route route--' + kind }, routeLayer);
+					var base = { d: d, fill: 'none', 'stroke-linecap': 'butt' };
 					function stroke(extra) {
 						var a = {}; for (var k in base) a[k] = base[k];
 						for (var k2 in extra) a[k2] = extra[k2];
 						return el('path', a, grp);
 					}
 
-					if (i === 0) {
-						// railway: ballast bed, wooden sleepers, two steel rails (masked)
+					if (kind === 'train') {
+						// railway: wooden sleepers + two steel rails (masked)
 						stroke({ stroke: '#7a5532', 'stroke-width': railW + 8, 'stroke-dasharray': '7 11' });
 						var mask = el('mask', { id: 'rail-mask', maskUnits: 'userSpaceOnUse', x: 0, y: 0, width: W, height: H }, defs);
 						el('path', { d: d, fill: 'none', stroke: '#fff', 'stroke-width': railW }, mask);
 						el('path', { d: d, fill: 'none', stroke: '#000', 'stroke-width': railW - 7 }, mask);
 						stroke({ stroke: '#dcdcdc', 'stroke-width': railW, mask: 'url(#rail-mask)' });
 					} else {
-						drawRoad(g.kind, d, stroke, i);
+						drawRoad(kind, d, stroke, i);
 					}
 
-					var path = stroke({ stroke: 'transparent', 'stroke-width': 1 });
-
-					// finish line at the very end of the route
-					if (i === geo.length - 1) {
-						var endY = g.bottom - (isMobile ? 60 : 110);
+					// finish line at the end of the route
+					if (i === rows.length - 1) {
 						var sq = 8, cols = Math.floor(roadW / sq);
 						for (var r = 0; r < 2; r++) for (var col = 0; col < cols; col++) {
 							el('rect', {
-								x: g.x - (cols * sq) / 2 + col * sq, y: endY - 2 * sq + r * sq, width: sq, height: sq,
+								x: x - (cols * sq) / 2 + col * sq, y: endY - 2 * sq + r * sq, width: sq, height: sq,
 								fill: (r + col) % 2 ? '#141414' : '#ffffff'
 							}, grp);
 						}
 					}
 
-					var spec = VEHICLES[g.kind];
+					var spec = VEHICLES[kind];
 					var vg = el('g', { 'class': 'route-vehicle', style: 'display:none' }, vehicleLayer);
 					var parts = spec.parts.map(function (offset, n) {
 						var pg = el('g', {}, vg);
 						pg.innerHTML = spec.art(n);
 						return { node: pg, offset: offset };
 					});
-
-					var total = path.getTotalLength();
 					segs.push({
-						path: path, total: total,
-						yStart: path.getPointAtLength(0).y,
-						yEnd: path.getPointAtLength(total).y,
-						group: vg, parts: parts,
-						scale: g.kind === 'train' ? (isMobile ? 0.72 : 1.15) : (isMobile ? 0.95 : 1.6)
+						x: x, yStart: bounds[i], yEnd: bounds[i + 1], group: vg, parts: parts,
+						scale: kind === 'train' ? (isMobile ? 0.72 : 1.1) : (isMobile ? 0.95 : 1.4)
 					});
 				});
-				// one continuous soft shadow under every road surface
-				var roadGrp = el('g', { 'class': 'route route--road-shadow' });
-				roadLayer.insertBefore(roadGrp, roadLayer.firstChild);
-				el('path', { d: roadD, fill: 'none', 'stroke-linejoin': 'round',
-					stroke: 'rgba(0,0,0,0.16)', 'stroke-width': roadW + 18 }, roadGrp);
-
-				// interchange stops: where one surface changes to the next, a round
-				// "change here" marker (like a metro-map interchange) covers the join
-				var stopLayer = el('g', { 'class': 'route-stops' });
-				svg.insertBefore(stopLayer, vehicleLayer);
-				var stopR = isMobile ? roadW / 2 + 1 : (roadW + 22) / 2 + 6;   // phone lane is narrow
-				curves.forEach(function (c) {
-					var g2 = el('g', { transform: 'translate(' + c.mid[0].toFixed(1) + ' ' + c.mid[1].toFixed(1) + ')' }, stopLayer);
-					el('circle', { r: stopR + 3, fill: 'rgba(0,0,0,0.18)', cy: 3 }, g2);
-					el('circle', { r: stopR, fill: '#fbf3d8', stroke: '#141414', 'stroke-width': isMobile ? 3 : 5 }, g2);
-					el('circle', { r: stopR * 0.38, fill: '#141414' }, g2);
-				});
-
 				built = true;
 				place();
 			}
 
-			// length along a (downward-monotonic) path whose y matches targetY
-			function lengthAtY(seg, targetY) {
-				var lo = 0, hi = seg.total;
-				for (var n = 0; n < 22; n++) {
-					var mid = (lo + hi) / 2;
-					if (seg.path.getPointAtLength(mid).y < targetY) lo = mid; else hi = mid;
-				}
-				return (lo + hi) / 2;
-			}
-
 			function place() {
 				if (!built) return;
-				var rect = section.getBoundingClientRect();
-				var targetY = window.innerHeight * 0.55 - rect.top;   // section-local y at screen middle
-
+				var targetY = window.innerHeight * 0.55 - section.getBoundingClientRect().top;
 				var active = segs.length - 1;
 				for (var i = 0; i < segs.length; i++) {
 					if (targetY <= segs[i].yEnd) { active = i; break; }
 				}
-				var forcedL = null;
-
-				// Crossing the page: the run across barely drops, so following the
-				// screen middle would fling the vehicle across. Instead, over a window
-				// of CROSS px of scroll around the boundary, advance it at a steady
-				// pace along the path (end of panel i → start of panel i+1).
-				for (var t = 0; t < turns.length; t++) {
-					var tr = turns[t];
-					if (!tr.turn || Math.abs(targetY - tr.B) >= CROSS / 2) continue;
-					var a = segs[t], b = segs[t + 1];
-					var La = lengthAtY(a, tr.B - CROSS / 2);
-					var Lb = lengthAtY(b, tr.B + CROSS / 2);
-					var span = (a.total - La) + Lb;
-					var along = ((targetY - (tr.B - CROSS / 2)) / CROSS) * span;
-					if (along < a.total - La) { active = t; forcedL = La + along; }
-					else { active = t + 1; forcedL = along - (a.total - La); }
-					break;
-				}
-
 				segs.forEach(function (seg, i) {
 					if (i !== active) { seg.group.style.display = 'none'; return; }
 					seg.group.style.display = '';
-					var L = forcedL !== null ? forcedL
-						: targetY <= seg.yStart ? 0 : (targetY >= seg.yEnd ? seg.total : lengthAtY(seg, targetY));
+					// keep the whole vehicle (all train coaches) on its own stretch
+					var tail = seg.parts[seg.parts.length - 1].offset * seg.scale + 40 * seg.scale;
+					var y = Math.min(seg.yEnd, Math.max(seg.yStart + (i === 0 ? tail : 0), targetY));
 					seg.parts.forEach(function (part) {
-						var l = Math.max(0, L - part.offset * seg.scale);
-						var p = seg.path.getPointAtLength(l);
-						var q = seg.path.getPointAtLength(Math.min(seg.total, l + 1));
-						var ang = Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI - 90;
+						// train coaches trail behind the lead, but never above the route start
+						var py = Math.max(seg.yStart, y - part.offset * seg.scale);
 						part.node.setAttribute('transform',
-							'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ') rotate(' + ang.toFixed(1) + ') scale(' + seg.scale + ')');
+							'translate(' + seg.x.toFixed(1) + ' ' + py.toFixed(1) + ') scale(' + seg.scale + ')');
 					});
 				});
 			}
