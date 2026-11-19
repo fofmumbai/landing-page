@@ -771,6 +771,7 @@ main {
   --lane: 64px;                       /* phones: route lane width */
   position: relative;
   isolation: isolate;
+  overflow: clip;                     /* route never spills past the section */
   padding: 80px 20px 120px;
   color: var(--format-ink);
   background-color: var(--format-bg);
@@ -946,6 +947,512 @@ main {
    1.75vh, so the content fits whether the screen is short or narrow.
    The illustration is sized against the stamp itself (container units). */
 
+/* =========================================================================
+   Sponsors & partners: yellow fold, a row of cream perforated stamps
+   waiting for logos ("Revealing soon").
+   ========================================================================= */
+.sponsors {
+  --sponsor-ink: #141414;
+  --sponsor-pink: #e2457a;
+  position: relative;
+  padding: 72px 20px 88px;
+  background: var(--yellow);
+  color: var(--sponsor-ink);
+}
+
+.sponsors__head {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.sponsors__title {
+  margin: 0;
+  font-size: clamp(44px, 13vw, 64px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.sponsors__title span {
+  display: block;
+}
+
+.sponsors__sub {
+  max-width: 34ch;
+  margin: 20px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(20, 20, 20, 0.8);
+}
+
+.sponsors__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 18px;
+  max-width: 1480px;
+  margin: 40px auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sponsor {
+  container-type: inline-size;
+  transform: rotate(var(--rot, 0deg));
+  filter: drop-shadow(0 3px 5px rgba(90, 60, 0, 0.18));
+}
+
+/* hand-placed look: each stamp sits a touch off-square */
+.sponsor:nth-child(1) { --rot: -1.2deg; --frame-rot: -1.6deg; }
+.sponsor:nth-child(2) { --rot: 1deg;    --frame-rot: 1.4deg; }
+.sponsor:nth-child(3) { --rot: -0.6deg; --frame-rot: -1deg; }
+.sponsor:nth-child(4) { --rot: 0.8deg;  --frame-rot: 1.8deg; }
+.sponsor:nth-child(5) { --rot: -1deg;   --frame-rot: -1.4deg; }
+.sponsor:nth-child(6) { --rot: 0.6deg;  --frame-rot: 1.2deg; }
+
+/* perforated edge: real cut-outs, same technique as the hero stamp */
+.sponsor-stamp {
+  --r: 4.4cqw;
+  --gap: 12.4cqw;
+  --corner: calc(var(--r) * 0.9);
+  --bite-top: radial-gradient(circle at 50% 0, #000 calc(var(--r) - 0.5px), #0000 var(--r));
+  --bite-bottom: radial-gradient(circle at 50% 100%, #000 calc(var(--r) - 0.5px), #0000 var(--r));
+  --bite-left: radial-gradient(circle at 0 50%, #000 calc(var(--r) - 0.5px), #0000 var(--r));
+  --bite-right: radial-gradient(circle at 100% 50%, #000 calc(var(--r) - 0.5px), #0000 var(--r));
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 0.8;
+  padding: var(--corner);
+  background: #faf0d2;
+  -webkit-mask:
+    var(--bite-top) 0 calc(var(--corner) * -1) / var(--gap) var(--r) space no-repeat content-box border-box,
+    var(--bite-bottom) 0 calc(100% + var(--corner)) / var(--gap) var(--r) space no-repeat content-box border-box,
+    var(--bite-left) calc(var(--corner) * -1) 0 / var(--r) var(--gap) no-repeat space content-box border-box,
+    var(--bite-right) calc(100% + var(--corner)) 0 / var(--r) var(--gap) no-repeat space content-box border-box,
+    linear-gradient(#000 0 0) border-box;
+  -webkit-mask-composite: xor;
+  mask:
+    var(--bite-top) 0 calc(var(--corner) * -1) / var(--gap) var(--r) space no-repeat content-box border-box,
+    var(--bite-bottom) 0 calc(100% + var(--corner)) / var(--gap) var(--r) space no-repeat content-box border-box,
+    var(--bite-left) calc(var(--corner) * -1) 0 / var(--r) var(--gap) no-repeat space content-box border-box,
+    var(--bite-right) calc(100% + var(--corner)) 0 / var(--r) var(--gap) no-repeat space content-box border-box,
+    linear-gradient(#000 0 0) border-box;
+  mask-composite: exclude;
+}
+
+/* dashed inner border, slightly askew like a hand-cut frame */
+.sponsor-stamp__frame {
+  position: absolute;
+  inset: 7cqw;
+  border: max(1px, 0.75cqw) dashed rgba(20, 20, 20, 0.62);
+  transform: rotate(var(--frame-rot, 0deg));
+}
+
+.sponsor-stamp__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10%;
+}
+
+/* pink "Revealing soon" rubber stamp */
+.sponsor-stamp__tag {
+  position: relative;
+  padding: 2.6cqw 5.5cqw;
+  border: max(1.5px, 1.1cqw) solid var(--sponsor-pink);
+  border-radius: 999px;
+  font-size: 7.4cqw;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: var(--sponsor-pink);
+  transform: rotate(-11deg);
+}
+
+/* sticker reveal (shared with the prize stamps, see .prize.is-applied) */
+.sponsors__grid.reveal-ready .sponsor:not(.is-applied) {
+  opacity: 0;
+}
+
+.sponsor.is-applied {
+  animation: sticker-apply 0.75s cubic-bezier(0.3, 0.7, 0.3, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* =========================================================================
+   FAQs: grid-paper fold. Left column: label, title, team-search card, art;
+   right column: accordion.
+   ========================================================================= */
+.faqs {
+  --faq-ink: #141414;
+  --faq-green: #3f9a57;
+  --faq-red: #c8352a;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  display: grid;
+  gap: 40px;
+  padding: 72px 20px 88px;
+  color: var(--faq-ink);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.faqs__title {
+  margin: 0;
+  font-size: clamp(64px, 20vw, 96px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.team-card {
+  max-width: 420px;
+  margin-top: 28px;
+  padding: 22px 22px 24px;
+  border: 3px solid var(--faq-ink);
+  background: var(--faq-green);
+  color: #fff8e6;
+  box-shadow: 6px 6px 0 var(--faq-ink);
+}
+
+.team-card__tag {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 10px;
+  background: #fdf4d6;
+  color: #2f7a43;
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.team-card__text {
+  margin: 16px 0 18px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.team-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--yellow);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.team-card__link:hover span,
+.team-card__link:focus-visible span {
+  transform: translateX(4px);
+}
+
+.team-card__link span {
+  transition: transform 0.2s ease;
+}
+
+.faqs__art {
+  display: none;
+}
+
+/* ----- accordion ----- */
+.faqs__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 2px solid var(--faq-ink);
+}
+
+.faq {
+  border-top: 2px solid var(--faq-ink);
+}
+
+.faq__q {
+  margin: 0;
+}
+
+.faq__btn {
+  display: grid;
+  grid-template-columns: 52px 1fr 36px;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 20px 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq__num {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: rgba(20, 20, 20, 0.6);
+}
+
+.faq__text {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+/* red marks the open (active) question only */
+.faq__btn[aria-expanded="true"] .faq__text {
+  color: var(--faq-red);
+}
+
+.faq__btn:hover .faq__icon {
+  background: rgba(20, 20, 20, 0.06);
+}
+
+.faq__btn:focus-visible {
+  outline: 2px solid var(--faq-ink);
+  outline-offset: 4px;
+}
+
+/* circled plus, turns into a minus when open */
+.faq__icon {
+  position: relative;
+  justify-self: end;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--faq-ink);
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.faq__icon::before,
+.faq__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background: var(--faq-ink);
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease;
+}
+
+.faq__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq__btn[aria-expanded="true"] .faq__icon {
+  background: var(--yellow);
+}
+
+.faq__btn[aria-expanded="true"] .faq__icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* answer: grid-rows 0fr -> 1fr animates to the content's natural height */
+.faq__a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faq__a > div {
+  overflow: hidden;
+}
+
+.faq__a p {
+  max-width: 60ch;
+  margin: 0;
+  padding: 0 0 22px 64px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(20, 20, 20, 0.78);
+}
+
+.faq.is-open .faq__a {
+  grid-template-rows: 1fr;
+}
+
+/* =========================================================================
+   Partner with us: yellow fold, cream card framed by a truck-art border
+   (green rules around a band of pink beads and green ticks).
+   ========================================================================= */
+.partner {
+  --partner-ink: #141414;
+  --partner-pink: #e2457a;
+  --partner-green: #3f8a45;
+  --partner-cream: #f9efcf;
+  padding: 56px 16px 72px;
+  background: var(--yellow);
+  color: var(--partner-ink);
+}
+
+.partner__card {
+  position: relative;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 12px;
+  border: 2px solid var(--partner-green);
+  background-color: var(--partner-cream);
+  /* bead band: pink bead, green tick, small pink dot */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Ccircle cx='5' cy='9' r='3.4' fill='%23e2457a'/%3E%3Ccircle cx='5' cy='9' r='1.3' fill='%23ffc60b'/%3E%3Cpath d='M10.5 11.5q1.5-5 3 0t3 0' fill='none' stroke='%233f8a45' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 18px 18px;
+}
+
+.partner__inner {
+  position: relative;
+  display: grid;
+  gap: 32px;
+  padding: 40px 22px;
+  border: 2px solid var(--partner-green);
+  background-color: var(--partner-cream);
+  /* faint tick marks just inside the frame */
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(63, 138, 69, 0.45) 46px 48px),
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(63, 138, 69, 0.45) 46px 48px);
+  background-size: 100% 8px, 100% 8px;
+  background-position: 0 10px, 0 calc(100% - 10px);
+  background-repeat: no-repeat;
+}
+
+.partner__corner {
+  position: absolute;
+  z-index: 1;
+  width: 30px;
+  height: auto;
+  pointer-events: none;
+}
+
+.partner__corner--bl { left: 0; bottom: 0; }
+.partner__corner--br { right: 0; bottom: 0; transform: scaleX(-1); }
+.partner__corner--tl { left: 0; top: 0; transform: scaleY(-1); }
+.partner__corner--tr { right: 0; top: 0; transform: scale(-1, -1); }
+
+.partner__title {
+  margin: 0;
+  font-size: clamp(40px, 11vw, 60px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.partner__title em {
+  font-style: normal;
+  color: var(--partner-pink);
+}
+
+.partner__text {
+  max-width: 52ch;
+  margin: 22px 0 28px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* same button as the hero's "Register Your Team" */
+.btn-register.partner__btn {
+  /* black variant: same button, black face, grey-black base */
+  --maroon: #141414;
+  --maroon-dark: #000;
+  margin-top: 0;
+}
+
+.partner__art {
+  display: none;
+}
+
+/* ----- Shop shutter over the partner card -----
+   Hidden unless JS has marked the card .shutter-ready (so no-JS and
+   reduced-motion visitors simply see the card). On .shutter-open the door
+   gives a little tug, then rolls up out of the card. */
+.shutter {
+  display: none;
+  position: absolute;
+  inset: -2px;
+  z-index: 5;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shutter-ready .shutter {
+  display: block;
+}
+
+.shutter__door {
+  position: relative;
+  height: 100%;
+  container-type: inline-size;
+}
+
+.shutter__door img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+/* "PARTNER WITH US" painted across the middle of the shutter: red block
+   letters with a dark drop, rough brush edges, slat grooves showing through */
+.shutter__paint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  font-size: 9.6cqw;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #b8473a;
+  text-shadow: 0.05em 0.06em 0 #2b2a28;
+  filter: url(#paint-rough);
+  mix-blend-mode: multiply;
+  opacity: 0.95;
+}
+
+/* narrow cards (phones): two bigger lines instead of one small one */
+@container (max-width: 600px) {
+  .shutter__paint {
+    font-size: 17cqw;
+    line-height: 0.95;
+    text-align: center;
+  }
+
+  .shutter__paint span {
+    display: block;
+  }
+}
+
+.shutter__filters {
+  position: absolute;
+}
+
+.shutter-open .shutter__door {
+  animation: shutter-roll 3.6s cubic-bezier(0.45, 0, 0.35, 1) forwards;
+}
+
+.shutter-open .shutter {
+  visibility: hidden;
+  transition: visibility 0s linear 3.7s;
+}
+
+@keyframes shutter-roll {
+  0%   { transform: translateY(0); }
+  12%  { transform: translateY(-4%); }   /* tug */
+  20%  { transform: translateY(-2.5%); } /* drops back a touch */
+  100% { transform: translateY(-101%); } /* rolled up */
+}
+
 @media (min-width: 861px) {
   :root {
     --topbar-h: clamp(64px, 12vh, 130px);
@@ -1052,6 +1559,152 @@ main {
 
   .corner-flower {
     width: calc(var(--s) * 10);
+  }
+
+  /* ----- Sponsors: title left, note right, six stamps in a row ----- */
+  .sponsors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
+    padding: 5vh var(--page-gutter) 8vh;
+  }
+
+  .sponsors__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+  }
+
+  .sponsors__title {
+    font-size: calc(var(--s) * 7.4);
+  }
+
+  .sponsors__sub {
+    margin: 0 0 0.6em;
+    max-width: 32ch;
+    font-size: max(15px, calc(var(--s) * 1.45));
+  }
+
+  .sponsors__grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: calc(var(--s) * 2.4);
+    width: 100%;
+    margin-top: 8vh;
+  }
+
+  /* ----- FAQs: two columns, art bottom-left ----- */
+  .faqs {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.4fr);
+    align-items: center;
+    gap: calc(var(--s) * 5);
+    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
+    padding: 4vh var(--page-gutter);
+  }
+
+  .faqs__side,
+  .faqs__list {
+    max-width: none;
+  }
+
+
+  .faqs__title {
+    font-size: calc(var(--s) * 7.4);
+  }
+
+  .team-card {
+    margin-top: 3vh;
+    padding: calc(var(--s) * 1.6);
+  }
+
+  .team-card__text {
+    margin: 1.6vh 0;
+    font-size: max(14px, calc(var(--s) * 1.15));
+  }
+
+  .faqs__art {
+    display: grid;
+    width: min(100%, calc(var(--s) * 28));
+    aspect-ratio: 2 / 1;
+    margin-top: 3.5vh;
+  }
+
+  .faqs__art span {
+    width: 100%;
+    height: 100%;
+  }
+
+  .faq__btn {
+    grid-template-columns: calc(var(--s) * 5) 1fr 38px;
+    padding: 2.1vh 0;
+  }
+
+  .faq__text {
+    font-size: max(16px, calc(var(--s) * 1.75));
+  }
+
+  .faq__a p {
+    padding-left: calc(var(--s) * 5 + 12px);
+    padding-bottom: 2.4vh;
+    font-size: max(14px, calc(var(--s) * 1.15));
+  }
+
+  /* ----- Partner with us: copy left, Sea Link right ----- */
+  .partner {
+    display: flex;
+    align-items: stretch;
+    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
+    padding: 5vh var(--page-gutter);
+  }
+
+  .partner__card {
+    display: grid;
+    width: 100%;
+    padding: 14px;
+  }
+
+  .partner__inner {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: calc(var(--s) * 3);
+    padding: 5vh calc(var(--s) * 6);
+  }
+
+  .partner__corner {
+    width: 36px;
+  }
+
+  .partner__title {
+    font-size: calc(var(--s) * 6.2);
+  }
+
+  /* three set lines, as in the design */
+  .partner__title span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .partner__text {
+    max-width: 48ch;
+  }
+
+  .partner__text {
+    margin: 3.5vh 0 4.5vh;
+    font-size: max(15px, calc(var(--s) * 1.45));
+  }
+
+
+  .partner__art {
+    display: grid;
+    aspect-ratio: auto;
+    height: 70%;
+  }
+
+  .partner__art span {
+    width: 100%;
+    height: 100%;
   }
 
   /* ----- Format: images | route | steps, one screen per step ----- */
@@ -1258,6 +1911,15 @@ main {
   }
   .rewards::before {
     animation: none;
+  }
+  .sponsor.is-applied {
+    animation: none;
+  }
+  .faq__a,
+  .faq__icon,
+  .faq__icon::before,
+  .faq__icon::after {
+    transition: none;
   }
   /* stamps simply appear in place */
   .prize.is-applied,
