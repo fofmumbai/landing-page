@@ -17,7 +17,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400..800;1,400..800&display=swap">
+		href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600;700;800&family=Mukta:wght@800&family=Work+Sans:ital,wght@0,400..800;1,400..800&display=swap">
 	<link rel="stylesheet" href="assets/wireframed26/wireframed26.css">
 </head>
 
@@ -40,13 +40,14 @@
 				<!-- TODO: point these at their sections as they're built -->
 				<ul class="topnav__list">
 					<li><a href="#prizes">Rewards</a></li>
+					<li><a href="#about">About</a></li>
 					<li><a href="#format">Format</a></li>
+					<li><a href="#schedule">Schedule</a></li>
 					<li><a href="#sponsors">Sponsors</a></li>
 					<li><a href="#faqs">FAQs</a></li>
 					<li><a href="#partner">Partner</a></li>
 				</ul>
-				<!-- TODO: replace # with the registration link (same as the hero button) -->
-				<a class="topnav__cta" href="#" target="_blank" rel="noopener">Register</a>
+				<a class="topnav__cta" href="https://forms.gle/Ne1Rhau66Dis3J9f7" target="_blank" rel="noopener">Register</a>
 			</nav>
 		</div>
 	</header>
@@ -68,8 +69,7 @@
 								alt="12 Dec 2026, 10 AM to 7 PM. In partnership with DevX and Indirepair.">
 						</p>
 
-						<!-- TODO: replace # with the registration link -->
-						<a class="btn-register" href="#" target="_blank" rel="noopener">
+						<a class="btn-register" href="https://forms.gle/Ne1Rhau66Dis3J9f7" target="_blank" rel="noopener">
 							<img src="assets/wireframed26/flower.svg" alt="">
 							Register Your Team
 							<img src="assets/wireframed26/flower.svg" alt="">
@@ -102,142 +102,133 @@
 				<li class="prize prize--1" style="--i: 0">
 					<article class="prize-stamp" aria-label="1st place: ₹25,000">
 						<div class="prize-stamp__frame">
-							<p class="prize-stamp__meta">WF26 · Mumbai</p>
-							<div class="prize-stamp__art">
-								<!-- TODO: swap for the 2x rickshaw export -->
-								<img src="assets/wireframed26/rickshaw.png" alt="" width="244" height="308">
-							</div>
-							<p class="prize-stamp__place">1st Place</p>
-							<p class="prize-stamp__amount">₹25,000</p>
+							<img class="prize-stamp__img" src="assets/wireframed26/prize-1.webp" alt="" width="317" height="402">
 						</div>
-						<span class="prize-stamp__grain" aria-hidden="true"></span>
-						<span class="prize-stamp__sheen" aria-hidden="true"></span>
 					</article>
 				</li>
 
 				<li class="prize prize--2" style="--i: 1">
 					<article class="prize-stamp" aria-label="2nd place: ₹15,000">
 						<div class="prize-stamp__frame">
-							<p class="prize-stamp__meta">WF26 · Mumbai</p>
-							<div class="prize-stamp__art">
-								<!-- TODO: local train illustration -->
-								<div class="art-placeholder">Local train<br>illustration</div>
-							</div>
-							<p class="prize-stamp__place">2nd Place</p>
-							<p class="prize-stamp__amount">₹15,000</p>
+							<img class="prize-stamp__img" src="assets/wireframed26/prize-2.webp" alt="" width="282" height="356">
 						</div>
-						<span class="prize-stamp__grain" aria-hidden="true"></span>
-						<span class="prize-stamp__sheen" aria-hidden="true"></span>
 					</article>
 				</li>
 
 				<li class="prize prize--3" style="--i: 2">
 					<article class="prize-stamp" aria-label="3rd place: ₹10,000">
 						<div class="prize-stamp__frame">
-							<p class="prize-stamp__meta">WF26 · Mumbai</p>
-							<div class="prize-stamp__art">
-								<!-- TODO: Metro illustration -->
-								<div class="art-placeholder">Metro<br>illustration</div>
-							</div>
-							<p class="prize-stamp__place">3rd Place</p>
-							<p class="prize-stamp__amount">₹10,000</p>
+							<img class="prize-stamp__img" src="assets/wireframed26/prize-3.webp" alt="" width="282" height="356">
 						</div>
-						<span class="prize-stamp__grain" aria-hidden="true"></span>
-						<span class="prize-stamp__sheen" aria-hidden="true"></span>
 					</article>
 				</li>
 			</ol>
 
-			<p class="rewards__note">The teams with the highest scores take home the top prizes.</p>
+			<p class="rewards__note">The team with the highest scores take home the top prizes.</p>
 
 			<img class="corner-flower corner-flower--left" src="assets/wireframed26/corner-flower.png" alt="" width="171" height="171">
 			<img class="corner-flower corner-flower--right" src="assets/wireframed26/corner-flower.png" alt="" width="171" height="171">
 		</section>
 
-		<!-- ============ 03 - FORMAT (how it works) ============
-		     One red section, three columns on desktop:
-		     left = an image per step, centre = a straight route (rail, then
-		     roads) drawn by JS into .format__route, right = the steps.
-		     Each step's number badge sits on the route and marks where the
-		     surface (and vehicle) changes: train > taxi > bus > auto > scooter.
-		     Phones: no images; route down the left, steps beside it. -->
-		<section class="format" id="format" aria-labelledby="format-title">
-			<svg class="format__route" aria-hidden="true" focusable="false"></svg>
+		<!-- ============ 03 - PLAYGROUND (about) ============
+		     Blue grid-paper fold: Gateway of India standing on a road line
+		     on the left, the pitch on the right, a kaali-peeli taxi parked
+		     on the road at the right edge. Phones: copy first, art below. -->
+		<section class="playground" id="about" aria-labelledby="playground-title">
+			<div class="playground__copy">
+				<h2 class="playground__title" id="playground-title"><span lang="mr">मुंबई</span> Is Your Playground</h2>
+				<p>Forget the usual conference rooms and design exercises. Wireframed 2026 is a citywide team adventure that invites you to experience Mumbai with a designer's eye.</p>
+				<p>From its streets and signboards to its food, architecture, transport and everyday quirks, the city is full of things worth noticing.</p>
+				<p>Your mission? Get out there, explore, complete challenges and see Mumbai a little differently.</p>
+			</div>
 
-			<header class="format__head">
-				<h2 class="format__title" id="format-title">Four teammates. One city. A board full of missions.</h2>
+			<img class="playground__gateway" src="assets/wireframed26/gateway.webp" alt="Illustration of the Gateway of India flanked by palm trees" width="800" height="564" loading="lazy" decoding="async">
+			<img class="playground__taxi" src="assets/wireframed26/taxi.webp" alt="" width="356" height="146" loading="lazy" decoding="async">
+		</section>
+
+		<!-- ============ 04 - FORMAT (how it works) ============
+		     Grid-paper fold. Desktop: the section is taller than the screen
+		     and its stage sticks under the navbar; scrolling drives a local
+		     train in from the left, and each step (title and detail)
+		     appears as the train reaches it and stays.
+		     Phones: also pinned; the train is parked and scroll slides the
+		     steps sideways. Reduced motion: nothing pinned, swipe row. -->
+		<section class="format" id="format" aria-labelledby="format-title">
+			<div class="format__stage">
+				<header class="format__head">
+					<h2 class="format__title" id="format-title">
+						<img class="format__divider" src="assets/wireframed26/pink-divider.svg" alt="" width="93" height="22">
+						How Does It Work?
+						<img class="format__divider format__divider--flip" src="assets/wireframed26/pink-divider.svg" alt="" width="93" height="22">
+					</h2>
+					<p class="format__sub">Four teammates. One city. A board full of missions.</p>
+				</header>
+
+				<div class="format__track" aria-hidden="true">
+					<img class="format__train" src="assets/wireframed26/train.webp" alt="" width="1760" height="155" decoding="async">
+				</div>
+
+				<ol class="fsteps">
+				<li class="fstep" style="--i: 0">
+					<span class="fstep__num" aria-hidden="true">1</span>
+					<h3 class="fstep__title"><span class="visually-hidden">Step 1: </span>Build Your <span class="fstep__accent">Team</span></h3>
+					<p class="fstep__text">Form a team of four with three others. Only 25 teams will be accepted for the event.</p>
+				</li>
+				<li class="fstep" style="--i: 1">
+					<span class="fstep__num" aria-hidden="true">2</span>
+					<h3 class="fstep__title"><span class="visually-hidden">Step 2: </span>Get Your <span class="fstep__accent">Mission Board</span></h3>
+					<p class="fstep__text">On event day, you'll get about 50 challenges, each with a different point value.</p>
+				</li>
+				<li class="fstep" style="--i: 2">
+					<span class="fstep__num" aria-hidden="true">3</span>
+					<h3 class="fstep__title"><span class="visually-hidden">Step 3: </span>Explore <span class="fstep__accent">Mumbai</span></h3>
+					<p class="fstep__text">Map your route, traverse the city, and finish as many missions as possible.</p>
+				</li>
+				<li class="fstep" style="--i: 3">
+					<span class="fstep__num" aria-hidden="true">4</span>
+					<h3 class="fstep__title"><span class="visually-hidden">Step 4: </span>Capture <span class="fstep__accent">The Proof</span></h3>
+					<p class="fstep__text">Submit the required photos, videos or other evidence for your completed challenges.</p>
+				</li>
+				<li class="fstep" style="--i: 4">
+					<span class="fstep__num" aria-hidden="true">5</span>
+					<h3 class="fstep__title"><span class="visually-hidden">Step 5: </span>Score &amp; <span class="fstep__accent">Celebrate</span></h3>
+					<p class="fstep__text">Every completed mission earns points. The teams with the highest scores win.</p>
+				</li>
+				</ol>
+
+				<p class="format__note">Exact rules, submission instructions and scoring details will be shared with registered participants.</p>
+			</div>
+		</section>
+
+		<!-- ============ 05 - SCHEDULE (the day at a glance) ============
+		     Maroon grid-paper fold with a black departures-style board
+		     (artwork: agenda-desktop / agenda-mobile). -->
+		<section class="schedule" id="schedule" aria-labelledby="schedule-title">
+			<header class="schedule__head">
+				<h2 class="schedule__title" id="schedule-title">
+					<img class="schedule__divider" src="assets/wireframed26/pink-divider.svg" alt="" width="93" height="22">
+					The Day At A Glance
+					<img class="schedule__divider schedule__divider--flip" src="assets/wireframed26/pink-divider.svg" alt="" width="93" height="22">
+				</h2>
+				<p class="schedule__sub">One Day. Six Hours. All Of Mumbai.</p>
 			</header>
 
-			<ol class="fsteps">
-				<li class="fstep" data-vehicle="train">
-					<div class="fstep__media">
-						<figure class="fcard fcard--teams">
-							<div class="teams-grid" aria-hidden="true">
-								<!-- 25 teams of 4; one highlighted -->
-								<span></span><span></span><span></span><span></span><span></span>
-								<span></span><span></span><span></span><span></span><span></span>
-								<span></span><span></span><span class="is-you"></span><span></span><span></span>
-								<span></span><span></span><span></span><span></span><span></span>
-								<span></span><span></span><span></span><span></span><span></span>
-							</div>
-							<figcaption class="fcard__caption"><b>25</b> teams <span aria-hidden="true">×</span> <b>4</b> people</figcaption>
-						</figure>
-					</div>
-					<div class="fstep__body">
-						<span class="fstep__num" aria-hidden="true">01</span>
-						<h3 class="fstep__title"><span class="visually-hidden">Step 1: </span>Build your team</h3>
-						<p class="fstep__text">Get together with three other people and register as a team of four. 25 teams will be confirmed for the event.</p>
-					</div>
-				</li>
+			<!-- the board is artwork (desktop: two columns; phones: stacked);
+			     the schedule itself is the list below, for screen readers -->
+			<div class="board">
+				<picture>
+					<source media="(max-width: 860px)" srcset="assets/wireframed26/agenda-mobile.webp" width="958" height="647">
+					<img class="board__art" src="assets/wireframed26/agenda-desktop.webp" alt="" width="1562" height="569" loading="lazy" decoding="async">
+				</picture>
+				<ol class="visually-hidden">
+					<li>10:00 AM to 11:00 AM: Welcome and opening keynote</li>
+					<li>11:00 AM to 5:00 PM: Challenge window</li>
+					<li>5:00 PM to 7:00 PM: Hi-tea, networking and prizes</li>
+				</ol>
+			</div>
 
-				<li class="fstep" data-vehicle="taxi">
-					<div class="fstep__media">
-						<!-- TODO: image for "Get your mission board" -->
-						<figure class="fcard fcard--placeholder"><span>Mission board image</span></figure>
-					</div>
-					<div class="fstep__body">
-						<span class="fstep__num" aria-hidden="true">02</span>
-						<h3 class="fstep__title"><span class="visually-hidden">Step 2: </span>Get your mission board</h3>
-						<p class="fstep__text">On event day you'll receive a collection of around 50 challenges, each carrying a different point value.</p>
-					</div>
-				</li>
-
-				<li class="fstep" data-vehicle="bus">
-					<div class="fstep__media">
-						<!-- TODO: image for "Explore Mumbai" -->
-						<figure class="fcard fcard--placeholder"><span>Explore Mumbai image</span></figure>
-					</div>
-					<div class="fstep__body">
-						<span class="fstep__num" aria-hidden="true">03</span>
-						<h3 class="fstep__title"><span class="visually-hidden">Step 3: </span>Explore Mumbai</h3>
-						<p class="fstep__text">Plan your route, travel across the city and complete as many missions as you can.</p>
-					</div>
-				</li>
-
-				<li class="fstep" data-vehicle="auto">
-					<div class="fstep__media">
-						<!-- TODO: image for "Capture the proof" -->
-						<figure class="fcard fcard--placeholder"><span>Capture the proof image</span></figure>
-					</div>
-					<div class="fstep__body">
-						<span class="fstep__num" aria-hidden="true">04</span>
-						<h3 class="fstep__title"><span class="visually-hidden">Step 4: </span>Capture the proof</h3>
-						<p class="fstep__text">Submit the required photos, videos or other evidence for your completed challenges.</p>
-					</div>
-				</li>
-
-				<li class="fstep" data-vehicle="scooter">
-					<div class="fstep__media">
-						<!-- TODO: image for "Score and celebrate" -->
-						<figure class="fcard fcard--placeholder"><span>Score and celebrate image</span></figure>
-					</div>
-					<div class="fstep__body">
-						<span class="fstep__num" aria-hidden="true">05</span>
-						<h3 class="fstep__title"><span class="visually-hidden">Step 5: </span>Score and celebrate</h3>
-						<p class="fstep__text">Every completed mission earns points. The teams with the highest scores win.</p>
-					</div>
-				</li>
-			</ol>
+			<img class="schedule__flower schedule__flower--left" src="assets/wireframed26/corner-flower.png" alt="" width="171" height="171" loading="lazy">
+			<img class="schedule__flower schedule__flower--right" src="assets/wireframed26/corner-flower.png" alt="" width="171" height="171" loading="lazy">
 		</section>
 		<!-- Sponsors: cream perforated stamps waiting for logos. To reveal a
 		     sponsor, put an <a><img></a> inside .sponsor-stamp__frame and drop the
@@ -294,11 +285,9 @@
 				<div class="team-card">
 					<p class="team-card__tag">#wf26-team-search</p>
 					<p class="team-card__text">Can I register individually? Nope. You can find open teams using our WhatsApp group.</p>
-					<!-- TODO: replace # with the WhatsApp group invite link -->
-					<a class="team-card__link" href="#" target="_blank" rel="noopener">Open WhatsApp group <span aria-hidden="true">&rarr;</span></a>
+					<a class="team-card__link" href="https://chat.whatsapp.com/KhKVqzOLVziFF0Bmf8cKkY" target="_blank" rel="noopener">Open WhatsApp group <span aria-hidden="true">&rarr;</span></a>
 				</div>
-				<!-- TODO: chai + vada pav illustration -->
-				<div class="faqs__art fcard--placeholder" aria-hidden="true"><span>Chai + vada pav art</span></div>
+				<img class="faqs__art" src="assets/wireframed26/chai-vada-pav.webp" alt="" width="479" height="328" loading="lazy" decoding="async">
 			</div>
 			<ol class="faqs__list">
 					<li class="faq">
@@ -412,15 +401,12 @@
 					<div class="partner__content">
 						<h2 class="partner__title" id="partner-title"><span>Be part of</span> <span>Mumbai's <em>design</em></span> <span><em>movement.</em></span></h2>
 						<p class="partner__text">When you sponsor Wireframed, you're not just supporting an event. You're fueling a movement that celebrates design, innovation and collaboration at scale.</p>
-						<!-- TODO: replace # with the sponsorship contact (mailto: or form link) -->
-						<a class="btn-register partner__btn" href="#">
+						<a class="btn-register partner__btn" href="https://forms.gle/yonFyZ1pDiK5ovyS8" target="_blank" rel="noopener">
 							<img src="assets/wireframed26/flower.svg" alt="">
 							Partner With Us
 							<img src="assets/wireframed26/flower.svg" alt="">
 						</a>
 					</div>
-					<!-- TODO: Bandra-Worli Sea Link illustration -->
-					<div class="partner__art fcard--placeholder" aria-hidden="true"><span>Sea Link art</span></div>
 				</div>
 			</div>
 		</section>
@@ -567,254 +553,124 @@
 			io.observe(card);
 		})();
 
-		// Format route: a straight vertical route through the step badges
-		// (rail for step 1, then a different road per step), with a vehicle
-		// that drives along it level with the middle of the screen.
+		// Playground taxi: scroll drives it in from off-screen right towards the
+		// Gateway, and it parks beside the Gateway (never past its left edge).
+		(function () {
+			var section = document.getElementById('about');
+			if (!section) return;
+			var taxi = section.querySelector('.playground__taxi');
+			var gate = section.querySelector('.playground__gateway');
+			var motion = window.matchMedia('(prefers-reduced-motion: no-preference)');
+			var ticking = false;
+
+			function update() {
+				ticking = false;
+				taxi.style.transform = '';
+				if (!motion.matches) return;
+				var sr = section.getBoundingClientRect();
+				var tr = taxi.getBoundingClientRect();   // parked position (no transform)
+				var gr = gate.getBoundingClientRect();
+				var bar = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bar-h')) || 0;
+				var start = sr.right - tr.left;                          // fully off the right edge
+				var stopLeft = Math.min(gr.right + sr.width * 0.02, sr.right - tr.width - 8);
+				var end = Math.min(0, stopLeft - tr.left);               // beside the Gateway
+				// starts once the road (the fold's bottom edge) is on screen, so
+				// the taxi is seen entering; parks when the fold is 60% past the bar
+				var from = window.innerHeight - sr.height, to = bar - sr.height * 0.6;
+				var p = Math.min(1, Math.max(0, (from - sr.top) / (from - to)));
+				p = 1 - Math.pow(1 - p, 2);                              // brakes into the stop
+				taxi.style.transform = 'translateX(' + (start + (end - start) * p) + 'px)';
+			}
+
+			function queue() {
+				if (!ticking) { ticking = true; requestAnimationFrame(update); }
+			}
+			window.addEventListener('scroll', queue, { passive: true });
+			window.addEventListener('resize', queue);
+			if (motion.addEventListener) motion.addEventListener('change', queue);
+			window.addEventListener('load', queue);
+			queue();
+		})();
+
+		// Format: the stage sticks under the navbar while the section scrolls by.
+		// Desktop: scroll drives the train from off-screen left to the last
+		//   step; each step (title and detail) shows once the nose reaches it.
+		// Phones: the train stays parked; scroll slides the row of steps
+		//   sideways from step 1 to step 5 instead.
+		// Reduced motion: nothing is pinned (phones get a manual swipe row).
 		(function () {
 			var section = document.getElementById('format');
 			if (!section) return;
-			var svg = section.querySelector('.format__route');
-			var rows = Array.prototype.slice.call(section.querySelectorAll('.fstep'));
-			var badges = rows.map(function (r) { return r.querySelector('.fstep__num'); });
-			var NS = 'http://www.w3.org/2000/svg';
-			var mobile = window.matchMedia('(max-width: 860px)');
-
-			// Top-view vehicles, drawn pointing DOWN (+y), centred on 0,0.
-			// PLACEHOLDER art - swap the markup for exported illustrations later.
-			var VEHICLES = {
-				train: {
-					// Mumbai local: three coaches that each follow the track
-					parts: [0, 70, 140],
-					art: function (i) {
-						return '<rect x="-15" y="-33" width="30" height="66" rx="6" fill="#7b1e3c"/>' +
-							'<rect x="-11" y="-29" width="22" height="58" rx="4" fill="#efe6d6"/>' +
-							'<rect x="-6" y="-20" width="12" height="7" rx="2" fill="#b8ae9c"/>' +
-							'<rect x="-6" y="13" width="12" height="7" rx="2" fill="#b8ae9c"/>' +
-							(i === 0
-								? '<rect x="-15" y="27" width="30" height="7" rx="3" fill="#ffc60b"/>' +
-								  '<path d="M-8 -6 L0 4 L8 -6" stroke="#444" stroke-width="2" fill="none"/>'
-								: '');
-					}
-				},
-				taxi: {
-					// kaali-peeli
-					parts: [0],
-					art: function () {
-						return '<rect x="-14" y="-28" width="28" height="56" rx="9" fill="#1c1c1c"/>' +
-							'<rect x="-11" y="10" width="22" height="9" rx="3" fill="#9fd3ff"/>' +
-							'<rect x="-11" y="-19" width="22" height="6" rx="3" fill="#9fd3ff"/>' +
-							'<rect x="-11" y="-12" width="22" height="21" rx="4" fill="#ffc60b"/>' +
-							'<circle cx="-8" cy="25" r="2.4" fill="#fff6c2"/><circle cx="8" cy="25" r="2.4" fill="#fff6c2"/>';
-					}
-				},
-				bus: {
-					// BEST red bus
-					parts: [0],
-					art: function () {
-						return '<rect x="-17" y="-55" width="34" height="110" rx="6" fill="#d62b2b"/>' +
-							'<rect x="-13" y="-48" width="26" height="90" rx="4" fill="#b81f22"/>' +
-							'<rect x="-9" y="-30" width="18" height="16" rx="3" fill="#e9e3d8"/>' +
-							'<rect x="-9" y="2" width="18" height="16" rx="3" fill="#e9e3d8"/>' +
-							'<rect x="-15" y="45" width="30" height="8" rx="3" fill="#222"/>';
-					}
-				},
-				auto: {
-					// auto rickshaw: black body, yellow canopy
-					parts: [0],
-					art: function () {
-						return '<path d="M-15 -24 Q-15 -27 -12 -27 L12 -27 Q15 -27 15 -24 L15 6 Q15 14 8 24 L-8 24 Q-15 14 -15 6 Z" fill="#1c1c1c"/>' +
-							'<rect x="-13" y="-24" width="26" height="30" rx="8" fill="#ffc60b"/>' +
-							'<rect x="-9" y="7" width="18" height="6" rx="2" fill="#9fd3ff"/>' +
-							'<rect x="-3" y="22" width="6" height="7" rx="2" fill="#333"/>';
-					}
-				},
-				scooter: {
-					// scooter + rider
-					parts: [0],
-					art: function () {
-						return '<rect x="-2.5" y="-24" width="5" height="10" rx="2" fill="#222"/>' +
-							'<rect x="-2.5" y="15" width="5" height="10" rx="2" fill="#222"/>' +
-							'<rect x="-7" y="-18" width="14" height="34" rx="7" fill="#1d7fd8"/>' +
-							'<rect x="-12" y="9" width="24" height="3" rx="1.5" fill="#222"/>' +
-							'<ellipse cx="0" cy="-3" rx="10" ry="6" fill="#2f2f2f"/>' +
-							'<circle cx="0" cy="0" r="6.5" fill="#e3342f"/>';
-					}
-				}
-			};
-
-			var segs = [];
-			var built = false;
-
-			function el(name, attrs, parent) {
-				var n = document.createElementNS(NS, name);
-				for (var k in attrs) n.setAttribute(k, attrs[k]);
-				if (parent) parent.appendChild(n);
-				return n;
-			}
-
-			function build() {
-				var W = section.clientWidth;
-				var H = section.offsetHeight;
-				var isMobile = mobile.matches;
-				var railW = isMobile ? 34 : 46;
-				var roadW = isMobile ? 46 : 64;
-				svg.setAttribute('width', W);
-				svg.setAttribute('height', H);
-				svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-				svg.innerHTML = '';
-				segs = [];
-
-				var defs = el('defs', {}, svg);
-				var shadowLayer = el('g', {}, svg);
-				var routeLayer = el('g', {}, svg);
-				var vehicleLayer = el('g', {}, svg);
-
-				// interlocking paver blocks for the auto-rickshaw gali
-				var pav = el('pattern', { id: 'pavers', width: 16, height: 10, patternUnits: 'userSpaceOnUse' }, defs);
-				el('rect', { width: 16, height: 10, fill: '#b9a383' }, pav);
-				el('path', { d: 'M0 0.5H16M0 5.5H16M0.5 0V5M8.5 5V10', stroke: '#8c7a5e', 'stroke-width': 1, fill: 'none' }, pav);
-
-				// two thin parallel lines either side of the centre (mask trick:
-				// a wide stroke minus a slightly narrower one), optionally dashed
-				function pairLines(d, outerW, lineW, color, dash, id, stroke) {
-					var m = el('mask', { id: id, maskUnits: 'userSpaceOnUse', x: 0, y: 0, width: W, height: H }, defs);
-					el('path', { d: d, fill: 'none', stroke: '#fff', 'stroke-width': outerW }, m);
-					el('path', { d: d, fill: 'none', stroke: '#000', 'stroke-width': outerW - lineW * 2 }, m);
-					var a = { stroke: color, 'stroke-width': outerW, mask: 'url(#' + id + ')' };
-					if (dash) a['stroke-dasharray'] = dash;
-					stroke(a);
-				}
-
-				// a different road surface for each vehicle
-				function drawRoad(kind, d, stroke, i) {
-					var id = 'road-' + i;
-					if (kind === 'taxi') {
-						// city street: asphalt, white edges, yellow dashed centre
-						stroke({ stroke: '#2d2d30', 'stroke-width': roadW });
-						pairLines(d, roadW - 8, 2.5, '#f2f2f2', null, id + 'e', stroke);
-						stroke({ stroke: '#ffd23f', 'stroke-width': 3, 'stroke-dasharray': '16 14' });
-					} else if (kind === 'bus') {
-						// wide concrete road with a red bus-only lane down the middle
-						var bw = roadW + (isMobile ? 6 : 22);
-						stroke({ stroke: '#8f9196', 'stroke-width': bw });
-						pairLines(d, bw - 8, 2.5, '#f2f2f2', null, id + 'e', stroke);
-						pairLines(d, bw * 0.72, 2.5, '#f2f2f2', '12 12', id + 'l', stroke);
-						stroke({ stroke: '#f2f2f2', 'stroke-width': bw * 0.42 });
-						stroke({ stroke: '#c0392b', 'stroke-width': bw * 0.42 - 5 });
-					} else if (kind === 'auto') {
-						// narrow gali paved with blocks, dark gutters
-						var aw = roadW - (isMobile ? 4 : 14);
-						stroke({ stroke: '#5f5547', 'stroke-width': aw });
-						stroke({ stroke: 'url(#pavers)', 'stroke-width': aw - 8 });
-					} else {
-						// highway: dark asphalt, white edges, double yellow centre
-						stroke({ stroke: '#232326', 'stroke-width': roadW });
-						pairLines(d, roadW - 8, 2.5, '#f2f2f2', null, id + 'e', stroke);
-						pairLines(d, 10, 2.5, '#ffd23f', null, id + 'c', stroke);
-					}
-				}
-				var vehicleLayer = el('g', {}, svg);
-
-				// route x and the badge centres (section-local)
-				var sr = section.getBoundingClientRect();
-				var centres = badges.map(function (b) {
-					var r = b.getBoundingClientRect();
-					return { x: r.left + r.width / 2 - sr.left, y: r.top + r.height / 2 - sr.top };
-				});
-				var x = centres[0].x;
-				var endY = H - (isMobile ? 56 : 90);
-
-				// segment i runs from badge i to badge i+1: the track starts at badge 01
-				var startY = centres[0].y;
-				// nothing on the route shows above badge 01, so the train emerges from it
-				var clip = el('clipPath', { id: 'route-clip' }, svg);
-				el('rect', { x: 0, y: startY.toFixed(1), width: W, height: (H - startY).toFixed(1) }, clip);
-				vehicleLayer.setAttribute('clip-path', 'url(#route-clip)');
-				var bounds = [startY].concat(centres.slice(1).map(function (c) { return c.y; }), [endY]);
-
-				el('path', { d: 'M' + x + ' ' + startY.toFixed(1) + ' V' + endY, fill: 'none',
-					stroke: 'rgba(0,0,0,0.18)', 'stroke-width': roadW + 18 }, shadowLayer);
-
-				rows.forEach(function (row, i) {
-					var kind = row.dataset.vehicle;
-					var d = 'M' + x + ' ' + bounds[i].toFixed(1) + ' V' + bounds[i + 1].toFixed(1);
-					var grp = el('g', { 'class': 'route route--' + kind }, routeLayer);
-					var base = { d: d, fill: 'none', 'stroke-linecap': 'butt' };
-					function stroke(extra) {
-						var a = {}; for (var k in base) a[k] = base[k];
-						for (var k2 in extra) a[k2] = extra[k2];
-						return el('path', a, grp);
-					}
-
-					if (kind === 'train') {
-						// railway: wooden sleepers + two steel rails (masked)
-						stroke({ stroke: '#7a5532', 'stroke-width': railW + 8, 'stroke-dasharray': '7 11' });
-						var mask = el('mask', { id: 'rail-mask', maskUnits: 'userSpaceOnUse', x: 0, y: 0, width: W, height: H }, defs);
-						el('path', { d: d, fill: 'none', stroke: '#fff', 'stroke-width': railW }, mask);
-						el('path', { d: d, fill: 'none', stroke: '#000', 'stroke-width': railW - 7 }, mask);
-						stroke({ stroke: '#dcdcdc', 'stroke-width': railW, mask: 'url(#rail-mask)' });
-					} else {
-						drawRoad(kind, d, stroke, i);
-					}
-
-					// finish line at the end of the route
-					if (i === rows.length - 1) {
-						var sq = 8, cols = Math.floor(roadW / sq);
-						for (var r = 0; r < 2; r++) for (var col = 0; col < cols; col++) {
-							el('rect', {
-								x: x - (cols * sq) / 2 + col * sq, y: endY - 2 * sq + r * sq, width: sq, height: sq,
-								fill: (r + col) % 2 ? '#141414' : '#ffffff'
-							}, grp);
-						}
-					}
-
-					var spec = VEHICLES[kind];
-					var vg = el('g', { 'class': 'route-vehicle', style: 'display:none' }, vehicleLayer);
-					var parts = spec.parts.map(function (offset, n) {
-						var pg = el('g', {}, vg);
-						pg.innerHTML = spec.art(n);
-						return { node: pg, offset: offset };
-					});
-					segs.push({
-						x: x, yStart: bounds[i], yEnd: bounds[i + 1], group: vg, parts: parts,
-						scale: kind === 'train' ? (isMobile ? 0.72 : 1.1) : (isMobile ? 0.95 : 1.4)
-					});
-				});
-				built = true;
-				place();
-			}
-
-			function place() {
-				if (!built) return;
-				var targetY = window.innerHeight * 0.55 - section.getBoundingClientRect().top;
-				var active = segs.length - 1;
-				for (var i = 0; i < segs.length; i++) {
-					if (targetY <= segs[i].yEnd) { active = i; break; }
-				}
-				segs.forEach(function (seg, i) {
-					if (i !== active) { seg.group.style.display = 'none'; return; }
-					seg.group.style.display = '';
-					var y = Math.min(seg.yEnd, Math.max(seg.yStart, targetY));
-					seg.parts.forEach(function (part) {
-						// train coaches trail behind the lead; any still above badge 01
-						// are clipped, so the train pulls out of the badge coach by coach
-						var py = y - part.offset * seg.scale;
-						part.node.setAttribute('transform',
-							'translate(' + seg.x.toFixed(1) + ' ' + py.toFixed(1) + ') scale(' + seg.scale + ')');
-					});
-				});
-			}
-
+			var stage = section.querySelector('.format__stage');
+			var train = section.querySelector('.format__train');
+			var list = section.querySelector('.fsteps');
+			var steps = Array.prototype.slice.call(section.querySelectorAll('.fstep'));
+			var desk = window.matchMedia('(min-width: 861px) and (prefers-reduced-motion: no-preference)');
+			var phone = window.matchMedia('(max-width: 860px) and (prefers-reduced-motion: no-preference)');
 			var ticking = false;
-			window.addEventListener('scroll', function () {
-				if (!ticking) { ticking = true; requestAnimationFrame(function () { place(); ticking = false; }); }
-			}, { passive: true });
 
-			var rebuild = function () { requestAnimationFrame(build); };
-			if ('ResizeObserver' in window) new ResizeObserver(rebuild).observe(section);
-			else window.addEventListener('resize', rebuild);
-			if (document.fonts && document.fonts.ready) document.fonts.ready.then(rebuild);
-			build();
+			// 0..1 through the pinned stretch of the section
+			function progress() {
+				var r = section.getBoundingClientRect();
+				var travel = section.offsetHeight - stage.offsetHeight;
+				var top = parseFloat(getComputedStyle(stage).top) || 0;
+				return travel > 0 ? Math.min(1, Math.max(0, (top - r.top) / travel)) : 1;
+			}
+
+			function reset() {
+				section.classList.remove('is-driving', 'is-sliding');
+				section.style.height = '';
+				train.style.transform = '';
+				list.style.transform = '';
+				steps.forEach(function (s) { s.classList.remove('is-shown'); });
+			}
+
+			function drive() {
+				section.classList.add('is-driving');
+				// the drive takes the first 80% of the scroll; the rest is a pause at the end
+				var d = Math.min(1, progress() / 0.8);
+				d = 1 - Math.pow(1 - d, 2);   // eases into the platform
+
+				var sr = stage.getBoundingClientRect();
+				var last = steps[steps.length - 1].getBoundingClientRect();
+				var noseX = d * (last.right - sr.left);   // nose stops at the last step
+				train.style.transform = 'translateX(' + (noseX - train.offsetWidth) + 'px)';
+
+				steps.forEach(function (s) {
+					var b = s.querySelector('.fstep__num').getBoundingClientRect();
+					s.classList.toggle('is-shown', noseX >= b.left + b.width / 2 - sr.left);
+				});
+			}
+
+			function slide() {
+				section.classList.add('is-sliding');
+				// slide until the last step sits at the row's right padding
+				var last = steps[steps.length - 1];
+				var padR = parseFloat(getComputedStyle(list).paddingRight) || 0;
+				var dist = Math.max(0, last.offsetLeft + last.offsetWidth + padR - list.clientWidth);
+				// a pixel of scroll per pixel of slide, plus a short hold at each end
+				var h = Math.round(stage.offsetHeight + dist * 1.1 + window.innerHeight * 0.3);
+				if (section.style.height !== h + 'px') section.style.height = h + 'px';
+				var p = (progress() - 0.12) / 0.76;
+				p = Math.min(1, Math.max(0, p));
+				list.style.transform = 'translateX(' + (-dist * p) + 'px)';
+			}
+
+			function update() {
+				ticking = false;
+				if (desk.matches) { if (section.classList.contains('is-sliding')) reset(); drive(); }
+				else if (phone.matches) { if (section.classList.contains('is-driving')) reset(); slide(); }
+				else reset();
+			}
+
+			function queue() {
+				if (!ticking) { ticking = true; requestAnimationFrame(update); }
+			}
+			window.addEventListener('scroll', queue, { passive: true });
+			window.addEventListener('resize', queue);
+			[desk, phone].forEach(function (m) { if (m.addEventListener) m.addEventListener('change', queue); });
+			if (train.complete) queue(); else train.addEventListener('load', queue);
+			queue();
 		})();
 	</script>
 </body>

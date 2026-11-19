@@ -13,6 +13,9 @@
   /* stamp scallops */
   --scallop-r: clamp(10px, 1.45vw, 21px);
   --scallop-gap: clamp(36px, 5.1vw, 74px);
+
+  /* display face for headings; body text stays Work Sans */
+  --font-display: "Montserrat Alternates", "Work Sans", system-ui, sans-serif;
 }
 
 *,
@@ -36,6 +39,13 @@ body {
 img {
   display: block;
   max-width: 100%;
+}
+
+/* FAQ questions are buttons in an h3, they stay Work Sans */
+h1,
+h2,
+h3:not(.faq__q) {
+  font-family: var(--font-display);
 }
 
 /* ---------- Top bar → sticky navbar ----------
@@ -238,8 +248,9 @@ main {
 /* ---------- Hero stamp ---------- */
 
 .hero {
-  /* yellow below the stamp matches the logo bar above it */
-  padding: 0 clamp(16px, 3.5vw, 50px) var(--topbar-h);
+  /* yellow below the stamp is as wide as the side margins, so the hero
+     runs straight into the rewards without a big empty band */
+  padding: 0 var(--page-gutter) var(--page-gutter);
 }
 
 .stamp {
@@ -394,42 +405,42 @@ main {
   --stamp-green: #3f7c46;
   --stamp-red: #d3392b;
   --stamp-ink: #1c1c1c;
-  /* green fold: cream heading, yellow subtitle, cream body text */
-  --section-head: #fbf3d8;
-  --section-sub: var(--yellow);
-  --section-text: #fbf3d8;
-  --stamp-shadow: 0, 38, 10;
+  /* yellow fold: ink heading, dark green subtitle and body text */
+  --section-head: #1e1e1e;
+  --section-sub: var(--green-dark);
+  --section-text: var(--green-dark);
+  --stamp-shadow: 120, 70, 0;
   position: relative;
   overflow: hidden;
-  background: #4a7c46;
+  background: var(--yellow);   /* same yellow as the hero */
   isolation: isolate;          /* keeps the aura (z-index -1) inside the section */
   padding: clamp(48px, 5.5vw, 88px) 16px clamp(140px, 13vw, 190px);
   text-align: center;
 }
 
-/* Aura: soft light rays fanning out from behind the stamps, slowly turning.
-   A big square (so the rays always reach the corners while it spins),
-   centred on the stamp row, faded out toward its rim. */
-.rewards::before {
+/* Pin-wheel bursts (assets/wireframed26/rewards-bg.svg): one centred on each
+   bottom corner, so half of each shows, slowly turning. */
+.rewards::before,
+.rewards::after {
   content: "";
   position: absolute;
   z-index: -1;
-  top: 54%;
-  left: 50%;
-  width: 180vmax;
+  top: 100%;
+  width: min(90vw, 1300px);
   aspect-ratio: 1;
   pointer-events: none;
-  /* 9 crisp rays, each ~11deg wide (0.6deg feather just to anti-alias) */
-  background: repeating-conic-gradient(
-    from 0deg,
-    rgba(120, 178, 112, 0.55) 0deg 11deg,
-    rgba(120, 178, 112, 0) 11.6deg 39.4deg,
-    rgba(120, 178, 112, 0.55) 40deg
-  );
-  -webkit-mask: radial-gradient(circle, #000 0 30%, rgba(0, 0, 0, 0.7) 48%, transparent 70%);
-  mask: radial-gradient(circle, #000 0 30%, rgba(0, 0, 0, 0.7) 48%, transparent 70%);
-  transform: translate(-50%, -50%);
+  background: url("rewards-bg.svg") center / contain no-repeat;
+  transform: translate(-50%, -50%);   /* kept when motion is reduced */
   animation: aura-spin 120s linear infinite;
+}
+
+.rewards::before {
+  left: 0;
+}
+
+.rewards::after {
+  left: 100%;
+  animation-direction: reverse;
 }
 
 @keyframes aura-spin {
@@ -498,7 +509,7 @@ main {
   list-style: none;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: clamp(24px, 4.5vw, 72px);
   margin: clamp(48px, 6vw, 88px) auto clamp(48px, 5.5vw, 80px);
   padding: 0;
@@ -525,152 +536,36 @@ main {
 
 .prize--2 {
   order: 1;
-  --rot: -3deg;
-  margin-top: 1.5%;
+  --rot: -5deg;
 }
 
 .prize--3 {
   order: 3;
-  --rot: 3deg;
-  margin-top: 0.5%;
+  --rot: 5deg;
 }
 
+/* the artwork is the whole stamp, perforated paper edge included */
 .prize-stamp {
-  --perf-r: 2.8cqw;
-  --perf-gap: 7.6cqw;
   position: relative;
-  /* paper margin between the perforated edge and the printed frame.
-     Padding, not a margin on the frame - a child margin would collapse
-     through and let the perforations bite into the frame. */
-  padding: 6.5cqw;
-  background: #fbf3d8;
 }
 
-.prize--1 .prize-stamp {
-  background: #fbf7ea;
-}
-
-/* perforated edge - real holes cut with a mask (not painted dots), so the
-   page shows through and the drop shadow follows the bitten edge.
-   Half-circle bites along every side, XOR'd out of a solid layer. */
-.prize-stamp {
-  --bite-top: radial-gradient(circle at 50% 0, #000 calc(var(--perf-r) - 0.5px), #0000 var(--perf-r));
-  --bite-bottom: radial-gradient(circle at 50% 100%, #000 calc(var(--perf-r) - 0.5px), #0000 var(--perf-r));
-  --bite-left: radial-gradient(circle at 0 50%, #000 calc(var(--perf-r) - 0.5px), #0000 var(--perf-r));
-  --bite-right: radial-gradient(circle at 100% 50%, #000 calc(var(--perf-r) - 0.5px), #0000 var(--perf-r));
-  -webkit-mask:
-    var(--bite-top) top / var(--perf-gap) var(--perf-r) space no-repeat,
-    var(--bite-bottom) bottom / var(--perf-gap) var(--perf-r) space no-repeat,
-    var(--bite-left) left / var(--perf-r) var(--perf-gap) no-repeat space,
-    var(--bite-right) right / var(--perf-r) var(--perf-gap) no-repeat space,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    var(--bite-top) top / var(--perf-gap) var(--perf-r) space no-repeat,
-    var(--bite-bottom) bottom / var(--perf-gap) var(--perf-r) space no-repeat,
-    var(--bite-left) left / var(--perf-r) var(--perf-gap) no-repeat space,
-    var(--bite-right) right / var(--perf-r) var(--perf-gap) no-repeat space,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-}
-
-/* inner black frame with green trim: half-dots top/bottom, teeth on the sides */
 .prize-stamp__frame {
-  --t: 2.2cqw;
   position: relative;
   margin: 0;
-  padding: 7cqw 6cqw 7.5cqw;
-  border: 1.5px solid var(--stamp-ink);
-  background:
-    radial-gradient(circle at 50% 0, var(--stamp-green) calc(var(--t) - 0.5px), transparent var(--t)) top center / calc(var(--t) * 3.4) var(--t) space no-repeat,
-    radial-gradient(circle at 50% 100%, var(--stamp-green) calc(var(--t) - 0.5px), transparent var(--t)) bottom center / calc(var(--t) * 3.4) var(--t) space no-repeat,
-    conic-gradient(from 225deg at 100% 50%, var(--stamp-green) 0 90deg, transparent 0) left center / var(--t) calc(var(--t) * 2.6) no-repeat space,
-    conic-gradient(from 45deg at 0 50%, var(--stamp-green) 0 90deg, transparent 0) right center / var(--t) calc(var(--t) * 2.6) no-repeat space;
 }
 
-.prize-stamp__meta {
-  margin: 0;
-  text-align: left;
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  font-size: 3.4cqw;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #333;
-}
-
-
-.prize-stamp__art {
-  display: grid;
-  place-items: center;
-  height: 68cqw;
-  margin: 2cqw 0 3cqw;
-}
-
-.prize-stamp__art img {
-  height: 100%;
-  width: auto;
-  min-height: 0;
-  object-fit: contain;
-}
-
-.art-placeholder {
-  display: grid;
-  place-items: center;
-  width: 92%;
-  height: 88%;
-  border: 2px dashed rgba(28, 28, 28, 0.28);
-  border-radius: 6px;
-  font-size: 4.2cqw;
-  font-weight: 600;
-  line-height: 1.3;
-  color: rgba(28, 28, 28, 0.5);
-}
-
-
-.prize-stamp__place {
-  display: inline-block;
-  margin: 0;
-  padding: 0.4em 0.9em;
-  background: var(--stamp-ink);
-  color: var(--yellow);
-  font-size: 5.4cqw;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.prize-stamp__amount {
-  margin: 1.5cqw 0 0;
-  font-size: 15.5cqw;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.045em;
-  color: var(--stamp-red);
-}
-
-/* ---------- Realistic paper ----------
-   A grain layer over the whole stamp (art and print included), multiplied so
-   it reads as ink on paper: fine tooth + long fibres + slightly aged edges. */
-
-.prize-stamp__grain {
-  position: absolute;
-  inset: 0;
-  z-index: 2;                  /* above the print, below the perforations */
-  pointer-events: none;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .33 0 0 0 0 .18 0 0 0 .7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006 .22' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .4 0 0 0 0 .22 0 0 0 .3 -.08'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 75% 70% at 50% 45%, transparent 55%, rgba(150, 105, 30, 0.16) 100%);
-  background-size: 180px 180px, 400px 400px, 100% 100%;
-  mix-blend-mode: multiply;
-  opacity: 0.32;
+/* the designer's stamp artwork (rays, illustration, place, prize) */
+.prize-stamp__img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ---------- Sticker reveal ----------
    JS adds .reveal-ready to .prizes (so stamps are only hidden when the
    animation will actually run), then .is-applied to each .prize as it
    scrolls into view. Stamp drops in large + tilted with a lifted shadow,
-   presses down, settles; a light sweep "smooths" it on. */
+   presses down, settles. */
 
 .prizes.reveal-ready .prize:not(.is-applied) {
   opacity: 0;
@@ -711,49 +606,72 @@ main {
   }
 }
 
-.prize-stamp__sheen {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
+/* ==========================================================
+   03 · PLAYGROUND (about): blue grid paper, Gateway of India
+   standing on the fold's bottom edge, copy beside it, a taxi.
+   ========================================================== */
+
+.playground {
+  --sky: #e6f6fc;
+  --sky-grid: rgba(110, 170, 200, 0.24);
+  position: relative;
+  display: grid;
+  gap: 28px;
+  padding: 56px 20px 0;
+  background-color: var(--sky);
+  background-image:
+    linear-gradient(var(--sky-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--sky-grid) 1px, transparent 1px);
+  background-size: 22px 22px;
   overflow: hidden;
-  opacity: 0;
 }
 
-.prize-stamp__sheen::before {
-  content: "";
+.playground__title {
+  margin: 0 0 0.9em;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.playground__title span {
+  font-family: "Mukta", var(--font-display);
+  font-weight: 800;
+  color: #fc3b77;
+}
+
+.playground__copy p {
+  margin: 0 0 1.2em;
+  max-width: 50ch;
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.4;
+  color: var(--green-dark);
+}
+
+.playground__copy p:last-child {
+  margin-bottom: 0;
+}
+
+.playground__gateway {
+  width: min(100%, 560px);
+  height: auto;
+  margin: 0 auto;
+}
+
+/* parked on the right; with JS it drives in from off-screen right
+   towards the Gateway as the fold scrolls by (never past its left edge) */
+.playground__taxi {
   position: absolute;
-  top: -20%;
-  bottom: -20%;
-  left: -60%;
-  width: 45%;
-  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.55), transparent);
-  transform: skewX(-12deg);
-}
-
-.prize.is-applied .prize-stamp__sheen {
-  animation: sticker-sheen-show 0.7s ease both;
-  animation-delay: calc(var(--reveal-delay, 0ms) + 0.45s);
-}
-
-.prize.is-applied .prize-stamp__sheen::before {
-  animation: sticker-sheen-move 0.7s ease-in-out both;
-  animation-delay: calc(var(--reveal-delay, 0ms) + 0.45s);
-}
-
-@keyframes sticker-sheen-show {
-  0%, 100% { opacity: 0; }
-  20%, 80% { opacity: 1; }
-}
-
-@keyframes sticker-sheen-move {
-  from { left: -60%; }
-  to { left: 115%; }
+  right: 4%;
+  bottom: 0;
+  width: clamp(88px, 9vw, 130px);
+  height: auto;
+  will-change: transform;
 }
 
 /* ==========================================================
-   03 - FORMAT: one red section. Desktop: images | route | steps.
-   Phones: route down the left, steps beside it, no images.
+   04 - FORMAT: grid paper. Desktop: pinned stage, a train drives in
+   on scroll and reveals the five steps. Phones: steps listed in full.
    ========================================================== */
 
 .visually-hidden {
@@ -766,179 +684,218 @@ main {
 }
 
 .format {
-  --format-bg: #b5452f;
-  --format-ink: #f6ead0;
-  --lane: 64px;                       /* phones: route lane width */
+  --rail: #3a3a3a;
+  --badge-ring: #4a7a2c;
   position: relative;
-  isolation: isolate;
-  overflow: clip;                     /* route never spills past the section */
-  padding: 80px 20px 120px;
-  color: var(--format-ink);
-  background-color: var(--format-bg);
-  /* fine printed-dot texture, as in the design */
-  background-image: radial-gradient(rgba(60, 10, 0, 0.16) 1px, transparent 1.6px);
-  background-size: 12px 12px;
+  color: var(--green-dark);
+  background-color: var(--paper);
+  /* the swipe row and the parked train must never widen the page on
+     phones; clip (not hidden) keeps the desktop sticky stage working */
+  overflow-x: clip;
 }
 
-/* route + vehicle, drawn by JS over the whole section */
-.format__route {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  overflow: visible;
+/* the grid lives on the stage, so while the stage is pinned the grid
+   holds still with it instead of sliding past */
+.format__stage {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 22px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 56px 20px 64px;
+  overflow: hidden;           /* the train runs in from off-screen */
+  text-align: center;
 }
 
-.format__head {
-  position: relative;
-  z-index: 2;
-  padding-left: var(--lane);
-}
-
-/* chunky cream caps with a dotted fill and a hard shadow */
 .format__title {
-  max-width: 13ch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
   margin: 0;
-  font-size: clamp(34px, 5.2vw, 76px);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.035em;
-  text-transform: uppercase;
-  color: transparent;
-  background:
-    radial-gradient(rgba(181, 69, 47, 0.28) 1.2px, transparent 1.8px) 0 0 / 9px 9px,
-    var(--format-ink);
-  -webkit-background-clip: text;
-  background-clip: text;
-  filter: drop-shadow(4px 4px 0 rgba(70, 14, 4, 0.75));
+  font-size: clamp(24px, 2.6vw, 38px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #1e1e1e;
 }
 
-.fsteps {
+.format__divider {
+  flex: none;
+  width: 1.55em;
+  height: auto;
+}
+
+/* phones: heading stays on one line between its dividers */
+@media (max-width: 860px) {
+  /* pinned (JS sets the section's height): the stage is one screen under
+     the navbar and scrolling slides the steps row sideways */
+  .format.is-sliding .format__stage {
+    position: sticky;
+    top: var(--bar-h);
+    justify-content: center;
+    min-height: calc(100svh - var(--bar-h));
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .format.is-sliding .fsteps {
+    position: relative;         /* steps' offsetLeft is measured from the row */
+    overflow: visible;
+    scroll-snap-type: none;
+    will-change: transform;
+  }
+
+  .format__title {
+    gap: 0.4em;
+    font-size: min(24px, 6.2vw);
+    white-space: nowrap;
+  }
+
+  .format__divider {
+    width: 1.3em;
+  }
+}
+
+/* short phones (iPhone SE and the like): tighter spacing so the pinned
+   stage still fits under the navbar */
+@media (max-width: 860px) and (max-height: 700px) {
+  .format .format__sub {
+    font-size: 16px;
+  }
+
+  .format .fsteps {
+    --step-w: min(280px, 78vw);
+  }
+
+  .format.is-sliding .format__stage {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .format .format__track {
+    margin-top: 18px;
+  }
+
+  .format .fsteps {
+    margin-top: 16px;
+  }
+
+  .format .fstep__title {
+    font-size: 17px;
+  }
+
+  .format .fstep__text {
+    font-size: 14px;
+  }
+
+  .format .format__note {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+}
+
+.format__divider--flip {
+  transform: scaleX(-1);
+}
+
+.format__sub {
+  margin: 0.55em 0 0;
+  font-size: clamp(17px, 1.9vw, 28px);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* rail: a thin line the full width of the screen, the train sits on it */
+.format__track {
   position: relative;
-  z-index: 2;
-  margin: 56px 0 0;
-  padding: 0;
+  align-self: stretch;
+  margin: 36px -20px 0;
+  border-bottom: 2px solid var(--rail);
+}
+
+.format__train {
+  width: min(220%, 900px);
+  max-width: none;
+  height: auto;
+  /* phones: parked with its nose at the centre of the screen */
+  margin-left: 50%;
+  transform: translateX(-100%);
+  will-change: transform;
+}
+
+/* phones: the steps are a row, edge to edge, the current step centred
+   with its neighbours peeking in; each snaps to the centre */
+.fsteps {
+  --step-w: min(280px, 72vw);
+  display: flex;
+  gap: 16px;
+  align-self: stretch;
+  margin: 32px -20px 0;
+  /* the row spans the screen; side padding lets the first and last step
+     sit in the centre */
+  padding: 4px calc((100vw - var(--step-w)) / 2) 8px;
   list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.fsteps::-webkit-scrollbar {
+  display: none;
 }
 
 .fstep {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex: 0 0 var(--step-w);
+  flex-direction: column;
   align-items: center;
-  /* phones: sized to the content plus room for the vehicle to drive
-     (desktop sets a full-screen min-height) */
-  padding: 72px 0;
+  scroll-snap-align: center;
 }
 
-.fstep__media {
-  display: none;                      /* images are desktop-only */
-}
-
-.fstep__body {
-  position: relative;
-  padding-left: var(--lane);
-}
-
-/* the yellow number badge sits on the route; it's also where the
-   surface and vehicle change */
 .fstep__num {
-  position: absolute;
-  top: -0.1em;
-  /* body's left edge is the lane's left edge (lane = padding-left) */
-  left: calc(var(--lane) / 2 - 31px);
   display: grid;
   place-items: center;
-  width: 62px;
-  height: 62px;
-  border: 3px solid #141414;
+  width: 2.1em;
+  height: 2.1em;
+  border: 3px solid var(--badge-ring);
   border-radius: 50%;
-  background: #f2c94c;
-  color: #141414;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
+  background: var(--yellow);
+  color: #1e1e1e;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
 }
 
 .fstep__title {
-  margin: 0 0 0.45em;
-  font-size: clamp(26px, 3vw, 44px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  margin: 0.5em 0 0;
+  font-size: clamp(18px, 1.5vw, 22px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1e1e1e;
+}
+
+.fstep__accent {
+  display: block;
+  color: var(--maroon);
 }
 
 .fstep__text {
-  max-width: 30rem;
-  margin: 0;
-  font-size: clamp(16px, 1.3vw, 20px);
-  line-height: 1.55;
-  opacity: 0.9;
+  max-width: 24ch;
+  margin: 0.6em 0 0;
+  font-size: 16px;
+  line-height: 1.35;
 }
 
-/* ---- image cards (left column) ---- */
-.fcard {
-  position: relative;
-  margin: 0;
-  width: min(100%, 460px);
-  background: #f5ead0;
-  border: 2px solid #141414;
-  box-shadow: 8px 8px 0 #141414;
-  color: #141414;
-}
-
-.fcard--placeholder {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 1;
-}
-
-.fcard--placeholder span {
-  display: grid;
-  place-items: center;
-  width: calc(100% - 48px);
-  height: calc(100% - 48px);
-  border: 2px dashed rgba(20, 20, 20, 0.3);
-  font-weight: 600;
-  color: rgba(20, 20, 20, 0.5);
-}
-
-/* 25 teams x 4 people */
-.teams-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px 18px;
-  padding: 40px 44px;
-}
-
-.teams-grid span {
-  justify-self: center;
-  width: 54px;
-  height: 54px;
-  border-radius: 8px;
-  background:
-    radial-gradient(circle, currentColor 11.5px, transparent 12.5px) 0 0 / 27px 27px;
-  color: #141414;
-}
-
-.teams-grid .is-you {
-  color: #c4442c;
-  box-shadow: 0 0 0 4px #f5ead0, 0 0 0 6px #c4442c;
-}
-
-.fcard__caption {
-  padding: 12px 20px;
-  border-top: 2px solid #141414;
-  background: #efe1bd;
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-}
-
-.fcard__caption b {
-  color: #c4442c;
+.format__note {
+  max-width: 60ch;
+  margin: 40px 0 0;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 /* ---------- Desktop: hero fits in one screen ----------
@@ -946,6 +903,90 @@ main {
    tall screens). Left-column sizes scale with --s, the smaller of 1vw and
    1.75vh, so the content fits whether the screen is short or narrow.
    The illustration is sized against the stamp itself (container units). */
+
+/* =========================================================================
+   05 · SCHEDULE: maroon grid paper, a black departures board (artwork,
+   a stacked version on phones).
+   ========================================================================= */
+
+.schedule {
+  --sched-bg: #3a1a1b;
+  --sched-grid: rgba(255, 255, 255, 0.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 16px 72px;
+  overflow: hidden;
+  background-color: var(--sched-bg);
+  background-image:
+    linear-gradient(var(--sched-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--sched-grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  text-align: center;
+}
+
+.schedule__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  margin: 0;
+  font-size: min(26px, 6.2vw);
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.schedule__divider {
+  flex: none;
+  width: 1.4em;
+  height: auto;
+}
+
+.schedule__divider--flip {
+  transform: scaleX(-1);
+}
+
+.schedule__sub {
+  margin: 0.5em 0 0;
+  font-size: clamp(16px, 1.6vw, 22px);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+/* the flowers hang from the top corners (the PNG is a bottom-left corner) */
+.schedule__flower {
+  position: absolute;
+  top: 0;
+  width: clamp(72px, 8vw, 130px);
+  height: auto;
+  pointer-events: none;
+}
+
+.schedule__flower--left {
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.schedule__flower--right {
+  right: 0;
+  transform: scale(-1, -1);
+}
+
+/* ---- the board ---- */
+.board {
+  width: min(100%, 980px);
+  margin-top: 36px;
+}
+
+.board__art {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.35));
+}
 
 /* =========================================================================
    Sponsors & partners: yellow fold, a row of cream perforated stamps
@@ -958,6 +999,7 @@ main {
   padding: 72px 20px 88px;
   background: var(--yellow);
   color: var(--sponsor-ink);
+  overflow-x: clip;             /* tilted stamps never widen the page */
 }
 
 .sponsors__head {
@@ -968,7 +1010,7 @@ main {
 .sponsors__title {
   margin: 0;
   font-size: clamp(44px, 13vw, 64px);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 0.9;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -1063,7 +1105,8 @@ main {
   border: max(1.5px, 1.1cqw) solid var(--sponsor-pink);
   border-radius: 999px;
   font-size: 7.4cqw;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1;
   white-space: nowrap;
@@ -1105,7 +1148,7 @@ main {
 .faqs__title {
   margin: 0;
   font-size: clamp(64px, 20vw, 96px);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1;
   letter-spacing: -0.03em;
   text-transform: uppercase;
@@ -1127,7 +1170,7 @@ main {
   padding: 4px 10px;
   background: #fdf4d6;
   color: #2f7a43;
-  font-family: var(--mono);
+  font-family: "Work Sans", system-ui, sans-serif;
   font-size: 15px;
   font-weight: 600;
 }
@@ -1143,7 +1186,8 @@ main {
   align-items: center;
   gap: 6px;
   color: var(--yellow);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
   letter-spacing: -0.01em;
   text-decoration: none;
   text-transform: uppercase;
@@ -1194,14 +1238,16 @@ main {
 }
 
 .faq__num {
-  font-family: var(--mono);
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-weight: 600;
   font-size: 13px;
   color: rgba(20, 20, 20, 0.6);
 }
 
 .faq__text {
   font-size: 18px;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -1339,8 +1385,8 @@ main {
 
 .partner__title {
   margin: 0;
-  font-size: clamp(40px, 11vw, 60px);
-  font-weight: 900;
+  font-size: clamp(34px, 11vw, 60px);
+  font-weight: 800;
   line-height: 0.95;
   letter-spacing: -0.03em;
   text-transform: uppercase;
@@ -1364,10 +1410,6 @@ main {
   --maroon: #141414;
   --maroon-dark: #000;
   margin-top: 0;
-}
-
-.partner__art {
-  display: none;
 }
 
 /* ----- Shop shutter over the partner card -----
@@ -1408,7 +1450,8 @@ main {
   left: 50%;
   transform: translate(-50%, -55%);
   font-size: 9.6cqw;
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-weight: 800;
   line-height: 1;
   letter-spacing: -0.02em;
   white-space: nowrap;
@@ -1503,10 +1546,10 @@ main {
 
 .footer__cols h3 {
   margin: 0 0 14px;
-  font-family: var(--mono);
+  font-family: var(--font-display);
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--footer-muted);
 }
@@ -1653,7 +1696,7 @@ main {
   margin-top: 40px;
   padding-top: 18px;
   border-top: 1px solid #3a342c;
-  font-family: var(--mono);
+  font-family: "Work Sans", system-ui, sans-serif;
   font-size: 0.8rem;
   color: var(--footer-muted);
 }
@@ -1751,14 +1794,16 @@ main {
   .rewards {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* content hugs the top (the hero's yellow band is already above it);
+       spare height falls to the bottom, behind the corner flowers */
+    justify-content: flex-start;
     /* one screen minus the sticky bar that sits over it */
     min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
-    padding: 4vh 16px 6vh;
+    padding: 2vh 16px 8vh;
   }
 
   .section-head__title {
-    font-size: calc(var(--s) * 2.9);
+    font-size: calc(var(--s) * 2.6);
   }
 
   .section-head__sub {
@@ -1766,16 +1811,16 @@ main {
   }
 
   .prizes {
-    gap: calc(var(--s) * 4.5);
-    margin: 6vh auto 5vh;
+    gap: calc(var(--s) * 3.8);
+    margin: 5vh auto 6vh;
   }
 
   .prize {
-    width: calc(var(--s) * 21);
+    width: calc(var(--s) * 19.5);
   }
 
   .prize--1 {
-    width: calc(var(--s) * 23);
+    width: calc(var(--s) * 22);
   }
 
   .rewards__note {
@@ -1784,6 +1829,68 @@ main {
 
   .corner-flower {
     width: calc(var(--s) * 10);
+  }
+
+  /* ----- Playground: one full screen, art left on the road, copy right ----- */
+  .playground {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: end;
+    column-gap: calc(var(--s) * 4);
+    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
+    padding: 6vh var(--page-gutter) 0;
+  }
+
+  .playground__copy {
+    order: 2;
+    align-self: center;
+    max-width: calc(var(--s) * 42);
+  }
+
+  .playground__title {
+    font-size: calc(var(--s) * 2.8);
+    white-space: nowrap;
+  }
+
+  .playground__copy p {
+    font-size: max(15px, calc(var(--s) * 1.4));
+  }
+
+  /* as big as the column allows, but never taller than ~80% of the fold */
+  .playground__gateway {
+    order: 1;
+    justify-self: end;
+    width: min(100%, calc(var(--s) * 56), calc((min(100svh - var(--bar-h), 900px)) * 0.8 * 1.418));
+    margin: 0;
+  }
+
+  .playground__taxi {
+    right: calc(var(--page-gutter) + 1vw);
+    width: calc(var(--s) * 10);
+  }
+
+  /* ----- Schedule: one screen ----- */
+  .schedule {
+    justify-content: center;
+    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
+    padding: 5vh var(--page-gutter) 7vh;
+  }
+
+  .schedule__title {
+    font-size: calc(var(--s) * 2.6);
+  }
+
+  .schedule__sub {
+    font-size: calc(var(--s) * 1.7);
+  }
+
+  .schedule__flower {
+    width: calc(var(--s) * 9);
+  }
+
+  /* as wide as the design allows, but short enough to fit the fold */
+  .board {
+    width: min(100%, calc(var(--s) * 66), calc((100svh - var(--bar-h) - 32vh) * 2.745));
+    margin-top: 6vh;
   }
 
   /* ----- Sponsors: title left, note right, six stamps in a row ----- */
@@ -1849,16 +1956,14 @@ main {
     font-size: max(14px, calc(var(--s) * 1.15));
   }
 
+  /* chai + vada pav: kept short enough that the fold still fits */
   .faqs__art {
-    display: grid;
-    width: min(100%, calc(var(--s) * 28));
-    aspect-ratio: 2 / 1;
+    display: block;
+    width: auto;
+    max-width: min(100%, calc(var(--s) * 26));
+    max-height: 24vh;
+    height: auto;
     margin-top: 3.5vh;
-  }
-
-  .faqs__art span {
-    width: 100%;
-    height: 100%;
   }
 
   .faq__btn {
@@ -1921,83 +2026,94 @@ main {
   }
 
 
-  .partner__art {
-    display: grid;
-    aspect-ratio: auto;
-    height: 70%;
-  }
-
-  .partner__art span {
-    width: 100%;
-    height: 100%;
-  }
-
-  /* ----- Format: images | route | steps, one screen per step ----- */
+  /* ----- Format: pinned stage, the train drives in on scroll -----
+     The section is a screen plus the scroll the drive takes; the stage is
+     sticky under the navbar and is exactly one screen tall. */
   .format {
-    --route-col: 160px;
-    padding: clamp(72px, 12vh, 140px) var(--page-gutter) 140px;
+    height: calc(100svh - var(--bar-h) + 160vh);
   }
 
-  .format__head,
-  .fsteps {
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .format__head {
-    padding-left: 0;
+  .format__stage {
+    position: sticky;
+    top: var(--bar-h);
+    justify-content: center;
+    height: calc(100svh - var(--bar-h));
+    min-height: 560px;
+    padding: 4vh var(--page-gutter);
   }
 
   .format__title {
-    /* three lines, as in the design; the route starts below it */
-    max-width: 17ch;
-    font-size: calc(var(--s) * 5.6);
+    font-size: calc(var(--s) * 2.6);
+  }
+
+  .format__sub {
+    font-size: calc(var(--s) * 1.95);
+  }
+
+  .format__track {
+    margin: 5vh calc(var(--page-gutter) * -1) 0;
+  }
+
+  .format__train {
+    /* a screen wide: when the nose stops at the last step the tail is
+       still off the left edge, as in the design */
+    width: 100vw;
+    margin-left: 0;
+    transform: none;
   }
 
   .fsteps {
-    margin-top: 6vh;
-  }
-
-  .fstep {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: calc(var(--s) * 2);
+    align-self: center;
+    width: 100%;
+    max-width: calc(var(--s) * 84);
+    margin: 5vh 0 0;
     padding: 0;
-    /* card and step start at the same height; the pair is centred in the row */
-    align-items: start;
-    align-content: center;
-    grid-template-columns: 1fr var(--route-col) 1fr;
-    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
+    overflow: visible;
   }
 
-  .fstep__media {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .fstep__body {
-    grid-column: 3;
-    padding-left: 0;
-    margin-top: calc(var(--s) * 4.5);   /* title sits a little below the card top */
-  }
-
-  /* badge centred on the route column, level with the step title */
   .fstep__num {
-    left: calc(var(--route-col) / -2 - 34px);
-    width: 68px;
-    height: 68px;
-    font-size: 24px;
+    font-size: max(15px, calc(var(--s) * 1.35));
   }
 
   .fstep__title {
-    font-size: calc(var(--s) * 3.3);
+    font-size: max(16px, calc(var(--s) * 1.45));
   }
 
   .fstep__text {
-    font-size: max(16px, calc(var(--s) * 1.35));
+    font-size: max(15px, calc(var(--s) * 1.25));
   }
 
-  .fcard {
-    width: min(100%, calc(var(--s) * 32));
+  .format__note {
+    margin-top: 5vh;
+    max-width: none;
+    font-size: max(16px, calc(var(--s) * 1.45));
   }
+
+  /* driving (JS on, motion allowed): steps wait for the train; each one
+     appears, detail line included, as the train reaches it and stays */
+  .format.is-driving .fstep {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.4s ease, transform 0.5s var(--ease-out);
+  }
+
+  .format.is-driving .fstep.is-shown {
+    opacity: 1;
+    transform: none;
+  }
+
+  .format.is-driving .fstep__num {
+    transform: scale(0.4);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .format.is-driving .fstep.is-shown .fstep__num {
+    transform: none;
+  }
+
 }
 
 /* ---------- Navbar on narrow screens: Menu button + dropdown ----------
@@ -2114,7 +2230,7 @@ main {
   .prize,
   .prize--1 {
     order: 0;
-    width: min(320px, 82vw);
+    width: min(260px, 66vw);
     margin-top: 0;
   }
 
@@ -2134,7 +2250,8 @@ main {
   .topbar.is-scrolled .topnav {
     transition: none;
   }
-  .rewards::before {
+  .rewards::before,
+  .rewards::after {
     animation: none;
   }
   .sponsor.is-applied {
@@ -2151,9 +2268,7 @@ main {
     transition: none;
   }
   /* stamps simply appear in place */
-  .prize.is-applied,
-  .prize.is-applied .prize-stamp__sheen,
-  .prize.is-applied .prize-stamp__sheen::before {
+  .prize.is-applied {
     animation: none;
   }
 }
