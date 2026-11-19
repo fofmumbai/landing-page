@@ -372,6 +372,18 @@ main {
   box-shadow: 0 7px 0 var(--maroon-dark);
 }
 
+/* flowers either side of the label spin while the button is hovered/focused */
+.btn-register:hover img,
+.btn-register:focus-visible img {
+  animation: flower-spin 3s linear infinite;
+}
+
+@keyframes flower-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .btn-register:active {
   transform: translateY(4px);
   box-shadow: 0 1px 0 var(--maroon-dark);
@@ -2249,6 +2261,10 @@ main {
   .topnav,
   .topbar.is-scrolled .topnav {
     transition: none;
+  }
+  .btn-register:hover img,
+  .btn-register:focus-visible img {
+    animation: none;
   }
   .rewards::before,
   .rewards::after {
