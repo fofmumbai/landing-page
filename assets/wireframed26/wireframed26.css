@@ -2070,6 +2070,19 @@ main {
     max-width: 48ch;
   }
 
+  /* two set lines: the first ends at "event.", the second never wraps
+     (from 1100px up; narrower than that the copy wraps normally) */
+  @media (min-width: 1100px) {
+    .partner__text {
+      max-width: none;
+    }
+
+    .partner__text span {
+      display: block;
+      white-space: nowrap;
+    }
+  }
+
   .partner__text {
     margin: 3.5vh 0 4.5vh;
     font-size: max(15px, calc(var(--s) * 1.45));
