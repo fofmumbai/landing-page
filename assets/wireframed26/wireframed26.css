@@ -1151,16 +1151,20 @@ main {
   color: inherit;
   text-align: inherit;
   cursor: pointer;
-  transition: transform 0.2s var(--ease-out);
   -webkit-tap-highlight-color: transparent;
 }
 
-/* lift and straighten on hover, only where there's a real pointer: on
-   touch screens a tap leaves :hover stuck on, so the flipped stamp would
-   sit shifted and straightened instead of where it was */
+/* hover: a slight grow from the centre, so the stamp keeps its place and
+   angle. It uses the separate `scale` property, which the flip (animating
+   `transform`) never touches, so nothing snaps when a flip ends. Mouse and
+   trackpad only: on touch screens a tap would leave it grown. */
 @media (hover: hover) and (pointer: fine) {
+  .sponsor__flip {
+    transition: scale 0.2s var(--ease-out);
+  }
+
   .sponsor__flip:hover {
-    transform: translateY(-4px) rotate(calc(var(--rot, 0deg) * -1));
+    scale: 1.03;
   }
 }
 
@@ -1223,14 +1227,6 @@ main {
   line-height: 1.3;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .sponsor__flip {
-    transition: none;
-  }
-  .sponsor__flip:hover {
-    transform: none;
-  }
-}
 
 /* sticker reveal (shared with the prize stamps, see .prize.is-applied) */
 .sponsors__grid.reveal-ready .sponsor:not(.is-applied) {
