@@ -1673,6 +1673,16 @@ main {
   visibility: visible;
 }
 
+/* your own pointer, drawn as a Figma cursor named "You" */
+.mcur--you {
+  z-index: 1;
+}
+
+.footer.has-you,
+.footer.has-you * {
+  cursor: none !important;
+}
+
 .mcur svg {
   display: block;
   width: 22px;

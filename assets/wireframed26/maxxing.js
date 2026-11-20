@@ -267,6 +267,30 @@
       if (e.isIntersecting && !active) enter();
       else if (!e.isIntersecting && active) leave();
     }, { threshold: 0.2 }).observe(footer);
+
+    // Your own pointer joins the session as a "You" cursor (mouse/trackpad only).
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var you = document.createElement('div');
+    you.className = 'mcur mcur--you';
+    you.style.setProperty('--c', '#0D99FF');
+    you.innerHTML = ARROW('#0D99FF') + '<span>You</span>';
+    layer.appendChild(you);
+    function follow(e) {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      var p = local(e.clientX, e.clientY);
+      // line the arrow's tip up with the real hotspot
+      you.style.transform = 'translate(' + (p.x - 2.75).toFixed(1) + 'px, ' + (p.y - 2.3).toFixed(1) + 'px)';
+      you.classList.add('is-on');
+      footer.classList.add('has-you');
+    }
+    footer.addEventListener('pointermove', follow);
+    footer.addEventListener('pointerenter', follow);
+    footer.addEventListener('pointerleave', function () {
+      you.classList.remove('is-on', 'is-click');
+      footer.classList.remove('has-you');
+    });
+    footer.addEventListener('pointerdown', function (e) { if (e.isTrusted) you.classList.add('is-click'); });
+    window.addEventListener('pointerup', function () { you.classList.remove('is-click'); });
   }
 
   initFooterCursors(document.querySelector('.footer'));
