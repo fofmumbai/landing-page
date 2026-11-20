@@ -1343,9 +1343,10 @@ main {
 }
 
 .faq__a p {
-  max-width: 60ch;
   margin: 0;
-  padding: 0 0 22px 36px;   /* lines up with the question text */
+  /* spans the same width as the question text: in from the number column
+     on the left, clear of the +/- icon column on the right */
+  padding: 0 48px 22px 36px;
   font-size: 16px;
   line-height: 1.6;
   color: var(--faq-ink);
@@ -1356,6 +1357,12 @@ main {
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.faq__a a:hover,
+.faq__a a:focus-visible {
+  color: #e2457a;   /* the site's pink (sponsor and partner sections) */
 }
 
 .faq.is-open .faq__a {
@@ -2028,6 +2035,7 @@ main {
 
   .faq__a p {
     padding-left: calc(var(--s) * 2 + 12px);
+    padding-right: 50px;
     padding-bottom: 2.4vh;
     font-size: max(14px, calc(var(--s) * 1.15));
   }
