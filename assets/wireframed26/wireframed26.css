@@ -816,6 +816,11 @@ main {
   will-change: transform;
 }
 
+/* phones with motion: JS rolls the train in from the left edge */
+.format.is-dealing .format__train {
+  margin-left: 0;
+}
+
 /* phones: the steps are a row, edge to edge, the current step centred
    with its neighbours peeking in; each snaps to the centre */
 .fsteps {

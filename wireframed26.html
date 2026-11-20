@@ -154,8 +154,8 @@
 		     and its stage sticks under the navbar; scrolling drives a local
 		     train in from the left, and each step card deals in as the
 		     train reaches it and stays.
-		     Phones: not pinned; the train is parked and the cards stack
-		     vertically, each dealing in as it scrolls into view.
+		     Phones: not pinned; the train rolls in on scroll and the cards
+		     stack vertically, each dealing in as it scrolls into view.
 		     Reduced motion: nothing pinned, every card shown. -->
 		<section class="format" id="format" aria-labelledby="format-title">
 			<div class="format__stage">
@@ -674,8 +674,9 @@
 		// Desktop: the stage sticks under the navbar while the section scrolls
 		//   by; scroll drives the train from off-screen left to the last card,
 		//   and each card deals in once the nose reaches it.
-		// Phones: the train stays parked and the cards stack vertically; each
-		//   card deals in as it scrolls into view.
+		// Phones: the cards stack vertically and each deals in as it scrolls
+		//   into view; the train rolls in from the left as the rail scrolls
+		//   up the screen, stopping with its nose near the right edge.
 		// Reduced motion: nothing is pinned and every card is simply shown.
 		(function () {
 			var section = document.getElementById('format');
@@ -740,10 +741,21 @@
 				steps.forEach(function (s) { dealer.observe(s); });
 			}
 
+			// phones: the rail's trip from the bottom of the screen to about a
+			// third of the way down drives the train in from off-screen left
+			function roll() {
+				var track = train.parentNode.getBoundingClientRect();
+				var vh = window.innerHeight;
+				var d = Math.min(1, Math.max(0, (vh - track.bottom) / (vh * 0.65)));
+				d = 1 - Math.pow(1 - d, 2);   // eases into the platform
+				var noseX = d * (track.width - 12);
+				train.style.transform = 'translateX(' + (noseX - train.offsetWidth) + 'px)';
+			}
+
 			function update() {
 				ticking = false;
 				if (desk.matches) { if (section.classList.contains('is-dealing')) reset(); drive(); }
-				else if (phone.matches) { if (section.classList.contains('is-driving')) reset(); deal(); }
+				else if (phone.matches) { if (section.classList.contains('is-driving')) reset(); deal(); roll(); }
 				else if (section.classList.contains('is-driving') || section.classList.contains('is-dealing')) reset();
 			}
 
