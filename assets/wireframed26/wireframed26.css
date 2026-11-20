@@ -805,7 +805,7 @@ main {
   }
 
   .format .format__note {
-    margin-top: 10px;
+    margin-top: 36px;
     font-size: 14px;
   }
 }
@@ -911,7 +911,7 @@ main {
 
 .format__note {
   max-width: 60ch;
-  margin: 40px 0 0;
+  margin: 64px 0 0;   /* clear air below the tilted cards */
   font-size: 17px;
   font-weight: 500;
   line-height: 1.4;
@@ -2150,7 +2150,7 @@ main {
   }
 
   .format__note {
-    margin-top: 5vh;
+    margin-top: 9vh;
     max-width: none;
     font-size: max(16px, calc(var(--s) * 1.45));
   }
