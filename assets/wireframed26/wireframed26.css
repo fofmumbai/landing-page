@@ -1046,6 +1046,14 @@ main {
 .sponsor:nth-child(5) { --rot: -1deg;   --frame-rot: -1.4deg; }
 .sponsor:nth-child(6) { --rot: 0.6deg;  --frame-rot: 1.2deg; }
 
+/* phones and tablets: four stamps (two rows) keep the fold short;
+   desktop shows all six in a row */
+@media (max-width: 860px) {
+  .sponsor:nth-child(n + 5) {
+    display: none;
+  }
+}
+
 /* perforated edge: real cut-outs, same technique as the hero stamp */
 .sponsor-stamp {
   --r: 4.4cqw;
