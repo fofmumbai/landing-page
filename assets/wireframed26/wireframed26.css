@@ -1337,6 +1337,13 @@ main {
   color: var(--faq-ink);
 }
 
+.faq__a a {
+  color: var(--faq-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .faq.is-open .faq__a {
   grid-template-rows: 1fr;
 }
