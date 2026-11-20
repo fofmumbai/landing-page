@@ -14,8 +14,8 @@
   --scallop-r: clamp(10px, 1.45vw, 21px);
   --scallop-gap: clamp(36px, 5.1vw, 74px);
 
-  /* display face for headings; body text stays Work Sans */
-  --font-display: "Montserrat Alternates", "Work Sans", system-ui, sans-serif;
+  /* display face for headings; body text is Manrope */
+  --font-display: "Montserrat", "Manrope", system-ui, sans-serif;
 }
 
 *,
@@ -32,7 +32,8 @@ body {
   margin: 0;
   background: var(--yellow);
   color: var(--ink);
-  font-family: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -41,7 +42,7 @@ img {
   max-width: 100%;
 }
 
-/* FAQ questions are buttons in an h3, they stay Work Sans */
+/* FAQ questions are buttons in an h3; .faq__text sets their font */
 h1,
 h2,
 h3:not(.faq__q) {
@@ -1182,7 +1183,7 @@ main {
   padding: 4px 10px;
   background: #fdf4d6;
   color: #2f7a43;
-  font-family: "Work Sans", system-ui, sans-serif;
+  font-family: "Manrope", system-ui, sans-serif;
   font-size: 15px;
   font-weight: 600;
 }
@@ -1250,7 +1251,7 @@ main {
 }
 
 .faq__num {
-  font-family: "Work Sans", system-ui, sans-serif;
+  font-family: "Manrope", system-ui, sans-serif;
   font-weight: 600;
   font-size: 13px;
   color: rgba(20, 20, 20, 0.6);
@@ -1333,7 +1334,7 @@ main {
   padding: 0 0 22px 64px;
   font-size: 16px;
   line-height: 1.6;
-  color: rgba(20, 20, 20, 0.78);
+  color: var(--faq-ink);
 }
 
 .faq.is-open .faq__a {
@@ -1718,7 +1719,7 @@ main {
   margin-top: 40px;
   padding-top: 18px;
   border-top: 1px solid #3a342c;
-  font-family: "Work Sans", system-ui, sans-serif;
+  font-family: "Manrope", system-ui, sans-serif;
   font-size: 0.8rem;
   color: var(--footer-muted);
 }
@@ -2297,4 +2298,42 @@ main {
   .prize.is-applied {
     animation: none;
   }
+}
+
+/* ---------- Trial: Montserrat, all caps ----------
+   Each title keeps its original weight (700 or 800).
+   Every section title (Rewards, Playground, How Does It Work?,
+   The Day At A Glance, Sponsors, FAQs, Partner) and the FAQ
+   questions. The Marathi word in the Playground title keeps
+   Mukta (its own rule is more specific). Delete this block to
+   drop the all-caps and per-title weight overrides. */
+.section-head__title,
+.playground__title,
+.sponsors__title,
+.partner__title,
+.format__title,
+.schedule__title,
+.faqs__title,
+.faq__text {
+  font-family: "Montserrat", var(--font-display);
+  text-transform: uppercase;
+}
+
+/* Sponsors & Partners, FAQs and the "Partner with us" paint on the
+   shop shutter: Montserrat Bold */
+.sponsors__title,
+.faqs__title,
+.shutter__paint {
+  font-family: "Montserrat", var(--font-display);
+  font-weight: 700;
+}
+
+/* Hero tagline and section subheaders: Montserrat SemiBold, upright */
+.hero__tagline,
+.section-head__sub,
+.format__sub,
+.schedule__sub {
+  font-family: "Montserrat", var(--font-display);
+  font-weight: 600;
+  font-style: normal;
 }
