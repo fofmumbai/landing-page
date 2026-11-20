@@ -828,6 +828,13 @@ main {
   transform: scaleX(-1);
 }
 
+/* phones: "A board full of missions." on its own second line */
+@media (min-width: 861px) {
+  .format__br {
+    display: none;
+  }
+}
+
 .format__sub {
   margin: 0.55em 0 0;
   font-size: clamp(17px, 1.9vw, 28px);
@@ -1148,8 +1155,13 @@ main {
   -webkit-tap-highlight-color: transparent;
 }
 
-.sponsor__flip:hover {
-  transform: translateY(-4px) rotate(calc(var(--rot, 0deg) * -1));
+/* lift and straighten on hover, only where there's a real pointer: on
+   touch screens a tap leaves :hover stuck on, so the flipped stamp would
+   sit shifted and straightened instead of where it was */
+@media (hover: hover) and (pointer: fine) {
+  .sponsor__flip:hover {
+    transform: translateY(-4px) rotate(calc(var(--rot, 0deg) * -1));
+  }
 }
 
 .sponsor__flip:focus-visible {
@@ -2433,7 +2445,7 @@ main {
    Desktop: cards deal in one by one as the train reaches them.
    Phones: the same cards in the sliding row. */
 .fstep {
-  --card-bg: #5fa565;
+  --card-bg: #3e7b43;
   --card-ink: #fffaf0;
   --card-lead: #ffd54a;
   --card-accent: #fff;
