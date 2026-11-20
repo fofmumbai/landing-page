@@ -22,6 +22,7 @@
 	<!-- schedule: split-flap board (and the hidden agenda options) -->
 	<link rel="stylesheet" href="assets/wireframed26/agenda-options.css">
 	<script src="assets/wireframed26/agenda-options.js" defer></script>
+	<script src="assets/wireframed26/snack.js" defer></script>
 </head>
 
 <body>
@@ -379,7 +380,6 @@
 					<p class="team-card__text">Can I register individually? Nope.<br class="team-card__br"> You can find open teams using our WhatsApp group.</p>
 					<a class="team-card__link" href="https://chat.whatsapp.com/KhKVqzOLVziFF0Bmf8cKkY" target="_blank" rel="noopener">Open WhatsApp group <span aria-hidden="true">&rarr;</span></a>
 				</div>
-				<img class="faqs__art" src="assets/wireframed26/chai-vada-pav.webp" alt="" width="479" height="328" loading="lazy" decoding="async">
 			</div>
 			<ol class="faqs__list">
 					<li class="faq">
@@ -558,6 +558,23 @@
 							Partner With Us
 							<img src="assets/wireframed26/flower.svg" alt="">
 						</a>
+					</div>
+					<!-- Easter egg (desktop only, snack.js): cutting chai and vada pav
+					     in the card's bottom-right corner. Click the chai and steam
+					     rises; click the vada pav to take bites until only crumbs are
+					     left, then a fresh one appears. -->
+					<div class="snack">
+						<button type="button" class="snack__chai" aria-label="Cutting chai">
+							<span class="snack__steam" aria-hidden="true">
+								<svg viewBox="0 0 20 60"><path d="M10 58 C 2 48, 18 40, 10 30 S 2 12, 10 2"/></svg>
+								<svg viewBox="0 0 20 60"><path d="M10 58 C 18 48, 2 40, 10 30 S 18 12, 10 2"/></svg>
+								<svg viewBox="0 0 20 60"><path d="M10 58 C 2 48, 18 40, 10 30 S 2 12, 10 2"/></svg>
+							</span>
+							<img src="assets/wireframed26/chai.webp" alt="" width="174" height="246" loading="lazy" decoding="async">
+						</button>
+						<button type="button" class="snack__vada" aria-label="Vada pav">
+							<img src="assets/wireframed26/vada-pav.webp" alt="" width="283" height="254" loading="lazy" decoding="async">
+						</button>
 					</div>
 				</div>
 			</div>

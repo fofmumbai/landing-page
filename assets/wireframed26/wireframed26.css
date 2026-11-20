@@ -1209,9 +1209,6 @@ main {
   transition: transform 0.2s ease;
 }
 
-.faqs__art {
-  display: none;
-}
 
 /* ----- accordion ----- */
 .faqs__list {
@@ -2450,4 +2447,166 @@ main {
     opacity: 1;
     transform: rotate(var(--tilt));
   }
+}
+
+/* ---------- Easter egg: chai + vada pav in the partner card ----------
+   Desktop only, in the card's empty right column, sitting on its bottom
+   edge. The two pieces are positioned as in the original artwork
+   (479 x 328). Click the chai: steam rises. Click the vada pav: a bite
+   comes out (snack.js masks it), and after the last bite it crumbles and
+   a fresh one pops back. */
+.snack {
+  display: none;
+}
+
+@media (min-width: 861px) {
+  .snack {
+    position: relative;
+    display: block;
+    justify-self: end;
+    align-self: end;
+    /* 10% wider than the column, spilling a little into the gap on its
+       left and the card's padding on its right */
+    width: min(110%, var(--s) * 31);
+    aspect-ratio: 479 / 328;
+    margin: 0 calc(var(--s) * -3.5) -2vh 0;
+    container-type: inline-size;   /* bites and crumbs are sized in cqw */
+  }
+}
+
+.snack__chai,
+.snack__vada {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-out, ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.snack__chai {
+  left: 2.09%;
+  top: 19.21%;
+  width: 36.33%;
+}
+
+.snack__vada {
+  left: 40.08%;
+  top: 2.74%;
+  width: 59.08%;
+}
+
+.snack__chai img,
+.snack__vada img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.snack__chai:hover,
+.snack__vada:hover {
+  transform: rotate(-3deg) scale(1.03);
+}
+
+.snack__chai:focus-visible,
+.snack__vada:focus-visible {
+  outline: 2px dashed var(--partner-green, #3f7c46);
+  outline-offset: 4px;
+}
+
+/* bites: snack.js sets the mask layers; each layer cuts one circle */
+.snack__vada {
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+.snack__vada.is-gone {
+  transform: scale(0.2);
+  opacity: 0;
+  transition: transform 0.25s ease-in, opacity 0.25s ease-in;
+}
+
+.snack__vada.is-back {
+  animation: snack-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes snack-pop {
+  from { transform: scale(0.2); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+.snack__crumb {
+  position: absolute;
+  border-radius: 40% 60% 50% 45%;
+  pointer-events: none;
+}
+
+/* steam: three wisps above the glass */
+.snack__steam {
+  position: absolute;
+  bottom: 88%;
+  left: 18%;
+  display: flex;
+  justify-content: space-between;
+  width: 62%;
+  height: 70%;
+  pointer-events: none;
+}
+
+.snack__steam svg {
+  width: 26%;
+  height: 100%;
+  overflow: visible;
+  opacity: 0;
+}
+
+.snack__steam path {
+  fill: none;
+  stroke: rgba(110, 88, 66, 0.5);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.snack__chai.is-steaming .snack__steam svg {
+  animation: snack-steam 2.2s ease-out forwards;
+}
+
+.snack__chai.is-steaming .snack__steam svg:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.snack__chai.is-steaming .snack__steam svg:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+@keyframes snack-steam {
+  0% { opacity: 0; transform: translateY(30%) scaleY(0.6); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-35%) scaleY(1.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snack__chai,
+  .snack__vada {
+    transition: none;
+  }
+  .snack__chai:hover,
+  .snack__vada:hover {
+    transform: none;
+  }
+  .snack__chai.is-steaming .snack__steam svg {
+    animation: snack-steam-still 2.2s linear forwards;
+    animation-delay: 0s;
+  }
+  .snack__vada.is-back {
+    animation: none;
+  }
+}
+
+@keyframes snack-steam-still {
+  0%, 100% { opacity: 0; }
+  20%, 70% { opacity: 1; }
 }
