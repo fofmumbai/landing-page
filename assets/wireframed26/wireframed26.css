@@ -647,14 +647,38 @@ main {
   color: var(--ink);
 }
 
-.playground__title span {
+/* phones: centred between pink dividers, like the other section titles;
+   desktop: left-aligned, no dividers */
+.playground__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  text-align: center;
+}
+
+.playground__divider {
+  flex: none;
+  width: 1.3em;
+  height: auto;
+}
+
+.playground__divider--flip {
+  transform: scaleX(-1);
+}
+
+.playground__copy {
+  text-align: center;
+}
+
+.playground__title [lang="mr"] {
   font-family: "Mukta", var(--font-display);
   font-weight: 800;
   color: #fc3b77;
 }
 
 .playground__copy p {
-  margin: 0 0 1.2em;
+  margin: 0 auto 1.2em;          /* centred on phones; flush left on desktop */
   max-width: 50ch;
   font-size: clamp(15px, 1.25vw, 18px);
   line-height: 1.4;
@@ -1863,15 +1887,23 @@ main {
 
   .playground__copy {
     order: 2;
+    text-align: left;
     max-width: calc(var(--s) * 42);
   }
 
   .playground__title {
+    display: block;
+    text-align: left;
     font-size: calc(var(--s) * 2.8);
     white-space: nowrap;
   }
 
+  .playground__divider {
+    display: none;
+  }
+
   .playground__copy p {
+    margin-left: 0;
     font-size: max(15px, calc(var(--s) * 1.4));
   }
 
