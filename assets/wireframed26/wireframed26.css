@@ -1501,12 +1501,12 @@ main {
 }
 
 .shutter-open .shutter__door {
-  animation: shutter-roll 3.6s cubic-bezier(0.45, 0, 0.35, 1) forwards;
+  animation: shutter-roll 1.2s cubic-bezier(0.45, 0, 0.35, 1) forwards;
 }
 
 .shutter-open .shutter {
   visibility: hidden;
-  transition: visibility 0s linear 3.7s;
+  transition: visibility 0s linear 1.3s;
 }
 
 @keyframes shutter-roll {
