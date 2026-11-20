@@ -47,11 +47,11 @@
    JS the lines show as plain text.
    ========================================================================= */
 .ao-flap {
-  /* tall, narrower tiles: letters are condensed to 80% wide (and
-     stretched to 115% tall, like split-flap lettering), so the widest
-     glyph (W, about 1em in Montserrat Bold) takes about 0.8em of a
-     1.05em cell, leaving padding on both sides */
-  --cell-w: 1.05em;
+  /* tall tiles: letters are Montserrat ExtraBold, condensed to 86% wide
+     (and stretched to 112% tall, like split-flap lettering), so the widest
+     glyph (W, about 1.07em) takes about 0.92em of a 1.18em cell, leaving
+     padding on both sides */
+  --cell-w: 1.18em;
   --cell-h: 1.65em;
   --cell-gap: 2px;
   position: relative;
@@ -112,7 +112,16 @@
 @media (min-width: 861px) {
   .ao-flap__grid {
     grid-template-columns: max-content 1fr;
-    column-gap: 1.8em;
+    column-gap: 1.3em;
+  }
+  /* the longest row (time + "HI-TEA + NETWORKING + PRIZES") is about
+     60em wide with the board's padding, so the type scales with the
+     space it has and never wraps; 20px at most */
+  .agenda-options {
+    container-type: inline-size;
+  }
+  .ao-flap {
+    font-size: min(20px, 100cqw / 61);
   }
   .ao-flap__head {
     display: grid;
@@ -123,9 +132,9 @@
 .ao-flap__line {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 0.5em;
+  gap: 6px 0.4em;
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   color: #f2f2f2;
   --flap-ink: #f2f2f2;
 }
@@ -192,12 +201,12 @@
   display: flex;
   justify-content: center;
   height: var(--cell-h);
-  transform: scale(0.8, 1.15);
+  transform: scale(0.86, 1.12);
 }
 
 /* the bottom half shows the lower half of the character */
 .flap__bottom .flap__char {
-  transform: translateY(-50%) scale(0.8, 1.15);
+  transform: translateY(-50%) scale(0.86, 1.12);
 }
 
 .flap__leaf-top,
