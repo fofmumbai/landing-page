@@ -1251,7 +1251,7 @@ main {
 
 .faq__btn {
   display: grid;
-  grid-template-columns: 52px 1fr 36px;
+  grid-template-columns: 24px 1fr 36px;   /* single-digit numbers */
   align-items: center;
   gap: 12px;
   width: 100%;
@@ -1345,7 +1345,7 @@ main {
 .faq__a p {
   max-width: 60ch;
   margin: 0;
-  padding: 0 0 22px 64px;
+  padding: 0 0 22px 36px;   /* lines up with the question text */
   font-size: 16px;
   line-height: 1.6;
   color: var(--faq-ink);
@@ -1977,7 +1977,9 @@ main {
     grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.4fr);
     align-items: center;
     gap: calc(var(--s) * 5);
-    padding: 8vh var(--page-gutter);
+    /* same edges as Sponsors (and the hero stamp / partner card): page
+       gutter, content capped at 1480px and centred on wide screens */
+    padding: 8vh max(var(--page-gutter), calc((100% - 1480px) / 2));
   }
 
   .faqs__side,
@@ -1993,6 +1995,11 @@ main {
   .team-card {
     margin-top: 3vh;
     padding: calc(var(--s) * 1.6);
+  }
+
+  /* the line break after "Nope." is for phones only */
+  .team-card__br {
+    display: none;
   }
 
   .team-card__text {
@@ -2011,7 +2018,7 @@ main {
   }
 
   .faq__btn {
-    grid-template-columns: calc(var(--s) * 5) 1fr 38px;
+    grid-template-columns: calc(var(--s) * 2) 1fr 38px;
     padding: 2.1vh 0;
   }
 
@@ -2020,7 +2027,7 @@ main {
   }
 
   .faq__a p {
-    padding-left: calc(var(--s) * 5 + 12px);
+    padding-left: calc(var(--s) * 2 + 12px);
     padding-bottom: 2.4vh;
     font-size: max(14px, calc(var(--s) * 1.15));
   }
