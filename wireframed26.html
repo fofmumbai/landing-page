@@ -19,6 +19,9 @@
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Manrope:wght@400..800&family=Mukta:wght@800&display=swap">
 	<link rel="stylesheet" href="assets/wireframed26/wireframed26.css">
+	<!-- schedule: split-flap board (and the hidden agenda options) -->
+	<link rel="stylesheet" href="assets/wireframed26/agenda-options.css">
+	<script src="assets/wireframed26/agenda-options.js" defer></script>
 </head>
 
 <body>
@@ -201,8 +204,8 @@
 		</section>
 
 		<!-- ============ 05 - SCHEDULE (the day at a glance) ============
-		     Maroon grid-paper fold with a black departures-style board
-		     (artwork: agenda-desktop / agenda-mobile). -->
+		     Maroon grid-paper fold with an animated split-flap departures board
+		     (styles: agenda-options.css, animation: agenda-options.js). -->
 		<section class="schedule" id="schedule" aria-labelledby="schedule-title">
 			<header class="schedule__head">
 				<h2 class="schedule__title" id="schedule-title">
@@ -213,18 +216,92 @@
 				<p class="schedule__sub">One Day. Six Hours. All Of Mumbai.</p>
 			</header>
 
-			<!-- the board is artwork (desktop: two columns; phones: stacked);
-			     the schedule itself is the list below, for screen readers -->
+			<!-- Hidden for now: the original board artwork (PNG).
 			<div class="board">
 				<picture>
 					<source media="(max-width: 860px)" srcset="assets/wireframed26/agenda-mobile.webp" width="958" height="647">
 					<img class="board__art" src="assets/wireframed26/agenda-desktop.webp" alt="" width="1562" height="569" loading="lazy" decoding="async">
 				</picture>
-				<ol class="visually-hidden">
-					<li>10:00 AM to 11:00 AM: Welcome and opening keynote</li>
-					<li>11:00 AM to 5:00 PM: Challenge window</li>
-					<li>5:00 PM to 7:00 PM: Hi-tea, networking and prizes</li>
-				</ol>
+			</div>
+			-->
+
+			<!-- the schedule for screen readers; the board below is decorative -->
+			<ol class="visually-hidden">
+				<li>10:00 AM to 11:00 AM: Welcome and opening keynote</li>
+				<li>11:00 AM to 5:00 PM: Challenge window</li>
+				<li>5:00 PM to 7:00 PM: Hi-tea, networking and prizes</li>
+			</ol>
+
+			<!-- Split-flap board. Plain text here; agenda-options.js turns each
+			     character into a flap and flips them into place whenever the
+			     board scrolls into view. -->
+			<div class="agenda-options" aria-hidden="true">
+				<div class="ao-flap">
+					<div class="ao-flap__grid">
+						<div class="ao-flap__row ao-flap__head">
+							<span>Time</span>
+							<span>What's happening</span>
+						</div>
+						<div class="ao-flap__row">
+							<span class="ao-flap__line ao-flap__line--time">10:00 AM - 11:00 AM</span>
+							<span class="ao-flap__line">WELCOME &amp; OPENING-KEYNOTE</span>
+						</div>
+						<div class="ao-flap__row">
+							<span class="ao-flap__line ao-flap__line--time">11:00 AM - 05:00 PM</span>
+							<span class="ao-flap__line">CHALLENGE-WINDOW</span>
+						</div>
+						<div class="ao-flap__row">
+							<span class="ao-flap__line ao-flap__line--time">05:00 PM - 07:00 PM</span>
+							<span class="ao-flap__line">HI-TEA + NETWORKING + PRIZES</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Hidden for now: dabbawala tiffin option.
+				<div class="ao-dabba">
+					<div class="ao-dabba__handle"></div>
+					<div class="ao-dabba__lid"></div>
+					<div class="ao-dabba__tier" style="--paint: #e2457a">
+						<span class="ao-dabba__body"><span class="ao-dabba__time">10:00 – 11:00 AM</span><span class="ao-dabba__event">Welcome &amp; Opening Keynote</span></span>
+					</div>
+					<div class="ao-dabba__tier" style="--paint: #1f7a3a">
+						<span class="ao-dabba__body"><span class="ao-dabba__time">11:00 AM – 5:00 PM</span><span class="ao-dabba__event">Challenge Window</span></span>
+					</div>
+					<div class="ao-dabba__tier" style="--paint: #1e4fa3">
+						<span class="ao-dabba__body"><span class="ao-dabba__time">5:00 – 7:00 PM</span><span class="ao-dabba__event">Hi-Tea, Networking &amp; Prizes</span></span>
+					</div>
+				</div>
+				-->
+
+				<!-- Hidden for now: BEST-style bus option.
+				<div class="ao-bus">
+					<div class="ao-bus__body">
+						<div class="ao-bus__top">
+							<span class="ao-bus__sign">Wireframed 2026</span>
+						</div>
+						<div class="ao-bus__side">
+							<div class="ao-bus__front"></div>
+							<div class="ao-bus__door"></div>
+							<div class="ao-bus__window">
+								<span class="ao-bus__time">10:00 – 11:00 AM</span>
+								<span class="ao-bus__stop">Welcome &amp; Opening Keynote</span>
+							</div>
+							<div class="ao-bus__window">
+								<span class="ao-bus__time">11:00 AM – 5:00 PM</span>
+								<span class="ao-bus__stop">Challenge Window</span>
+							</div>
+							<div class="ao-bus__window">
+								<span class="ao-bus__time">5:00 – 7:00 PM</span>
+								<span class="ao-bus__stop">Hi-Tea, Networking &amp; Prizes</span>
+							</div>
+						</div>
+						<span class="ao-bus__light"></span>
+						<span class="ao-bus__bumper"></span>
+					</div>
+					<span class="ao-bus__wheel ao-bus__wheel--front"></span>
+					<span class="ao-bus__wheel ao-bus__wheel--rear"></span>
+				</div>
+				-->
 			</div>
 
 			<img class="schedule__flower schedule__flower--left" src="assets/wireframed26/corner-flower.png" alt="" width="171" height="171" loading="lazy">

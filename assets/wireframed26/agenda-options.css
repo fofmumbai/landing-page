@@ -1,0 +1,572 @@
+/* Schedule section: the split-flap board is live. The dabbawala tiffin
+   and BEST bus options are commented out in wireframed26.html; their
+   styles stay below so they can be brought back. */
+
+.agenda-options {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 36px;
+}
+
+@media (min-width: 861px) {
+  .agenda-options {
+    margin-top: 6vh;
+  }
+}
+
+/* "Option N" divider label */
+.ao-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: min(100%, 980px);
+  margin: 72px 0 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.ao-label::before,
+.ao-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================================================
+   Option 6: split-flap departures board
+   Each character is a flap cell: a top and bottom half, plus two leaves
+   that fold over the hinge when it changes (agenda-options.js). Without
+   JS the lines show as plain text.
+   ========================================================================= */
+.ao-flap {
+  /* tall, narrower tiles: letters are condensed to 80% wide (and
+     stretched to 115% tall, like split-flap lettering), so the widest
+     glyph (W, about 1em in Montserrat Bold) takes about 0.8em of a
+     1.05em cell, leaving padding on both sides */
+  --cell-w: 1.05em;
+  --cell-h: 1.65em;
+  --cell-gap: 2px;
+  position: relative;
+  width: min(100%, 1240px);
+  padding: 34px clamp(12px, 2.6vw, 32px) 36px;
+  border-radius: 18px;
+  background: #0e0e0e;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+  font-size: clamp(13px, 1.65vw, 20px);
+  text-align: left;
+}
+
+/* corner screws */
+.ao-flap::before {
+  --screw: radial-gradient(circle, #3a3a3a 0 5px, transparent 5.5px);
+  content: "";
+  position: absolute;
+  inset: 12px;
+  background:
+    var(--screw) 0 0 / 12px 12px no-repeat,
+    var(--screw) 100% 0 / 12px 12px no-repeat,
+    var(--screw) 0 100% / 12px 12px no-repeat,
+    var(--screw) 100% 100% / 12px 12px no-repeat;
+  pointer-events: none;
+}
+
+.ao-flap__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 12px;
+}
+
+.ao-flap__row {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  row-gap: 8px;
+  padding: 18px 20px;
+  border-radius: 6px;
+  background: #171717;
+}
+
+.ao-flap__head {
+  display: none;
+  padding-top: 0;
+  padding-bottom: 0;
+  background: none;
+}
+
+.ao-flap__head span {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9a9a9a;
+}
+
+@media (min-width: 861px) {
+  .ao-flap__grid {
+    grid-template-columns: max-content 1fr;
+    column-gap: 1.8em;
+  }
+  .ao-flap__head {
+    display: grid;
+  }
+}
+
+/* a line of flaps; words wrap as whole words on narrow screens */
+.ao-flap__line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0.5em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #f2f2f2;
+  --flap-ink: #f2f2f2;
+}
+
+.ao-flap__line--time {
+  color: var(--yellow, #ffc60b);
+  --flap-ink: var(--yellow, #ffc60b);
+}
+
+.ao-flap__word {
+  display: inline-flex;
+  gap: var(--cell-gap);
+}
+
+.flap {
+  position: relative;
+  display: inline-block;
+  width: var(--cell-w);
+  height: var(--cell-h);
+  perspective: 18em;
+  line-height: var(--cell-h);
+  text-align: center;
+  color: var(--flap-ink);
+}
+
+/* hinge line across the middle */
+.flap::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.flap__half {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 50%;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+.flap__top {
+  top: 0;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(180deg, #2b2b2b, #222);
+  transform-origin: 50% 100%;
+}
+
+.flap__bottom {
+  bottom: 0;
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(180deg, #1d1d1d, #161616);
+  transform-origin: 50% 0;
+}
+
+/* flex centring keeps any glyph centred even if it were wider than the
+   cell (plain text-align would push the overflow to one side) */
+.flap__char {
+  display: flex;
+  justify-content: center;
+  height: var(--cell-h);
+  transform: scale(0.8, 1.15);
+}
+
+/* the bottom half shows the lower half of the character */
+.flap__bottom .flap__char {
+  transform: translateY(-50%) scale(0.8, 1.15);
+}
+
+.flap__leaf-top,
+.flap__leaf-bottom {
+  z-index: 2;
+}
+
+/* the bottom leaf rests folded up, out of sight */
+.flap__leaf-bottom {
+  transform: rotateX(90deg);
+}
+
+/* =========================================================================
+   Option 2: dabbawala tiffin
+   A tall, narrow steel cylinder: loop handle, wire frame over the lid and
+   down both sides to clips at the bottom, a domed lid, and three tall
+   tiers with rolled rims. Steel is shaded left to right so it reads as
+   round. Each tier's time sits in a tag painted in that tier's colour.
+   ========================================================================= */
+.ao-dabba {
+  --steel-side: linear-gradient(
+    90deg,
+    #858c93 0%,
+    #c9cfd5 9%,
+    #f7f9fa 21%,
+    #d6dbe0 33%,
+    #b3bac1 50%,
+    #e6eaee 63%,
+    #ffffff 71%,
+    #c1c8ce 84%,
+    #7c838a 100%
+  );
+  --wire: #b4bbc2;
+  position: relative;
+  width: min(100%, 400px);
+  padding: 78px 20px 30px;
+}
+
+/* wire frame: across the top above the lid, down both sides */
+.ao-dabba::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  right: 6px;
+  bottom: 40px;
+  left: 6px;
+  border: 5px solid var(--wire);
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.55),
+    1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* clips at the bottom where the frame locks onto the base */
+.ao-dabba::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  right: 1px;
+  bottom: 26px;
+  left: 1px;
+  height: 28px;
+  background:
+    linear-gradient(180deg, #dfe4e8, #8d949c) 0 0 / 20px 28px no-repeat,
+    linear-gradient(180deg, #dfe4e8, #8d949c) 100% 0 / 20px 28px no-repeat;
+}
+
+/* loop handle rising from the middle of the frame */
+.ao-dabba__handle {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 64px;
+  height: 40px;
+  border: 6px solid var(--wire);
+  border-bottom: 0;
+  border-radius: 34px 34px 0 0;
+  transform: translateX(-50%);
+}
+
+/* lid: a short steel band with the domed top drawn as an ellipse over it */
+.ao-dabba__lid {
+  position: relative;
+  z-index: 1;
+  height: 22px;
+  margin: 0 -4px;
+  border-radius: 0 0 6px 6px;
+  background: var(--steel-side);
+}
+
+.ao-dabba__lid::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  right: 0;
+  left: 0;
+  height: 32px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    #ffffff 0 16%,
+    #bcc3ca 17% 22%,
+    #eef1f4 23% 62%,
+    #a3aab1 100%
+  );
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.18);
+}
+
+/* centre knob on the lid */
+.ao-dabba__lid::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 46px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 35%, #ffffff, #9aa1a8);
+  transform: translateX(-50%);
+}
+
+.ao-dabba__tier {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 160px;
+  margin-top: 8px;
+  padding: 26px 20px 22px;
+  border-radius: 0 0 10px 10px / 0 0 6px 6px;
+  background: var(--steel-side);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.18);
+  color: #1f2328;
+  text-align: left;
+}
+
+/* rolled rim around the top of each tier, a touch wider than the tier */
+.ao-dabba__tier::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: -5px;
+  left: -5px;
+  height: 14px;
+  border-radius: 7px;
+  background: var(--steel-side);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 2px 2px rgba(0, 0, 0, 0.28);
+}
+
+/* the base curves away at the bottom */
+.ao-dabba__tier:last-child {
+  border-radius: 0 0 50% 50% / 0 0 18px 18px;
+  padding-bottom: 30px;
+}
+
+.ao-dabba__body {
+  display: block;
+}
+
+/* time first, as a painted tag in the tier's colour */
+.ao-dabba__time {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--paint);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ao-dabba__event {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* =========================================================================
+   Option 4: BEST-style red bus, flat side view, front (driver) on the left
+   Grey roof, blue windscreen, open front door with steps, three cream
+   side windows with dark sunshade strips (they carry the schedule), the
+   green-and-yellow stripe, silver bumper, headlight, two wheels.
+   On phones the windows stack and the windscreen and door drop out.
+   ========================================================================= */
+.ao-bus {
+  --bus-red: #d7141f;
+  --bus-red-dark: #8e0b14;
+  --bus-roof: #c4c9ce;
+  position: relative;
+  width: min(100%, 1040px);
+  padding-bottom: 40px; /* room for the lower half of the wheels */
+}
+
+.ao-bus__body {
+  position: relative;
+  padding: 14px 22px 56px;
+  border-top: 18px solid var(--bus-roof);
+  border-radius: 44px 16px 12px 12px;
+  background: var(--bus-red);
+  box-shadow:
+    inset 0 -10px 0 rgba(0, 0, 0, 0.16),
+    0 18px 30px rgba(0, 0, 0, 0.35);
+  text-align: left;
+}
+
+/* green and yellow stripe under the windows */
+.ao-bus__body::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+  left: 0;
+  height: 16px;
+  background: linear-gradient(180deg, #1f7a3a 0 9px, #f2b705 9px 16px);
+}
+
+.ao-bus__top {
+  display: flex;
+  justify-content: center;
+}
+
+/* amber LED sign across the top */
+.ao-bus__sign {
+  padding: 6px 18px;
+  border: 3px solid #2a2a2a;
+  border-radius: 6px;
+  background-color: #111;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.5px);
+  background-size: 4px 4px;
+  color: #ffb000;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(255, 176, 0, 0.55);
+}
+
+.ao-bus__side {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* windscreen at the front, curving into the roof */
+.ao-bus__front {
+  flex: 0 0 70px;
+  border: 4px solid #2a2a2a;
+  border-radius: 30px 8px 8px 8px;
+  background:
+    linear-gradient(125deg, transparent 0 55%, rgba(255, 255, 255, 0.45) 55% 63%, transparent 63%),
+    linear-gradient(160deg, #a9dcf2 0%, #6fb5da 100%);
+}
+
+/* open front door: dark doorway down to the road, with steps */
+.ao-bus__door {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 58px;
+  margin-bottom: -56px;
+  border: 4px solid #b7bcc1;
+  border-bottom: 0;
+  border-radius: 6px 6px 0 0;
+  background:
+    linear-gradient(180deg, transparent 0 calc(100% - 34px), #c9cdd1 calc(100% - 34px) calc(100% - 28px), transparent calc(100% - 28px) calc(100% - 18px), #c9cdd1 calc(100% - 18px) calc(100% - 12px), transparent calc(100% - 12px)),
+    #1c1c1c;
+}
+
+/* side window: silver frame, dark sunshade strip on top, cream glass */
+.ao-bus__window {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-height: 140px;
+  padding: 30px 20px 18px;
+  border: 4px solid #b7bcc1;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #1c1c1c 0 14px, #f4f1ea 14px);
+}
+
+.ao-bus__time {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--bus-red);
+}
+
+.ao-bus__stop {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(15px, 1.6vw, 19px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+.ao-bus__light {
+  position: absolute;
+  z-index: 1;
+  bottom: 12px;
+  left: 18px;
+  width: 24px;
+  height: 12px;
+  border-radius: 4px;
+  background: #fff3c4;
+  box-shadow: 0 0 10px rgba(255, 243, 196, 0.6);
+}
+
+.ao-bus__bumper {
+  position: absolute;
+  z-index: 1;
+  bottom: -4px;
+  left: -6px;
+  width: 110px;
+  height: 10px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #eef0f2, #9aa1a8);
+}
+
+/* wheels sit on the bottom edge of the body, in dark arches */
+.ao-bus__wheel {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #d9dde1 0 17%, #6b7178 18% 26%, #141414 27% 100%);
+  box-shadow: 0 0 0 7px var(--bus-red-dark);
+}
+
+.ao-bus__wheel--front {
+  left: 22%;
+}
+
+.ao-bus__wheel--rear {
+  right: 12%;
+}
+
+@media (max-width: 720px) {
+  .ao-bus__body {
+    border-radius: 28px 16px 12px 12px;
+  }
+  .ao-bus__side {
+    flex-direction: column;
+  }
+  .ao-bus__window {
+    min-height: 0;
+  }
+  .ao-bus__front,
+  .ao-bus__door {
+    display: none;
+  }
+  .ao-bus__wheel {
+    width: 64px;
+    height: 64px;
+  }
+  .ao-bus__wheel--front {
+    left: 12%;
+  }
+}
