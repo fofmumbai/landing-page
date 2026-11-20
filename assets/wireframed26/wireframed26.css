@@ -1021,29 +1021,12 @@ main {
   overflow-x: clip;             /* tilted stamps never widen the page */
 }
 
+/* header: same pattern as the folds above (centred title between pink
+   dividers, green subheader) via .section-head */
 .sponsors__head {
   max-width: 1480px;
   margin: 0 auto;
-}
-
-.sponsors__title {
-  margin: 0;
-  font-size: clamp(44px, 13vw, 64px);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-}
-
-.sponsors__title span {
-  display: block;
-}
-
-.sponsors__sub {
-  margin: 20px 0 0;
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(20, 20, 20, 0.8);
+  text-align: center;
 }
 
 .sponsors__grid {
@@ -1171,18 +1154,15 @@ main {
   background-size: 22px 22px;
 }
 
-.faqs__title {
-  margin: 0;
-  font-size: clamp(64px, 20vw, 96px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+/* header: same pattern as the folds above, centred across both columns */
+.faqs__head {
+  grid-column: 1 / -1;
+  text-align: center;
 }
 
 .team-card {
   max-width: 420px;
-  margin-top: 28px;
+  margin-top: 0;
   padding: 22px 22px 24px;
   border: 3px solid var(--faq-ink);
   background: var(--faq-green);
@@ -1963,15 +1943,6 @@ main {
     width: 100%;
   }
 
-  .sponsors__title {
-    font-size: calc(var(--s) * 7.4);
-  }
-
-  .sponsors__sub {
-    margin: 0.8em 0 0;
-    font-size: max(15px, calc(var(--s) * 1.45));
-  }
-
   .sponsors__grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: calc(var(--s) * 2.4);
@@ -1979,49 +1950,22 @@ main {
     margin-top: 8vh;
   }
 
-  /* ----- FAQs: two columns, art bottom-left ----- */
+  /* ----- FAQs: the list alone, full width (the team card and the chai +
+     vada pav art are for phones only) ----- */
   .faqs {
-    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.4fr);
-    align-items: center;
-    gap: calc(var(--s) * 5);
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 5vh;   /* header to content, as in the folds above */
     /* same edges as Sponsors (and the hero stamp / partner card): page
        gutter, content capped at 1480px and centred on wide screens */
     padding: 8vh max(var(--page-gutter), calc((100% - 1480px) / 2));
   }
 
-  .faqs__side,
-  .faqs__list {
-    max-width: none;
-  }
-
-
-  .faqs__title {
-    font-size: calc(var(--s) * 7.4);
-  }
-
-  .team-card {
-    margin-top: 3vh;
-    padding: calc(var(--s) * 1.6);
-  }
-
-  /* the line break after "Nope." is for phones only */
-  .team-card__br {
+  .faqs__side {
     display: none;
   }
 
-  .team-card__text {
-    margin: 1.6vh 0;
-    font-size: max(14px, calc(var(--s) * 1.15));
-  }
-
-  /* chai + vada pav: kept short enough that the fold still fits */
-  .faqs__art {
-    display: block;
-    width: auto;
-    max-width: min(100%, calc(var(--s) * 26));
-    max-height: 24vh;
-    height: auto;
-    margin-top: 3.5vh;
+  .faqs__list {
+    max-width: none;
   }
 
   .faq__btn {
@@ -2357,20 +2301,15 @@ main {
    drop the all-caps and per-title weight overrides. */
 .section-head__title,
 .playground__title,
-.sponsors__title,
 .partner__title,
 .format__title,
 .schedule__title,
-.faqs__title,
 .faq__text {
   font-family: "Montserrat", var(--font-display);
   text-transform: uppercase;
 }
 
-/* Sponsors & Partners, FAQs and the "Partner with us" paint on the
-   shop shutter: Montserrat Bold */
-.sponsors__title,
-.faqs__title,
+/* the "Partner with us" paint on the shop shutter: Montserrat Bold */
 .shutter__paint {
   font-family: "Montserrat", var(--font-display);
   font-weight: 700;
