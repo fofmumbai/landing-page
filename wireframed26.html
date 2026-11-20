@@ -325,42 +325,99 @@
 				</h2>
 				<p class="section-head__sub">Wireframed 2026 is made possible with the support of our partners.</p>
 			</header>
+			<!-- Easter egg: each stamp flips (click, or Enter/Space) to a Mumbai
+			     fact on its back, and flips back on the next click. When sponsors are revealed, swap a stamp's button
+			     for the plain stamp with an <a><img></a> in its frame. -->
 			<ul class="sponsors__grid" aria-label="Sponsors, to be announced">
 				<li class="sponsor" style="--i: 1">
-					<div class="sponsor-stamp">
-						<span class="sponsor-stamp__frame"></span>
-						<span class="sponsor-stamp__tag">Revealing soon</span>
-					</div>
+					<button type="button" class="sponsor__flip" aria-pressed="false">
+						<span class="sponsor-stamp sponsor-stamp--front">
+							<span class="sponsor-stamp__frame"></span>
+							<span class="sponsor-stamp__tag">Revealing soon</span>
+							<span class="visually-hidden">. Flip for a Mumbai fact.</span>
+						</span>
+						<span class="sponsor-stamp sponsor-stamp--back" hidden>
+							<span class="sponsor-fact">
+								<span class="sponsor-fact__label"><span>Mumbai fact</span> <span>#1</span></span>
+								<span class="sponsor-fact__text">The steel wire used in the Bandra-Worli Sea Link is said to be long enough to wrap around the Earth once (about 40,075 km).</span>
+							</span>
+						</span>
+					</button>
 				</li>
 				<li class="sponsor" style="--i: 2">
-					<div class="sponsor-stamp">
-						<span class="sponsor-stamp__frame"></span>
-						<span class="sponsor-stamp__tag">Revealing soon</span>
-					</div>
+					<button type="button" class="sponsor__flip" aria-pressed="false">
+						<span class="sponsor-stamp sponsor-stamp--front">
+							<span class="sponsor-stamp__frame"></span>
+							<span class="sponsor-stamp__tag">Revealing soon</span>
+							<span class="visually-hidden">. Flip for a Mumbai fact.</span>
+						</span>
+						<span class="sponsor-stamp sponsor-stamp--back" hidden>
+							<span class="sponsor-fact">
+								<span class="sponsor-fact__label"><span>Mumbai fact</span> <span>#2</span></span>
+								<span class="sponsor-fact__text">The Bombay Stock Exchange began in the 1850s with brokers meeting under a banyan tree. It’s Asia’s oldest stock exchange.</span>
+							</span>
+						</span>
+					</button>
 				</li>
 				<li class="sponsor" style="--i: 3">
-					<div class="sponsor-stamp">
-						<span class="sponsor-stamp__frame"></span>
-						<span class="sponsor-stamp__tag">Revealing soon</span>
-					</div>
+					<button type="button" class="sponsor__flip" aria-pressed="false">
+						<span class="sponsor-stamp sponsor-stamp--front">
+							<span class="sponsor-stamp__frame"></span>
+							<span class="sponsor-stamp__tag">Revealing soon</span>
+							<span class="visually-hidden">. Flip for a Mumbai fact.</span>
+						</span>
+						<span class="sponsor-stamp sponsor-stamp--back" hidden>
+							<span class="sponsor-fact">
+								<span class="sponsor-fact__label"><span>Mumbai fact</span> <span>#3</span></span>
+								<span class="sponsor-fact__text">Mumbai ran the world’s first ladies-special train in 1992, on the Western line.</span>
+							</span>
+						</span>
+					</button>
 				</li>
 				<li class="sponsor" style="--i: 4">
-					<div class="sponsor-stamp">
-						<span class="sponsor-stamp__frame"></span>
-						<span class="sponsor-stamp__tag">Revealing soon</span>
-					</div>
+					<button type="button" class="sponsor__flip" aria-pressed="false">
+						<span class="sponsor-stamp sponsor-stamp--front">
+							<span class="sponsor-stamp__frame"></span>
+							<span class="sponsor-stamp__tag">Revealing soon</span>
+							<span class="visually-hidden">. Flip for a Mumbai fact.</span>
+						</span>
+						<span class="sponsor-stamp sponsor-stamp--back" hidden>
+							<span class="sponsor-fact">
+								<span class="sponsor-fact__label"><span>Mumbai fact</span> <span>#4</span></span>
+								<span class="sponsor-fact__text">The vada pav is credited to Ashok Vaidya, who sold it outside Dadar station in 1966.</span>
+							</span>
+						</span>
+					</button>
 				</li>
 				<li class="sponsor" style="--i: 5">
-					<div class="sponsor-stamp">
-						<span class="sponsor-stamp__frame"></span>
-						<span class="sponsor-stamp__tag">Revealing soon</span>
-					</div>
+					<button type="button" class="sponsor__flip" aria-pressed="false">
+						<span class="sponsor-stamp sponsor-stamp--front">
+							<span class="sponsor-stamp__frame"></span>
+							<span class="sponsor-stamp__tag">Revealing soon</span>
+							<span class="visually-hidden">. Flip for a Mumbai fact.</span>
+						</span>
+						<span class="sponsor-stamp sponsor-stamp--back" hidden>
+							<span class="sponsor-fact">
+								<span class="sponsor-fact__label"><span>Mumbai fact</span> <span>#5</span></span>
+								<span class="sponsor-fact__text">Regal Cinema in Colaba (1933) was among India’s first air-conditioned cinemas.</span>
+							</span>
+						</span>
+					</button>
 				</li>
 				<li class="sponsor" style="--i: 6">
-					<div class="sponsor-stamp">
-						<span class="sponsor-stamp__frame"></span>
-						<span class="sponsor-stamp__tag">Revealing soon</span>
-					</div>
+					<button type="button" class="sponsor__flip" aria-pressed="false">
+						<span class="sponsor-stamp sponsor-stamp--front">
+							<span class="sponsor-stamp__frame"></span>
+							<span class="sponsor-stamp__tag">Revealing soon</span>
+							<span class="visually-hidden">. Flip for a Mumbai fact.</span>
+						</span>
+						<span class="sponsor-stamp sponsor-stamp--back" hidden>
+							<span class="sponsor-fact">
+								<span class="sponsor-fact__label"><span>Mumbai fact</span> <span>#6</span></span>
+								<span class="sponsor-fact__text">India’s first Test cricket match on home soil was played at the Bombay Gymkhana in 1933.</span>
+							</span>
+						</span>
+					</button>
 				</li>
 			</ul>
 		</section>
@@ -691,6 +748,44 @@
 
 			list.querySelectorAll(pair[1]).forEach(function (el) { io.observe(el); });
 		});
+
+		// Sponsor stamps (easter egg): each click flips the stamp between its
+		// "Revealing soon" front and a Mumbai fact on the back. It turns
+		// edge-on, swaps face, then turns back. Reduced motion: just swaps.
+		(function () {
+			var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+			document.querySelectorAll('.sponsor__flip').forEach(function (btn) {
+				var front = btn.querySelector('.sponsor-stamp--front');
+				var back = btn.querySelector('.sponsor-stamp--back');
+				var busy = false;
+
+				function swap() {
+					var toBack = btn.getAttribute('aria-pressed') !== 'true';
+					btn.setAttribute('aria-pressed', String(toBack));
+					front.hidden = toBack;
+					back.hidden = !toBack;
+				}
+
+				btn.addEventListener('click', function () {
+					if (busy) return;
+					if (reduce.matches || !btn.animate) { swap(); return; }
+					busy = true;
+					var out = btn.animate(
+						[{ transform: 'perspective(800px) rotateY(0deg)' }, { transform: 'perspective(800px) rotateY(90deg)' }],
+						{ duration: 170, easing: 'ease-in', fill: 'forwards' }
+					);
+					out.finished.then(function () {
+						swap();
+						var back = btn.animate(
+							[{ transform: 'perspective(800px) rotateY(-90deg)' }, { transform: 'perspective(800px) rotateY(0deg)' }],
+							{ duration: 240, easing: 'cubic-bezier(0.2, 0.9, 0.3, 1.15)' }
+						);
+						out.cancel(); // the held edge-on frame, now covered by the turn back
+						return back.finished;
+					}).then(function () { busy = false; }, function () { busy = false; });
+				});
+			});
+		})();
 
 		// FAQs: accordion, one answer open at a time
 		(function () {

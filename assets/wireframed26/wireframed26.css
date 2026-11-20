@@ -1053,14 +1053,6 @@ main {
 .sponsor:nth-child(5) { --rot: -1deg;   --frame-rot: -1.4deg; }
 .sponsor:nth-child(6) { --rot: 0.6deg;  --frame-rot: 1.2deg; }
 
-/* phones and tablets: four stamps (two rows) keep the fold short;
-   desktop shows all six in a row */
-@media (max-width: 860px) {
-  .sponsor:nth-child(n + 5) {
-    display: none;
-  }
-}
-
 /* perforated edge: real cut-outs, same technique as the hero stamp */
 .sponsor-stamp {
   --r: 4.4cqw;
@@ -1122,6 +1114,96 @@ main {
   text-transform: uppercase;
   color: var(--sponsor-pink);
   transform: rotate(-11deg);
+}
+
+/* ---------- Easter egg: flip a stamp for a Mumbai fact ----------
+   The whole stamp is a button. Click: it turns edge-on, swaps face, and
+   turns back (page script, after the sticker reveal). The back is a coloured
+   stamp: a "Mumbai fact #X" label and the fact. */
+.sponsor__flip {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sponsor__flip:hover {
+  transform: translateY(-4px) rotate(calc(var(--rot, 0deg) * -1));
+}
+
+.sponsor__flip:focus-visible {
+  outline: 2px dashed var(--sponsor-ink);
+  outline-offset: 6px;
+}
+
+.sponsor-stamp[hidden] {
+  display: none;
+}
+
+/* back: alternating maroon and green */
+.sponsor-stamp--back {
+  --fact-bg: var(--maroon, #a3194b);
+  --fact-ink: #fff5dc;
+  --fact-accent: var(--yellow, #ffc60b);
+  display: block;
+  background: var(--fact-bg);
+  color: var(--fact-ink);
+}
+
+.sponsor:nth-child(even) .sponsor-stamp--back {
+  --fact-bg: #2f6b34;
+}
+
+/* inner frame: a fine solid rule, square (the front's is dashed and askew) */
+.sponsor-fact {
+  position: absolute;
+  inset: 7cqw;
+  display: flex;
+  flex-direction: column;
+  padding: 6cqw 6cqw 5cqw;
+  border: max(1px, 0.6cqw) solid rgba(255, 245, 220, 0.4);
+  overflow: hidden;
+}
+
+.sponsor-fact__label {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+  padding-bottom: 3.4cqw;
+  border-bottom: max(1px, 0.6cqw) dashed rgba(255, 245, 220, 0.45);
+  font-family: "Montserrat", var(--font-display);
+  font-size: max(9px, 4.6cqw);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--fact-accent);
+}
+
+.sponsor-fact__text {
+  position: relative;
+  z-index: 1;
+  margin-top: 4.5cqw;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: max(10.5px, 6.5cqw);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sponsor__flip {
+    transition: none;
+  }
+  .sponsor__flip:hover {
+    transform: none;
+  }
 }
 
 /* sticker reveal (shared with the prize stamps, see .prize.is-applied) */
@@ -1945,6 +2027,17 @@ main {
     gap: calc(var(--s) * 2.4);
     width: 100%;
     margin-top: 8vh;
+  }
+
+  /* small laptops: six in a row leaves the fact backs too small to read,
+     so two rows of three */
+  @media (max-width: 1199px) {
+    .sponsors__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 760px;
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 
   /* ----- FAQs: the list alone, full width (the team card and the chai +
