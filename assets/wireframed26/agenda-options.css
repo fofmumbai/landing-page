@@ -114,14 +114,14 @@
     grid-template-columns: max-content 1fr;
     column-gap: 1.3em;
   }
-  /* the longest row (time + "HI-TEA + NETWORKING + PRIZES") is about
-     60em wide with the board's padding, so the type scales with the
+  /* the longest row (time + "CHALLENGE-WINDOW") is about 48em wide
+     with the board's padding, so the type scales with the
      space it has and never wraps; 20px at most */
   .agenda-options {
     container-type: inline-size;
   }
   .ao-flap {
-    font-size: min(20px, 100cqw / 61);
+    font-size: min(20px, 100cqw / 49);
   }
   .ao-flap__head {
     display: grid;
