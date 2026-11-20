@@ -549,12 +549,26 @@ main {
 
 .prize--2 {
   order: 1;
-  --rot: -5deg;
 }
 
 .prize--3 {
   order: 3;
-  --rot: 5deg;
+}
+
+/* the 2nd and 3rd place artwork comes tilted (about -5deg and +7deg), so
+   they get no extra --rot. Their images are wider than the stamp itself
+   (the tilt adds to the bounding box), so they are scaled up to match the
+   stamp size of an untilted one, overhanging the box evenly. */
+.prize--2 .prize-stamp__img {
+  width: 110%;
+  max-width: none;
+  margin-left: -5%;
+}
+
+.prize--3 .prize-stamp__img {
+  width: 115%;
+  max-width: none;
+  margin-left: -7.5%;
 }
 
 /* the artwork is the whole stamp, perforated paper edge included */
@@ -2339,8 +2353,6 @@ main {
     margin-top: 0;
   }
 
-  .prize--2 { --rot: -2deg; }
-  .prize--3 { --rot: 2deg; }
 }
 
 @media (prefers-reduced-motion: reduce) {
