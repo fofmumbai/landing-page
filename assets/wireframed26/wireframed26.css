@@ -1804,9 +1804,9 @@ main {
     /* content hugs the top (the hero's yellow band is already above it);
        spare height falls to the bottom, behind the corner flowers */
     justify-content: flex-start;
-    /* one screen minus the sticky bar that sits over it */
-    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
-    padding: 2vh 16px 8vh;
+    /* hugs its content: no forced one-screen height, so no empty band
+       below the stamps */
+    padding: 2vh 16px 7vh;
   }
 
   .section-head__title {
@@ -1819,7 +1819,7 @@ main {
 
   .prizes {
     gap: calc(var(--s) * 3.8);
-    margin: 5vh auto 6vh;
+    margin: 5vh auto 4vh;
   }
 
   .prize {
@@ -1841,15 +1841,15 @@ main {
   /* ----- Playground: one full screen, art left on the road, copy right ----- */
   .playground {
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    align-items: end;
+    /* the Gateway sets the height (still standing on the bottom edge);
+       the copy sits on its vertical centre */
+    align-items: center;
     column-gap: calc(var(--s) * 4);
-    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
     padding: 6vh var(--page-gutter) 0;
   }
 
   .playground__copy {
     order: 2;
-    align-self: center;
     max-width: calc(var(--s) * 42);
   }
 
@@ -1878,8 +1878,7 @@ main {
   /* ----- Schedule: one screen ----- */
   .schedule {
     justify-content: center;
-    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
-    padding: 5vh var(--page-gutter) 7vh;
+    padding: 8vh var(--page-gutter);
   }
 
   .schedule__title {
@@ -1905,8 +1904,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
-    padding: 5vh var(--page-gutter) 8vh;
+    padding: 8vh var(--page-gutter);
   }
 
   .sponsors__head {
@@ -1934,8 +1932,7 @@ main {
     grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.4fr);
     align-items: center;
     gap: calc(var(--s) * 5);
-    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
-    padding: 4vh var(--page-gutter);
+    padding: 8vh var(--page-gutter);
   }
 
   .faqs__side,
@@ -1987,8 +1984,7 @@ main {
   .partner {
     display: flex;
     align-items: stretch;
-    min-height: clamp(560px, calc(100svh - var(--bar-h)), 900px);
-    padding: 5vh var(--page-gutter);
+    padding: 6vh var(--page-gutter);
   }
 
   .partner__card {
