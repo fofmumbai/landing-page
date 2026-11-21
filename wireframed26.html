@@ -804,7 +804,7 @@
 						swap();
 						var back = btn.animate(
 							[{ transform: 'perspective(800px) rotateY(-90deg)' }, { transform: 'perspective(800px) rotateY(0deg)' }],
-							{ duration: 240, easing: 'cubic-bezier(0.2, 0.9, 0.3, 1.15)' }
+							{ duration: 240, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' } // settles without overshooting: an overshoot tipped the stamp past flat, so its edges dipped and sprang back
 						);
 						out.cancel(); // the held edge-on frame, now covered by the turn back
 						return back.finished;

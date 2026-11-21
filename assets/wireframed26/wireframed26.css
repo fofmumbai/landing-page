@@ -1066,13 +1066,14 @@ main {
   filter: drop-shadow(0 3px 5px rgba(90, 60, 0, 0.18));
 }
 
-/* hand-placed look: each stamp sits a touch off-square */
-.sponsor:nth-child(1) { --rot: -1.2deg; --frame-rot: -1.6deg; }
-.sponsor:nth-child(2) { --rot: 1deg;    --frame-rot: 1.4deg; }
-.sponsor:nth-child(3) { --rot: -0.6deg; --frame-rot: -1deg; }
-.sponsor:nth-child(4) { --rot: 0.8deg;  --frame-rot: 1.8deg; }
-.sponsor:nth-child(5) { --rot: -1deg;   --frame-rot: -1.4deg; }
-.sponsor:nth-child(6) { --rot: 0.6deg;  --frame-rot: 1.2deg; }
+/* hand-placed look: each stamp sits a touch off-square (the dashed frame
+   inside follows the stamp's own angle) */
+.sponsor:nth-child(1) { --rot: -1.2deg; }
+.sponsor:nth-child(2) { --rot: 1deg; }
+.sponsor:nth-child(3) { --rot: -0.6deg; }
+.sponsor:nth-child(4) { --rot: 0.8deg; }
+.sponsor:nth-child(5) { --rot: -1deg; }
+.sponsor:nth-child(6) { --rot: 0.6deg; }
 
 /* perforated edge: real cut-outs, same technique as the hero stamp */
 .sponsor-stamp {
@@ -1109,12 +1110,11 @@ main {
   clip-path: inset(1px);
 }
 
-/* dashed inner border, slightly askew like a hand-cut frame */
+/* dashed inner border, square to the stamp */
 .sponsor-stamp__frame {
   position: absolute;
   inset: 7cqw;
   border: max(1px, 0.75cqw) dashed rgba(20, 20, 20, 0.62);
-  transform: rotate(var(--frame-rot, 0deg));
 }
 
 .sponsor-stamp__frame img {
