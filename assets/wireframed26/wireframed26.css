@@ -1078,36 +1078,17 @@ main {
 /* perforated edge: real cut-outs, same technique as the hero stamp */
 .sponsor-stamp {
   --r: 4.4cqw;
-  --gap: 12.4cqw;
   --corner: calc(var(--r) * 0.9);
-  --bite-top: radial-gradient(circle at 50% 0, #000 calc(var(--r) - 0.5px), #0000 var(--r));
-  --bite-bottom: radial-gradient(circle at 50% 100%, #000 calc(var(--r) - 0.5px), #0000 var(--r));
-  --bite-left: radial-gradient(circle at 0 50%, #000 calc(var(--r) - 0.5px), #0000 var(--r));
-  --bite-right: radial-gradient(circle at 100% 50%, #000 calc(var(--r) - 0.5px), #0000 var(--r));
   position: relative;
   display: grid;
   place-items: center;
   aspect-ratio: 0.8;
   padding: var(--corner);
-  background: #faf0d2;
-  -webkit-mask:
-    var(--bite-top) 0 calc(var(--corner) * -1) / var(--gap) var(--r) space no-repeat content-box border-box,
-    var(--bite-bottom) 0 calc(100% + var(--corner)) / var(--gap) var(--r) space no-repeat content-box border-box,
-    var(--bite-left) calc(var(--corner) * -1) 0 / var(--r) var(--gap) no-repeat space content-box border-box,
-    var(--bite-right) calc(100% + var(--corner)) 0 / var(--r) var(--gap) no-repeat space content-box border-box,
-    linear-gradient(#000 0 0) border-box;
-  -webkit-mask-composite: xor;
-  mask:
-    var(--bite-top) 0 calc(var(--corner) * -1) / var(--gap) var(--r) space no-repeat content-box border-box,
-    var(--bite-bottom) 0 calc(100% + var(--corner)) / var(--gap) var(--r) space no-repeat content-box border-box,
-    var(--bite-left) calc(var(--corner) * -1) 0 / var(--r) var(--gap) no-repeat space content-box border-box,
-    var(--bite-right) calc(100% + var(--corner)) 0 / var(--r) var(--gap) no-repeat space content-box border-box,
-    linear-gradient(#000 0 0) border-box;
-  mask-composite: exclude;
-  /* the rows of bites can land a fraction of a pixel short of the edge,
-     leaving a hairline of the stamp colour along it (clear on the dark
-     backs); trimming 1px all round removes it */
-  clip-path: inset(1px);
+  /* perforated paper as an image, not a CSS mask: iOS Safari redraws
+     masked elements unreliably while they turn in 3D (the flip), which
+     made the edges jump on phones. Same geometry as before: 4.4% bites,
+     7 across and 9 down, square corners. */
+  background: url("stamp-cream.svg") center / 100% 100% no-repeat;
 }
 
 /* dashed inner border, square to the stamp */
@@ -1205,18 +1186,17 @@ main {
   display: none;
 }
 
-/* back: alternating maroon and green */
+/* back: alternating maroon and green paper */
 .sponsor-stamp--back {
-  --fact-bg: var(--maroon, #a3194b);
   --fact-ink: #fff5dc;
   --fact-accent: var(--yellow, #ffc60b);
   display: block;
-  background: var(--fact-bg);
+  background-image: url("stamp-maroon.svg");
   color: var(--fact-ink);
 }
 
 .sponsor:nth-child(even) .sponsor-stamp--back {
-  --fact-bg: #2f6b34;
+  background-image: url("stamp-green.svg");
 }
 
 /* content area inside the perforations (no frame line) */
