@@ -7,6 +7,16 @@
 	<title>Wireframed 2026: Mumbai Maxxing | FOF Mumbai</title>
 	<meta name="description"
 		content="Wireframed 2026: Mumbai Maxxing, a citywide exploration challenge by Friends of Figma Mumbai. 12 Dec 2026, 10 AM – 7 PM.">
+	<!-- Microsoft Clarity: same project as the rest of fofmumbai.com
+	     (filter by the /wireframed26 URL). Custom events are sent from the
+	     "Analytics" script at the end of the body. -->
+	<script type="text/javascript">
+		(function (c, l, a, r, i, t, y) {
+			c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+			t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+			y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+		})(window, document, "clarity", "script", "p1m03vrywi");
+	</script>
 	<!-- link previews (WhatsApp, LinkedIn, X, Slack): image must be an
 	     absolute URL; 1200x630, kept under 300 KB for WhatsApp -->
 	<meta property="og:type" content="website">
@@ -967,6 +977,45 @@
 			[desk, phone].forEach(function (m) { if (m.addEventListener) m.addEventListener('change', queue); });
 			if (train.complete) queue(); else train.addEventListener('load', queue);
 			queue();
+		})();
+	</script>
+	<script>
+		// Analytics: Clarity custom events, filterable in the Clarity dashboard
+		// (Filters > Custom events / Custom tags). One listener for the page;
+		// it runs after each element's own click handler.
+		//   register_team_click  tag register_source: navbar | hero
+		//   partner_click
+		//   faq_open             tag faq_question: the question text
+		//   sponsor_stamp_flip   tag mumbai_fact: #1-#6
+		//   chai_steam, vada_pav_bite
+		(function () {
+			function track(name, key, value) {
+				if (typeof window.clarity !== 'function') return;
+				window.clarity('event', name);
+				if (key) window.clarity('set', key, value);
+			}
+
+			document.addEventListener('click', function (e) {
+				var el = e.target.closest ? e.target.closest('a, button') : null;
+				if (!el) return;
+
+				if (el.matches('.topnav__cta')) track('register_team_click', 'register_source', 'navbar');
+				else if (el.matches('.btn-register:not(.partner__btn)')) track('register_team_click', 'register_source', 'hero');
+				else if (el.matches('.partner__btn')) track('partner_click');
+				else if (el.matches('.faq__btn')) {
+					// the accordion has already toggled it: only count opens
+					if (el.getAttribute('aria-expanded') === 'true') {
+						var q = el.querySelector('.faq__text');
+						track('faq_open', 'faq_question', q ? q.textContent.trim() : '');
+					}
+				}
+				else if (el.matches('.sponsor__flip')) {
+					var n = el.querySelector('.sponsor-fact__label span:last-child');
+					track('sponsor_stamp_flip', 'mumbai_fact', n ? n.textContent.trim() : '');
+				}
+				else if (el.matches('.snack__chai')) track('chai_steam');
+				else if (el.matches('.snack__vada')) track('vada_pav_bite');
+			});
 		})();
 	</script>
 </body>
