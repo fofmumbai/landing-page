@@ -1124,6 +1124,30 @@ main {
   padding: 10%;
 }
 
+/* revealed partner: logo centred in the frame, its role in a small pink
+   pill near the bottom (upright, unlike the tilted "Revealing soon") */
+.sponsor-stamp--partner .sponsor-stamp__frame img {
+  padding: 14% 13% 30%;
+}
+
+.sponsor-stamp__role {
+  position: absolute;
+  bottom: 15cqw;
+  left: 50%;
+  padding: 2cqw 4.4cqw;
+  border: max(1.5px, 0.9cqw) solid var(--sponsor-pink);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 5.4cqw;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: var(--sponsor-pink);
+  transform: translateX(-50%);
+}
+
 /* pink "Revealing soon" rubber stamp */
 .sponsor-stamp__tag {
   position: relative;

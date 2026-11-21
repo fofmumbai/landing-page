@@ -349,15 +349,17 @@
 				</h2>
 				<p class="section-head__sub">Wireframed 2026 is made possible with the support of our partners.</p>
 			</header>
-			<!-- Easter egg: each stamp flips (click, or Enter/Space) to a Mumbai
-			     fact on its back, and flips back on the next click. When sponsors are revealed, swap a stamp's button
-			     for the plain stamp with an <a><img></a> in its frame. -->
-			<ul class="sponsors__grid" aria-label="Sponsors, to be announced">
+			<!-- Each stamp flips (click, or Enter/Space) to a Mumbai fact on its
+			     back, and flips back on the next click. Revealed partners (the
+			     first two) show their logo and role on the front; to reveal
+			     another, copy one of those fronts in place of "Revealing soon".
+			     Logos aren't links: a link can't sit inside the flip button. -->
+			<ul class="sponsors__grid" aria-label="Sponsors and partners">
 				<li class="sponsor" style="--i: 1">
 					<button type="button" class="sponsor__flip" aria-pressed="false">
-						<span class="sponsor-stamp sponsor-stamp--front">
-							<span class="sponsor-stamp__frame"></span>
-							<span class="sponsor-stamp__tag">Revealing soon</span>
+						<span class="sponsor-stamp sponsor-stamp--front sponsor-stamp--partner">
+							<span class="sponsor-stamp__frame"><img src="assets/wireframed26/partner-devx.png" alt="DevX" width="302" height="94" loading="lazy" decoding="async"></span>
+							<span class="sponsor-stamp__role">Venue Partner</span>
 							<span class="visually-hidden">. Flip for a Mumbai fact.</span>
 						</span>
 						<span class="sponsor-stamp sponsor-stamp--back" hidden>
@@ -370,9 +372,9 @@
 				</li>
 				<li class="sponsor" style="--i: 2">
 					<button type="button" class="sponsor__flip" aria-pressed="false">
-						<span class="sponsor-stamp sponsor-stamp--front">
-							<span class="sponsor-stamp__frame"></span>
-							<span class="sponsor-stamp__tag">Revealing soon</span>
+						<span class="sponsor-stamp sponsor-stamp--front sponsor-stamp--partner">
+							<span class="sponsor-stamp__frame"><img src="assets/wireframed26/partner-indirepair.png" alt="IndiRepair" width="434" height="133" loading="lazy" decoding="async"></span>
+							<span class="sponsor-stamp__role">Ecosystem Partner</span>
 							<span class="visually-hidden">. Flip for a Mumbai fact.</span>
 						</span>
 						<span class="sponsor-stamp sponsor-stamp--back" hidden>
