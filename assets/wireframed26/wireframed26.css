@@ -1103,6 +1103,10 @@ main {
     var(--bite-right) calc(100% + var(--corner)) 0 / var(--r) var(--gap) no-repeat space content-box border-box,
     linear-gradient(#000 0 0) border-box;
   mask-composite: exclude;
+  /* the rows of bites can land a fraction of a pixel short of the edge,
+     leaving a hairline of the stamp colour along it (clear on the dark
+     backs); trimming 1px all round removes it */
+  clip-path: inset(1px);
 }
 
 /* dashed inner border, slightly askew like a hand-cut frame */
@@ -1191,14 +1195,13 @@ main {
   --fact-bg: #2f6b34;
 }
 
-/* inner frame: a fine solid rule, square (the front's is dashed and askew) */
+/* content area inside the perforations (no frame line) */
 .sponsor-fact {
   position: absolute;
   inset: 7cqw;
   display: flex;
   flex-direction: column;
   padding: 6cqw 6cqw 5cqw;
-  border: max(1px, 0.6cqw) solid rgba(255, 245, 220, 0.4);
   overflow: hidden;
 }
 
